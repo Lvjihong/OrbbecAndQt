@@ -1,0 +1,14 @@
+﻿  uic MainWindow.ui
+  rcc OrbbecDemo.qrc
+  moc MainWindow.h
+   RCC: Warning: No resources in 'F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo\OrbbecDemo.qrc'.
+  MainWindow.cpp
+  main.cpp
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo\x64\Debug\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo\x64\Debug\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 MainWindow.cpp)
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo\x64\Debug\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 MainWindow.cpp)
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo\x64\Debug\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 MainWindow.cpp)
+  qrc_OrbbecDemo.cpp
+  moc_MainWindow.cpp
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo\x64\Debug\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 x64\Debug\moc\moc_MainWindow.cpp)
+  OrbbecDemo.vcxproj -> F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo\x64\Debug\OrbbecDemo.exe

@@ -1,0 +1,17 @@
+﻿  uic MainWindow.ui
+  rcc OrbbecDemo.qrc
+  moc MainWindow.h
+   RCC: Warning: No resources in 'F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo\OrbbecDemo.qrc'.
+  MainWindow.cpp
+  main.cpp
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo\x64\Debug\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo\x64\Debug\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 MainWindow.cpp)
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo\x64\Debug\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 MainWindow.cpp)
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo\x64\Debug\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 MainWindow.cpp)
+  qrc_OrbbecDemo.cpp
+  moc_MainWindow.cpp
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo\x64\Debug\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 x64\Release\moc\moc_MainWindow.cpp)
+MainWindow.obj : error LNK2019: 无法解析的外部符号 "void __cdecl cv::convertScaleAbs(class cv::_InputArray const &,class cv::_OutputArray const &,double,double)" (?convertScaleAbs@cv@@YAXAEBV_InputArray@1@AEBV_OutputArray@1@NN@Z)，函数 "class cv::Mat __cdecl frame2Mat(class std::shared_ptr<class ob::VideoFrame> const &)" (?frame2Mat@@YA?AVMat@cv@@AEBV?$shared_ptr@VVideoFrame@ob@@@std@@@Z) 中引用了该符号
+MainWindow.obj : error LNK2019: 无法解析的外部符号 "class cv::Mat __cdecl cv::imdecode(class cv::_InputArray const &,int)" (?imdecode@cv@@YA?AVMat@1@AEBV_InputArray@1@H@Z)，函数 "class cv::Mat __cdecl frame2Mat(class std::shared_ptr<class ob::VideoFrame> const &)" (?frame2Mat@@YA?AVMat@cv@@AEBV?$shared_ptr@VVideoFrame@ob@@@std@@@Z) 中引用了该符号
+MainWindow.obj : error LNK2019: 无法解析的外部符号 "void __cdecl cv::cvtColor(class cv::_InputArray const &,class cv::_OutputArray const &,int,int)" (?cvtColor@cv@@YAXAEBV_InputArray@1@AEBV_OutputArray@1@HH@Z)，函数 "class cv::Mat __cdecl frame2Mat(class std::shared_ptr<class ob::VideoFrame> const &)" (?frame2Mat@@YA?AVMat@cv@@AEBV?$shared_ptr@VVideoFrame@ob@@@std@@@Z) 中引用了该符号
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo\x64\Release\OrbbecDemo.exe : fatal error LNK1120: 3 个无法解析的外部命令
