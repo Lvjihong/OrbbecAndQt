@@ -3,9 +3,13 @@
 #include <iostream>
 #include <libobsensor/ObSensor.hpp>
 #include <libobsensor/hpp/Frame.hpp>
+#include <mutex>
+#include <thread>
+
 #include "libobsensor/hpp/Error.hpp"
 #include "libobsensor/hpp/StreamProfile.hpp"
 
+std::mutex mtx;
 Train::Train(QWidget* parent) : QWidget(parent) {
   ui.setupUi(this);
   this->setWindowFlags(Qt::Window);
@@ -59,7 +63,8 @@ Train::Train(QWidget* parent) : QWidget(parent) {
 }
 
 Train::~Train() {
-  pipe.stop();
+  // pipe.stop();
+  // setAttribute(Qt::WA_DeleteOnClose);
 }
 
 cv::Mat frame2Mat(const std::shared_ptr<ob::VideoFrame>& frame) {
@@ -178,7 +183,7 @@ void Train::saveOrShowAll(bool flag) {
                                 cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), 30,
                                 cv::Size(1280, 800), false);
     cv::VideoWriter rgbWriter("F://imgs/rgb/record.avi",
-                              cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), 30,
+                              cv::VideoWriter::fourcc('I', '4', '2', '0'), 30,
                               cv::Size(1280, 720));
     while (cv::waitKey() != 27) {
       // 以阻塞的方式等待一帧数据，该帧是一个复合帧，配置里启用的所有流的帧数据都会包含在frameSet内，
@@ -188,48 +193,58 @@ void Train::saveOrShowAll(bool flag) {
         continue;
       }
       ob::FormatConvertFilter formatConvertFilter;
-      cv::Mat img;
+      cv::Mat imgDepth;
+      cv::Mat imgRgb;
       if (!frame_set->depthFrame()) {
         continue;
       }
       if (!frame_set->colorFrame()) {
         continue;
       }
-      img = frame2Mat(frame_set->depthFrame());
+      imgDepth = frame2Mat(frame_set->depthFrame());
       if (depthCount < 30 && flag) {
-        depthWriter.write(img);
-        saveDepthPng(frame_set->depthFrame(), depthCount++);
+        std::thread t1([=]() mutable {
+          saveDepthPng(frame_set->depthFrame(), depthCount++);
+          depthWriter.write(imgDepth);
+        });
+        t1.detach();
       } else {
         depthWriter.release();
       }
-      ui.label_depth->setPixmap(QPixmap::fromImage(mat2QImage(img)));
-      
+      ui.label_depth->setPixmap(QPixmap::fromImage(mat2QImage(imgDepth)));
+
       auto colorFrame = frame_set->colorFrame();
-      img = frame2Mat(colorFrame);
+      imgRgb = frame2Mat(colorFrame);
       if (colorCount < 30 && flag) {
-        if (colorFrame->format() != OB_FORMAT_RGB) {
-          if (colorFrame->format() == OB_FORMAT_MJPG) {
-            formatConvertFilter.setFormatConvertType(FORMAT_MJPG_TO_RGB888);
-          } else if (colorFrame->format() == OB_FORMAT_UYVY) {
-            formatConvertFilter.setFormatConvertType(FORMAT_UYVY_TO_RGB888);
-          } else if (colorFrame->format() == OB_FORMAT_YUYV) {
-            formatConvertFilter.setFormatConvertType(FORMAT_YUYV_TO_RGB888);
-          } else {
-            std::cout << "Color format is not support!" << std::endl;
-            continue;
+        std::thread t2([=]() mutable {
+          if (colorFrame->format() != OB_FORMAT_RGB) {
+            if (colorFrame->format() == OB_FORMAT_MJPG) {
+              formatConvertFilter.setFormatConvertType(FORMAT_MJPG_TO_RGB888);
+            } else if (colorFrame->format() == OB_FORMAT_UYVY) {
+              formatConvertFilter.setFormatConvertType(FORMAT_UYVY_TO_RGB888);
+            } else if (colorFrame->format() == OB_FORMAT_YUYV) {
+              formatConvertFilter.setFormatConvertType(FORMAT_YUYV_TO_RGB888);
+            } else {
+              std::cout << "Color format is not support!" << std::endl;
+            }
+            colorFrame =
+                formatConvertFilter.process(colorFrame)->as<ob::ColorFrame>();
           }
+          mtx.lock();
+          formatConvertFilter.setFormatConvertType(FORMAT_RGB888_TO_BGR);
+          mtx.unlock();
           colorFrame =
               formatConvertFilter.process(colorFrame)->as<ob::ColorFrame>();
-        }
-        formatConvertFilter.setFormatConvertType(FORMAT_RGB888_TO_BGR);
-        colorFrame =
-            formatConvertFilter.process(colorFrame)->as<ob::ColorFrame>();
-        saveColorPng(colorFrame, colorCount++);
-        rgbWriter.write(img);
+
+          saveColorPng(colorFrame, colorCount++);
+
+          rgbWriter.write(imgRgb);
+        });
+        t2.detach();
       } else {
         rgbWriter.release();
       }
-      ui.label_rgb->setPixmap(QPixmap::fromImage(mat2QImage(img)));
+      ui.label_rgb->setPixmap(QPixmap::fromImage(mat2QImage(imgRgb)));
     }
   } catch (const ob::Error& e) {
     pipe.stop();
@@ -246,4 +261,11 @@ void Train::saveOrShowAll(bool flag) {
     std::cerr << "Unexpected Error!" << std::endl;
     exit(EXIT_FAILURE);
   }
+}
+
+void Train::closeEvent(QCloseEvent* e) {
+  pipe.stop();
+  ui.label_depth->setPixmap(QPixmap());
+  ui.label_rgb->setPixmap(QPixmap()); 
+  e->accept();
 }

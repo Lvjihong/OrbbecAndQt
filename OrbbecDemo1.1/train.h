@@ -2,6 +2,7 @@
 #include <opencv2/opencv.hpp>
 #include "libobsensor/hpp/Pipeline.hpp"
 #include "ui_Train.h"
+#include <QCloseEvent>
 class Train : public QWidget {
   Q_OBJECT
 
@@ -9,6 +10,7 @@ class Train : public QWidget {
   Train(QWidget* parent = nullptr);
   ~Train();
   void saveOrShowAll(bool flag);
+  void closeEvent(QCloseEvent* e);
   void startRecord();
   void stopRecord();
 

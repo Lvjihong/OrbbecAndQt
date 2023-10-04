@@ -4,10 +4,14 @@
 #include "train.h"
 OrbbecDemo::OrbbecDemo(QWidget* parent) : QMainWindow(parent) {
   ui.setupUi(this);
-  connect(ui.btn_train, &QPushButton::clicked, [=]() {
-    Train* newWindow = new Train(this);
-    newWindow->showMaximized();
-    newWindow->setAttribute(Qt::WA_DeleteOnClose);
+  Train* newWindow = nullptr;
+  connect(ui.btn_train, &QPushButton::clicked, [=]() mutable {
+    if (newWindow == nullptr) {
+      newWindow = new Train(this);
+      newWindow->showMaximized();
+    } else {
+      newWindow->showMaximized();
+    }
   });
 }
 
