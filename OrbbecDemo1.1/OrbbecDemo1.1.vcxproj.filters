@@ -43,14 +43,23 @@
     <ClCompile Include="train.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InputWeightDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="train.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="InputWeightDialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Train.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="InputDialog.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

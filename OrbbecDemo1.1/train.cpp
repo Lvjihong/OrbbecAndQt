@@ -3,15 +3,14 @@
 #include <iostream>
 #include <libobsensor/ObSensor.hpp>
 #include <libobsensor/hpp/Frame.hpp>
-#include <mutex>
 #include <thread>
 
 #include "libobsensor/hpp/Error.hpp"
 #include "libobsensor/hpp/StreamProfile.hpp"
 
-std::mutex mtx;
-Train::Train(QWidget* parent) : QWidget(parent) {
+Train::Train(const QString dirPath, QWidget* parent) : QWidget(parent) {
   ui.setupUi(this);
+  Train::dirPath = dirPath;
   this->setWindowFlags(Qt::Window);
 
   // 获取RGB相机的所有流配置，包括流的分辨率，帧率，以及帧的格式
@@ -137,41 +136,37 @@ QImage mat2QImage(cv::Mat cvImg) {
 }
 
 // Save the depth map in png format
-void saveDepthPng(std::shared_ptr<ob::DepthFrame> depthFrame, int index) {
-  if (index < 30) {
+void saveDepthPng(std::shared_ptr<ob::DepthFrame> depthFrame, int index, std::string dirPath) {
     std::vector<int> compression_params;
     compression_params.push_back(cv::IMWRITE_PNG_COMPRESSION);
     compression_params.push_back(0);
     compression_params.push_back(cv::IMWRITE_PNG_STRATEGY);
     compression_params.push_back(cv::IMWRITE_PNG_STRATEGY_DEFAULT);
     std::string depthName =
-        "F://imgs/depth/Depth_" + std::to_string(depthFrame->width()) + "x" +
+        dirPath + "/depth/Depth_" + std::to_string(depthFrame->width()) + "x" +
         std::to_string(depthFrame->height()) + "_" + std::to_string(index) +
         "_" + std::to_string(depthFrame->timeStamp()) + "ms.png";
     cv::Mat depthMat(depthFrame->height(), depthFrame->width(), CV_16UC1,
                      depthFrame->data());
     cv::imwrite(depthName, depthMat, compression_params);
     std::cout << "Depth saved:" << depthName << std::endl;
-  }
 }
 
 // Save the color image in png format
-void saveColorPng(std::shared_ptr<ob::ColorFrame> colorFrame, int index) {
-  if (index < 30) {
+void saveColorPng(std::shared_ptr<ob::ColorFrame> colorFrame, int index, std::string dirPath) {
     std::vector<int> compression_params;
     compression_params.push_back(cv::IMWRITE_PNG_COMPRESSION);
     compression_params.push_back(0);
     compression_params.push_back(cv::IMWRITE_PNG_STRATEGY);
     compression_params.push_back(cv::IMWRITE_PNG_STRATEGY_DEFAULT);
     std::string colorName =
-        "F://imgs/rgb/Color_" + std::to_string(colorFrame->width()) + "x" +
+        dirPath + "/rgb/Color_" + std::to_string(colorFrame->width()) + "x" +
         std::to_string(colorFrame->height()) + "_" + std::to_string(index) +
         "_" + std::to_string(colorFrame->timeStamp()) + "ms.png";
     cv::Mat colorRawMat(colorFrame->height(), colorFrame->width(), CV_8UC3,
                         colorFrame->data());
     cv::imwrite(colorName, colorRawMat, compression_params);
     std::cout << "Color saved:" << colorName << std::endl;
-  }
 }
 
 void Train::saveOrShowAll(bool flag) {
@@ -179,12 +174,12 @@ void Train::saveOrShowAll(bool flag) {
     pipe.stop();
     pipe.enableFrameSync();
     pipe.start(config);
-    cv::VideoWriter depthWriter("F://imgs/depth/record.avi",
-                                cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), 30,
-                                cv::Size(1280, 800), false);
-    cv::VideoWriter rgbWriter("F://imgs/rgb/record.avi",
-                              cv::VideoWriter::fourcc('I', '4', '2', '0'), 30,
-                              cv::Size(1280, 720));
+    //cv::VideoWriter depthWriter("F://imgs/depth/record.avi",
+    //                            cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), 30,
+    //                            cv::Size(1280, 800), false);
+    //cv::VideoWriter rgbWriter("F://imgs/rgb/record.avi",
+    //                          cv::VideoWriter::fourcc('I', '4', '2', '0'), 30,
+    //                          cv::Size(1280, 720));
     while (cv::waitKey() != 27) {
       // 以阻塞的方式等待一帧数据，该帧是一个复合帧，配置里启用的所有流的帧数据都会包含在frameSet内，
       // 并设置帧的等待超时时间为100ms
@@ -204,12 +199,12 @@ void Train::saveOrShowAll(bool flag) {
       imgDepth = frame2Mat(frame_set->depthFrame());
       if (depthCount < 30 && flag) {
         std::thread t1([=]() mutable {
-          saveDepthPng(frame_set->depthFrame(), depthCount++);
-          depthWriter.write(imgDepth);
+          saveDepthPng(frame_set->depthFrame(), depthCount++, dirPath.toStdString());
+          // depthWriter.write(imgDepth);
         });
         t1.detach();
       } else {
-        depthWriter.release();
+        // depthWriter.release();
       }
       ui.label_depth->setPixmap(QPixmap::fromImage(mat2QImage(imgDepth)));
 
@@ -230,19 +225,16 @@ void Train::saveOrShowAll(bool flag) {
             colorFrame =
                 formatConvertFilter.process(colorFrame)->as<ob::ColorFrame>();
           }
-          mtx.lock();
           formatConvertFilter.setFormatConvertType(FORMAT_RGB888_TO_BGR);
-          mtx.unlock();
           colorFrame =
               formatConvertFilter.process(colorFrame)->as<ob::ColorFrame>();
+          saveColorPng(colorFrame, colorCount++, dirPath.toStdString());
 
-          saveColorPng(colorFrame, colorCount++);
-
-          rgbWriter.write(imgRgb);
+          // rgbWriter.write(imgRgb);
         });
         t2.detach();
       } else {
-        rgbWriter.release();
+        // rgbWriter.release();
       }
       ui.label_rgb->setPixmap(QPixmap::fromImage(mat2QImage(imgRgb)));
     }
