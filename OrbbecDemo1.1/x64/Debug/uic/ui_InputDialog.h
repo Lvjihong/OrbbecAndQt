@@ -29,6 +29,7 @@ public:
     QLabel *label_2;
     QPushButton *btn_cancel;
     QPushButton *btn_confirm;
+    QLabel *label_3;
 
     void setupUi(QWidget *InputDialog)
     {
@@ -39,7 +40,7 @@ public:
         InputDialog->setMaximumSize(QSize(550, 350));
         widget = new QWidget(InputDialog);
         widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(80, 100, 361, 46));
+        widget->setGeometry(QRect(90, 130, 361, 46));
         horizontalLayout = new QHBoxLayout(widget);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         label = new QLabel(widget);
@@ -68,6 +69,9 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(btn_confirm->sizePolicy().hasHeightForWidth());
         btn_confirm->setSizePolicy(sizePolicy);
+        label_3 = new QLabel(InputDialog);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(160, 40, 221, 91));
 
         retranslateUi(InputDialog);
 
@@ -81,6 +85,7 @@ public:
         label_2->setText(QCoreApplication::translate("InputDialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Kg</span></p></body></html>", nullptr));
         btn_cancel->setText(QCoreApplication::translate("InputDialog", "\345\217\226\346\266\210", nullptr));
         btn_confirm->setText(QCoreApplication::translate("InputDialog", "\347\241\256\350\256\244", nullptr));
+        label_3->setText(QCoreApplication::translate("InputDialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; font-weight:600;\">\351\207\207\351\233\206\345\256\214\346\210\220\357\274\201</span></p></body></html>", nullptr));
     } // retranslateUi
 
 };

@@ -1,16 +1,16 @@
 #include "train.h"
-
+#include "InputWeightDialog.h"
 #include <iostream>
+#include <QFileDialog>
 #include <libobsensor/ObSensor.hpp>
 #include <libobsensor/hpp/Frame.hpp>
 #include <thread>
-
 #include "libobsensor/hpp/Error.hpp"
 #include "libobsensor/hpp/StreamProfile.hpp"
 
-Train::Train(const QString dirPath, QWidget* parent) : QWidget(parent) {
+Train::Train(const QString rootDirPath, QWidget* parent) : QWidget(parent) {
   ui.setupUi(this);
-  Train::dirPath = dirPath;
+  Train::rootDirPath = rootDirPath;
   this->setWindowFlags(Qt::Window);
 
   // 获取RGB相机的所有流配置，包括流的分辨率，帧率，以及帧的格式
@@ -50,14 +50,31 @@ Train::Train(const QString dirPath, QWidget* parent) : QWidget(parent) {
   }
 
   connect(ui.btn_open, &QPushButton::clicked, [=]() {
-    saveOrShowAll(isSave);
+    saveOrShowAll(isSave, QString());
     // isSave = true;
   });
   connect(ui.btn_start, &QPushButton::clicked, [=]() {
+    QString subDirPath =
+        Train::rootDirPath + "/pig_" +
+        QString::fromStdString(std::to_string(
+            std::chrono::duration_cast<std::chrono::seconds>(
+                std::chrono::system_clock::now().time_since_epoch())
+                .count()));
+    QDir dir(subDirPath);
+    if (!dir.exists()) {
+      dir.mkdir(subDirPath);
+    }
+    if (!dir.exists("Depth")) {
+      dir.mkdir("Depth");
+    }
+    if (!dir.exists("Rgb")) {
+      dir.mkdir("Rgb");
+    }
+
     depthCount = 0;
     colorCount = 0;
     isSave = true;
-    saveOrShowAll(isSave);
+    saveOrShowAll(isSave, subDirPath);
   });
 }
 
@@ -169,7 +186,7 @@ void saveColorPng(std::shared_ptr<ob::ColorFrame> colorFrame, int index, std::st
     std::cout << "Color saved:" << colorName << std::endl;
 }
 
-void Train::saveOrShowAll(bool flag) {
+void Train::saveOrShowAll(bool flag, QString dataPathDir) {
   try {
     pipe.stop();
     pipe.enableFrameSync();
@@ -199,12 +216,14 @@ void Train::saveOrShowAll(bool flag) {
       imgDepth = frame2Mat(frame_set->depthFrame());
       if (depthCount < 30 && flag) {
         std::thread t1([=]() mutable {
-          saveDepthPng(frame_set->depthFrame(), depthCount++, dirPath.toStdString());
+          saveDepthPng(frame_set->depthFrame(), depthCount++,
+                       dataPathDir.toStdString());
           // depthWriter.write(imgDepth);
         });
         t1.detach();
       } else {
         // depthWriter.release();
+
       }
       ui.label_depth->setPixmap(QPixmap::fromImage(mat2QImage(imgDepth)));
 
@@ -228,12 +247,18 @@ void Train::saveOrShowAll(bool flag) {
           formatConvertFilter.setFormatConvertType(FORMAT_RGB888_TO_BGR);
           colorFrame =
               formatConvertFilter.process(colorFrame)->as<ob::ColorFrame>();
-          saveColorPng(colorFrame, colorCount++, dirPath.toStdString());
+          saveColorPng(colorFrame, colorCount++, dataPathDir.toStdString());
 
           // rgbWriter.write(imgRgb);
         });
         t2.detach();
-      } else {
+      } else if(colorCount>29&&flag){
+
+        InputWeightDialog* dialog = new InputWeightDialog(dataPathDir, this);
+        dialog->setWindowFlags(Qt::Window);
+        dialog->setWindowModality(Qt::ApplicationModal);
+        dialog->show();
+        break;
         // rgbWriter.release();
       }
       ui.label_rgb->setPixmap(QPixmap::fromImage(mat2QImage(imgRgb)));

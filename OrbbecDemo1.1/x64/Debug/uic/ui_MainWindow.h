@@ -14,7 +14,6 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -24,11 +23,8 @@ class Ui_OrbbecDemoClass
 public:
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
-    QSpacerItem *horizontalSpacer;
     QPushButton *btn_train;
-    QSpacerItem *horizontalSpacer_3;
-    QPushButton *pushButton_2;
-    QSpacerItem *horizontalSpacer_2;
+    QPushButton *btn_guess;
 
     void setupUi(QMainWindow *OrbbecDemoClass)
     {
@@ -41,27 +37,25 @@ public:
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer);
-
         btn_train = new QPushButton(centralWidget);
         btn_train->setObjectName(QString::fromUtf8("btn_train"));
+        btn_train->setEnabled(true);
+        QSizePolicy sizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(btn_train->sizePolicy().hasHeightForWidth());
+        btn_train->setSizePolicy(sizePolicy);
+        btn_train->setIconSize(QSize(50, 50));
+        btn_train->setCheckable(false);
 
         horizontalLayout->addWidget(btn_train);
 
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        btn_guess = new QPushButton(centralWidget);
+        btn_guess->setObjectName(QString::fromUtf8("btn_guess"));
+        sizePolicy.setHeightForWidth(btn_guess->sizePolicy().hasHeightForWidth());
+        btn_guess->setSizePolicy(sizePolicy);
 
-        horizontalLayout->addItem(horizontalSpacer_3);
-
-        pushButton_2 = new QPushButton(centralWidget);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-
-        horizontalLayout->addWidget(pushButton_2);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer_2);
+        horizontalLayout->addWidget(btn_guess);
 
         OrbbecDemoClass->setCentralWidget(centralWidget);
 
@@ -74,7 +68,7 @@ public:
     {
         OrbbecDemoClass->setWindowTitle(QCoreApplication::translate("OrbbecDemoClass", "OrbbecDemo", nullptr));
         btn_train->setText(QCoreApplication::translate("OrbbecDemoClass", "\350\256\255\347\273\203\346\250\241\345\274\217", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("OrbbecDemoClass", "\344\274\260\351\207\215\346\250\241\345\274\217", nullptr));
+        btn_guess->setText(QCoreApplication::translate("OrbbecDemoClass", "\344\274\260\351\207\215\346\250\241\345\274\217", nullptr));
     } // retranslateUi
 
 };

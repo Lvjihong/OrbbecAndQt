@@ -9,7 +9,7 @@ class Train : public QWidget {
  public:
   Train(const QString dirPath, QWidget* parent = nullptr);
   ~Train();
-  void saveOrShowAll(bool flag);
+  void saveOrShowAll(bool flag, QString rootDirPath);
   void closeEvent(QCloseEvent* e);
   void startRecord();
   void stopRecord();
@@ -21,6 +21,6 @@ class Train : public QWidget {
   std::shared_ptr<ob::Config> config = std::make_shared<ob::Config>();
   int depthCount;
   int colorCount;
-  QString dirPath;
+  QString rootDirPath;
   bool isSave = false;
 };
