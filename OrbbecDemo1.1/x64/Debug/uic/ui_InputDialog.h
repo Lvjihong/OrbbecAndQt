@@ -13,9 +13,9 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
+#include "myqlineedit.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -25,7 +25,7 @@ public:
     QWidget *widget;
     QHBoxLayout *horizontalLayout;
     QLabel *label;
-    QLineEdit *ldt_input_weight;
+    MyQLineEdit *ldt_input_weight;
     QLabel *label_2;
     QPushButton *btn_cancel;
     QPushButton *btn_confirm;
@@ -48,7 +48,7 @@ public:
 
         horizontalLayout->addWidget(label);
 
-        ldt_input_weight = new QLineEdit(widget);
+        ldt_input_weight = new MyQLineEdit(widget);
         ldt_input_weight->setObjectName(QString::fromUtf8("ldt_input_weight"));
 
         horizontalLayout->addWidget(ldt_input_weight);

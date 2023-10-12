@@ -1,6 +1,8 @@
+#include <QCloseEvent>
+#include <QErrorMessage>
+#include <QFileDialog>
 #include <QWidget>
 #include "ui_InputDialog.h"
-#include <QCloseEvent> 
 class InputWeightDialog : public QWidget {
   Q_OBJECT
 
@@ -8,8 +10,12 @@ class InputWeightDialog : public QWidget {
   InputWeightDialog(QString dirpath, QWidget* parent);
   ~InputWeightDialog();
 
- protected:
 
+ signals:
+  void inputOver();
+
+ protected:
+  void closeEvent(QCloseEvent* event);
 
  private:
   Ui::InputDialog ui;

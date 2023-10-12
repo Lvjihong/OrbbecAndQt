@@ -1,17 +1,14 @@
 #include "train.h"
-#include "InputWeightDialog.h"
 #include <iostream>
-#include <QFileDialog>
-#include <libobsensor/ObSensor.hpp>
-#include <libobsensor/hpp/Frame.hpp>
-#include <thread>
-#include "libobsensor/hpp/Error.hpp"
-#include "libobsensor/hpp/StreamProfile.hpp"
+
 
 Train::Train(const QString rootDirPath, QWidget* parent) : QWidget(parent) {
   ui.setupUi(this);
+
   Train::rootDirPath = rootDirPath;
-  this->setWindowFlags(Qt::Window);
+
+  // 配置TreeView
+  // updateTreeView();
 
   // 获取RGB相机的所有流配置，包括流的分辨率，帧率，以及帧的格式
   auto colorProfiles = pipe.getStreamProfileList(OB_SENSOR_COLOR);
@@ -50,10 +47,11 @@ Train::Train(const QString rootDirPath, QWidget* parent) : QWidget(parent) {
   }
 
   connect(ui.btn_open, &QPushButton::clicked, [=]() {
+    ui.btn_open->setEnabled(false);
     saveOrShowAll(isSave, QString());
-    // isSave = true;
   });
   connect(ui.btn_start, &QPushButton::clicked, [=]() {
+    ui.btn_start->setEnabled(false);
     QString subDirPath =
         Train::rootDirPath + "/pig_" +
         QString::fromStdString(std::to_string(
@@ -79,8 +77,6 @@ Train::Train(const QString rootDirPath, QWidget* parent) : QWidget(parent) {
 }
 
 Train::~Train() {
-  // pipe.stop();
-  // setAttribute(Qt::WA_DeleteOnClose);
 }
 
 cv::Mat frame2Mat(const std::shared_ptr<ob::VideoFrame>& frame) {
@@ -153,37 +149,41 @@ QImage mat2QImage(cv::Mat cvImg) {
 }
 
 // Save the depth map in png format
-void saveDepthPng(std::shared_ptr<ob::DepthFrame> depthFrame, int index, std::string dirPath) {
-    std::vector<int> compression_params;
-    compression_params.push_back(cv::IMWRITE_PNG_COMPRESSION);
-    compression_params.push_back(0);
-    compression_params.push_back(cv::IMWRITE_PNG_STRATEGY);
-    compression_params.push_back(cv::IMWRITE_PNG_STRATEGY_DEFAULT);
-    std::string depthName =
-        dirPath + "/depth/Depth_" + std::to_string(depthFrame->width()) + "x" +
-        std::to_string(depthFrame->height()) + "_" + std::to_string(index) +
-        "_" + std::to_string(depthFrame->timeStamp()) + "ms.png";
-    cv::Mat depthMat(depthFrame->height(), depthFrame->width(), CV_16UC1,
-                     depthFrame->data());
-    cv::imwrite(depthName, depthMat, compression_params);
-    std::cout << "Depth saved:" << depthName << std::endl;
+void saveDepthPng(std::shared_ptr<ob::DepthFrame> depthFrame,
+                  int index,
+                  std::string dirPath) {
+  std::vector<int> compression_params;
+  compression_params.push_back(cv::IMWRITE_PNG_COMPRESSION);
+  compression_params.push_back(0);
+  compression_params.push_back(cv::IMWRITE_PNG_STRATEGY);
+  compression_params.push_back(cv::IMWRITE_PNG_STRATEGY_DEFAULT);
+  std::string depthName =
+      dirPath + "/depth/Depth_" + std::to_string(depthFrame->width()) + "x" +
+      std::to_string(depthFrame->height()) + "_" + std::to_string(index) + "_" +
+      std::to_string(depthFrame->timeStamp()) + "ms.png";
+  cv::Mat depthMat(depthFrame->height(), depthFrame->width(), CV_16UC1,
+                   depthFrame->data());
+  cv::imwrite(depthName, depthMat, compression_params);
+  std::cout << "Depth saved:" << depthName << std::endl;
 }
 
 // Save the color image in png format
-void saveColorPng(std::shared_ptr<ob::ColorFrame> colorFrame, int index, std::string dirPath) {
-    std::vector<int> compression_params;
-    compression_params.push_back(cv::IMWRITE_PNG_COMPRESSION);
-    compression_params.push_back(0);
-    compression_params.push_back(cv::IMWRITE_PNG_STRATEGY);
-    compression_params.push_back(cv::IMWRITE_PNG_STRATEGY_DEFAULT);
-    std::string colorName =
-        dirPath + "/rgb/Color_" + std::to_string(colorFrame->width()) + "x" +
-        std::to_string(colorFrame->height()) + "_" + std::to_string(index) +
-        "_" + std::to_string(colorFrame->timeStamp()) + "ms.png";
-    cv::Mat colorRawMat(colorFrame->height(), colorFrame->width(), CV_8UC3,
-                        colorFrame->data());
-    cv::imwrite(colorName, colorRawMat, compression_params);
-    std::cout << "Color saved:" << colorName << std::endl;
+void saveColorPng(std::shared_ptr<ob::ColorFrame> colorFrame,
+                  int index,
+                  std::string dirPath) {
+  std::vector<int> compression_params;
+  compression_params.push_back(cv::IMWRITE_PNG_COMPRESSION);
+  compression_params.push_back(0);
+  compression_params.push_back(cv::IMWRITE_PNG_STRATEGY);
+  compression_params.push_back(cv::IMWRITE_PNG_STRATEGY_DEFAULT);
+  std::string colorName =
+      dirPath + "/rgb/Color_" + std::to_string(colorFrame->width()) + "x" +
+      std::to_string(colorFrame->height()) + "_" + std::to_string(index) + "_" +
+      std::to_string(colorFrame->timeStamp()) + "ms.png";
+  cv::Mat colorRawMat(colorFrame->height(), colorFrame->width(), CV_8UC3,
+                      colorFrame->data());
+  cv::imwrite(colorName, colorRawMat, compression_params);
+  std::cout << "Color saved:" << colorName << std::endl;
 }
 
 void Train::saveOrShowAll(bool flag, QString dataPathDir) {
@@ -191,13 +191,13 @@ void Train::saveOrShowAll(bool flag, QString dataPathDir) {
     pipe.stop();
     pipe.enableFrameSync();
     pipe.start(config);
-    //cv::VideoWriter depthWriter("F://imgs/depth/record.avi",
-    //                            cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), 30,
-    //                            cv::Size(1280, 800), false);
-    //cv::VideoWriter rgbWriter("F://imgs/rgb/record.avi",
+    // cv::VideoWriter depthWriter("F://imgs/depth/record.avi",
+    //                            cv::VideoWriter::fourcc('M', 'J', 'P', 'G'),
+    //                            30, cv::Size(1280, 800), false);
+    // cv::VideoWriter rgbWriter("F://imgs/rgb/record.avi",
     //                          cv::VideoWriter::fourcc('I', '4', '2', '0'), 30,
     //                          cv::Size(1280, 720));
-    while (cv::waitKey() != 27) {
+    while (cv::waitKey() != 27 && this->isVisible()) {
       // 以阻塞的方式等待一帧数据，该帧是一个复合帧，配置里启用的所有流的帧数据都会包含在frameSet内，
       // 并设置帧的等待超时时间为100ms
       auto frame_set = pipe.waitForFrames(100);
@@ -216,14 +216,14 @@ void Train::saveOrShowAll(bool flag, QString dataPathDir) {
       imgDepth = frame2Mat(frame_set->depthFrame());
       if (depthCount < 30 && flag) {
         std::thread t1([=]() mutable {
-          saveDepthPng(frame_set->depthFrame(), depthCount++,
+          saveDepthPng(frame_set->depthFrame(), depthCount,
                        dataPathDir.toStdString());
           // depthWriter.write(imgDepth);
         });
         t1.detach();
+        depthCount++;
       } else {
         // depthWriter.release();
-
       }
       ui.label_depth->setPixmap(QPixmap::fromImage(mat2QImage(imgDepth)));
 
@@ -247,17 +247,24 @@ void Train::saveOrShowAll(bool flag, QString dataPathDir) {
           formatConvertFilter.setFormatConvertType(FORMAT_RGB888_TO_BGR);
           colorFrame =
               formatConvertFilter.process(colorFrame)->as<ob::ColorFrame>();
-          saveColorPng(colorFrame, colorCount++, dataPathDir.toStdString());
+          saveColorPng(colorFrame, colorCount, dataPathDir.toStdString());
 
           // rgbWriter.write(imgRgb);
         });
         t2.detach();
-      } else if(colorCount>29&&flag){
+        colorCount++;
+      } else if (colorCount > 29 && flag) {
+        flag = false;
+        ui.btn_start->setEnabled(true);
 
         InputWeightDialog* dialog = new InputWeightDialog(dataPathDir, this);
         dialog->setWindowFlags(Qt::Window);
         dialog->setWindowModality(Qt::ApplicationModal);
+        dialog->setWindowFlags((windowFlags() & ~Qt::WindowCloseButtonHint));
+        // connect(dialog, &InputWeightDialog::inputOver, this,
+        //        &Train::updateTreeView);
         dialog->show();
+
         break;
         // rgbWriter.release();
       }
@@ -280,9 +287,27 @@ void Train::saveOrShowAll(bool flag, QString dataPathDir) {
   }
 }
 
+void Train::updateTreeView() {
+  if (!ui.treeView->model()) {
+    delete ui.treeView->model();
+  }
+
+  QDirModel* model = new QDirModel;
+  ui.treeView->setModel(model);
+  QModelIndex index = model->index(rootDirPath);
+  ui.treeView->setRootIndex(index);
+  ui.treeView->allColumnsShowFocus();
+  model->setReadOnly(false);
+  model->setSorting(QDir::DirsFirst | QDir::IgnoreCase | QDir::Name);
+  ui.treeView->header()->setStretchLastSection(true);
+  ui.treeView->header()->setSortIndicator(0, Qt::AscendingOrder);
+  ui.treeView->header()->setSortIndicatorShown(true);
+  ui.treeView->expand(index);
+  ui.treeView->resizeColumnToContents(0);
+  delete model;
+}
+
 void Train::closeEvent(QCloseEvent* e) {
   pipe.stop();
-  ui.label_depth->setPixmap(QPixmap());
-  ui.label_rgb->setPixmap(QPixmap()); 
   e->accept();
 }
