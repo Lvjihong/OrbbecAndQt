@@ -32,4 +32,5 @@ class Train : public QWidget {
   int colorCount;
   QString rootDirPath;
   bool isSave = false;
+  QDirModel* model;
 };

@@ -4,11 +4,11 @@
 
 Train::Train(const QString rootDirPath, QWidget* parent) : QWidget(parent) {
   ui.setupUi(this);
-
   Train::rootDirPath = rootDirPath;
 
   // 配置TreeView
-  // updateTreeView();
+  delete ui.treeView->model();
+  updateTreeView();
 
   // 获取RGB相机的所有流配置，包括流的分辨率，帧率，以及帧的格式
   auto colorProfiles = pipe.getStreamProfileList(OB_SENSOR_COLOR);
@@ -261,8 +261,8 @@ void Train::saveOrShowAll(bool flag, QString dataPathDir) {
         dialog->setWindowFlags(Qt::Window);
         dialog->setWindowModality(Qt::ApplicationModal);
         dialog->setWindowFlags((windowFlags() & ~Qt::WindowCloseButtonHint));
-        // connect(dialog, &InputWeightDialog::inputOver, this,
-        //        &Train::updateTreeView);
+         connect(dialog, &InputWeightDialog::inputOver, this,
+                &Train::updateTreeView);
         dialog->show();
 
         break;
@@ -288,23 +288,23 @@ void Train::saveOrShowAll(bool flag, QString dataPathDir) {
 }
 
 void Train::updateTreeView() {
-  if (!ui.treeView->model()) {
-    delete ui.treeView->model();
-  }
 
-  QDirModel* model = new QDirModel;
-  ui.treeView->setModel(model);
-  QModelIndex index = model->index(rootDirPath);
-  ui.treeView->setRootIndex(index);
-  ui.treeView->allColumnsShowFocus();
+  model = new QDirModel;
   model->setReadOnly(false);
   model->setSorting(QDir::DirsFirst | QDir::IgnoreCase | QDir::Name);
+
+  ui.treeView->setModel(model);
   ui.treeView->header()->setStretchLastSection(true);
   ui.treeView->header()->setSortIndicator(0, Qt::AscendingOrder);
   ui.treeView->header()->setSortIndicatorShown(true);
+
+  QModelIndex index = model->index(rootDirPath);
+  ui.treeView->setRootIndex(index);
   ui.treeView->expand(index);
+  ui.treeView->scrollTo(index);
   ui.treeView->resizeColumnToContents(0);
-  delete model;
+  ui.treeView->allColumnsShowFocus();
+
 }
 
 void Train::closeEvent(QCloseEvent* e) {
