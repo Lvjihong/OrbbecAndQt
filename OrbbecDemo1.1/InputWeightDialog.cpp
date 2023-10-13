@@ -1,11 +1,14 @@
 #include "InputWeightDialog.h"
 
 const double EPS = 1e-6;
+QString number[12] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "0"};
 InputWeightDialog::InputWeightDialog(QString dirpath, QWidget* parent)
     : QWidget(parent) {
   ui.setupUi(this);
 
-
+  
+  connect(ui.buttonGroup, SIGNAL(buttonClicked(int)),
+          SLOT(buttonClickResponse(int)));
   connect(ui.btn_confirm, &QPushButton::clicked, [=]() {
     QFile* file = new QFile(dirpath + "/weight.txt");
     bool ok = file->open(QIODevice::ReadWrite | QIODevice::Text);
@@ -44,3 +47,25 @@ void InputWeightDialog::closeEvent(QCloseEvent* event) {
   }
 }
 
+
+void InputWeightDialog::buttonClickResponse(int key) {
+  if (key == -11) {// 小数点
+    event =
+        new QKeyEvent(QEvent::KeyPress, 0, Qt::NoModifier, number[-key - 2]);
+    ui.pushButton_10->setDisabled(true);
+  } else if(key == -13) {//backspace
+    event = new QKeyEvent(QEvent::KeyPress, Qt::Key_Backspace,
+                          Qt::NoModifier);  //新建一个键盘事件
+    ui.ldt_input_weight->setFocus();
+   QString number = ui.ldt_input_weight->text();
+    if (number.at(number.size() - 1) == ".") {
+     ui.pushButton_10->setDisabled(false);
+    }
+  }
+  else {
+    event = new QKeyEvent(QEvent::KeyPress, 0, Qt::NoModifier,
+                          number[-key - 2]);
+  }
+  ui.ldt_input_weight->setFocus();
+  QApplication::sendEvent(focusWidget(), event);
+  }
