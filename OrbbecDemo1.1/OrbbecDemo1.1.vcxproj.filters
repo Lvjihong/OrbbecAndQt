@@ -46,18 +46,12 @@
     <ClCompile Include="InputWeightDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="myQLineEdit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="train.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="InputWeightDialog.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="myQLineEdit.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

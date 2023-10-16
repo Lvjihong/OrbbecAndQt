@@ -161,9 +161,12 @@ void saveDepthPng(std::shared_ptr<ob::DepthFrame> depthFrame,
       dirPath + "/depth/Depth_" + std::to_string(depthFrame->width()) + "x" +
       std::to_string(depthFrame->height()) + "_" + std::to_string(index) + "_" +
       std::to_string(depthFrame->timeStamp()) + "ms.png";
-  cv::Mat depthMat(depthFrame->height(), depthFrame->width(), CV_16UC1,
-                   depthFrame->data());
-  cv::imwrite(depthName, depthMat, compression_params);
+  /*cv::Mat depthMat(depthFrame->height(), depthFrame->width(), CV_16UC1,
+                   depthFrame->data());*/
+  cv::Mat depthMat = frame2Mat(depthFrame);
+  cv::Mat colorDepthMat;
+  cv::applyColorMap(depthMat, colorDepthMat, cv::COLORMAP_JET);
+  cv::imwrite(depthName, colorDepthMat, compression_params);
   std::cout << "Depth saved:" << depthName << std::endl;
 }
 
@@ -213,7 +216,10 @@ void Train::saveOrShowAll(bool flag, QString dataPathDir) {
       if (!frame_set->colorFrame()) {
         continue;
       }
+      cv::Mat depthMat;
+      // 由灰色图像转为伪彩色图像
       imgDepth = frame2Mat(frame_set->depthFrame());
+      cv::applyColorMap(imgDepth, depthMat, cv::COLORMAP_JET);
       if (depthCount < 30 && flag) {
         std::thread t1([=]() mutable {
           saveDepthPng(frame_set->depthFrame(), depthCount,
@@ -225,7 +231,7 @@ void Train::saveOrShowAll(bool flag, QString dataPathDir) {
       } else {
         // depthWriter.release();
       }
-      ui.label_depth->setPixmap(QPixmap::fromImage(mat2QImage(imgDepth)));
+      ui.label_depth->setPixmap(QPixmap::fromImage(mat2QImage(depthMat)));
 
       auto colorFrame = frame_set->colorFrame();
       imgRgb = frame2Mat(colorFrame);
