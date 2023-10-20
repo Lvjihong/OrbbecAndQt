@@ -3,7 +3,7 @@
 
 #define MyAppName "DBN"
 #define MyAppVersion "1.0.0"
-#define MyAppPublisher "Ljh"
+#define MyAppPublisher "LJH"
 #define MyAppURL "https://www.example.com/"
 #define MyAppExeName "OrbbecDemo1.1.exe"
 #define MyAppAssocName MyAppName + " File"
@@ -13,7 +13,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{4FB580C2-AB31-4036-8FAB-B7661A5EB665}
+AppId={{228C2B52-3C2A-4B0B-B973-DADF43DA9649}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -27,7 +27,7 @@ DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\Output
-OutputBaseFilename=DBNsetup
+OutputBaseFilename=DBNsetup2
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -42,12 +42,13 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\OrbbecSDK.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\bin\Qt5Widgets.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\bin\Qt5Gui.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\bin\Qt5Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\bin\Qt5Gui.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\bin\Qt5Widgets.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "F:\opencv\opencv\build\x64\vc16\bin\opencv_world480.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Windows\System32\kernel32.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Windows\SysWOW64\shell32.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\plugins\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]
