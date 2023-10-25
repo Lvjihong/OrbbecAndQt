@@ -11,19 +11,36 @@ OrbbecDemo::OrbbecDemo(QWidget* parent) : QMainWindow(parent) {
       dir.mkdir(dirpath);
     }
 
-    if (newWindow == nullptr) {
-      newWindow = new Train(dirpath, this);
-      newWindow->setWindowFlags(Qt::Window);
-      newWindow->setWindowTitle(
-          QString::fromLocal8Bit("大北农专项_训练数据收集"));
-      newWindow->showMaximized();
+    if (trainWindow == nullptr) {
+      trainWindow = new Train(dirpath, this);
+      trainWindow->setWindowFlags(Qt::Window);
+      trainWindow->showMaximized();
     } else {
-      delete newWindow;
-      newWindow = new Train(dirpath, this);
-      newWindow->setWindowFlags(Qt::Window);
-      newWindow->setWindowTitle(
-          QString::fromLocal8Bit("大北农专项_训练数据收集"));
-      newWindow->showMaximized();
+      delete trainWindow;
+      trainWindow = new Train(dirpath, this);
+      trainWindow->setWindowFlags(Qt::Window);
+      trainWindow->showMaximized();
+    }
+  });
+  connect(ui.btn_estimation, &QPushButton::clicked, [=]() mutable {
+    dirpath = QFileDialog::getExistingDirectory(
+        this, QString::fromLocal8Bit("大北农专项_选择需要估计的数据"), "./",
+        QFileDialog::ShowDirsOnly);
+
+    QDir dir(dirpath);
+    if (!dir.exists()) {
+      dir.mkdir(dirpath);
+    }
+
+    if (estimationWindow == nullptr) {
+      estimationWindow = new WeightEstmation(dirpath, this);
+      estimationWindow->setWindowFlags(Qt::Window);
+      estimationWindow->showMaximized();
+    } else {
+      delete estimationWindow;
+      estimationWindow = new WeightEstmation(dirpath, this);
+      estimationWindow->setWindowFlags(Qt::Window);
+      estimationWindow->showMaximized();
     }
   });
 }

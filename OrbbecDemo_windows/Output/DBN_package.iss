@@ -27,7 +27,7 @@ DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\Output
-OutputBaseFilename=DBNsetup2
+OutputBaseFilename=DBNsetup
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern

@@ -1,4 +1,4 @@
-#include "train.h"
+#include "Train.h"
 #include <iostream>
 #include <qdatetime.h>
 Train::Train(const QString rootDirPath, QWidget* parent) : QWidget(parent) {

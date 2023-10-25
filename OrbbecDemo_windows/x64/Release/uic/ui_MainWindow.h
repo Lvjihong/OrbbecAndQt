@@ -24,7 +24,7 @@ public:
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
     QPushButton *btn_train;
-    QPushButton *btn_guess;
+    QPushButton *btn_estimation;
 
     void setupUi(QMainWindow *OrbbecDemoClass)
     {
@@ -45,17 +45,24 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(btn_train->sizePolicy().hasHeightForWidth());
         btn_train->setSizePolicy(sizePolicy);
+        QFont font;
+        font.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
+        font.setPointSize(35);
+        font.setBold(true);
+        font.setWeight(75);
+        btn_train->setFont(font);
         btn_train->setIconSize(QSize(50, 50));
         btn_train->setCheckable(false);
 
         horizontalLayout->addWidget(btn_train);
 
-        btn_guess = new QPushButton(centralWidget);
-        btn_guess->setObjectName(QString::fromUtf8("btn_guess"));
-        sizePolicy.setHeightForWidth(btn_guess->sizePolicy().hasHeightForWidth());
-        btn_guess->setSizePolicy(sizePolicy);
+        btn_estimation = new QPushButton(centralWidget);
+        btn_estimation->setObjectName(QString::fromUtf8("btn_estimation"));
+        sizePolicy.setHeightForWidth(btn_estimation->sizePolicy().hasHeightForWidth());
+        btn_estimation->setSizePolicy(sizePolicy);
+        btn_estimation->setFont(font);
 
-        horizontalLayout->addWidget(btn_guess);
+        horizontalLayout->addWidget(btn_estimation);
 
         OrbbecDemoClass->setCentralWidget(centralWidget);
 
@@ -68,7 +75,7 @@ public:
     {
         OrbbecDemoClass->setWindowTitle(QCoreApplication::translate("OrbbecDemoClass", "OrbbecDemo", nullptr));
         btn_train->setText(QCoreApplication::translate("OrbbecDemoClass", "\350\256\255\347\273\203\346\250\241\345\274\217", nullptr));
-        btn_guess->setText(QCoreApplication::translate("OrbbecDemoClass", "\344\274\260\351\207\215\346\250\241\345\274\217", nullptr));
+        btn_estimation->setText(QCoreApplication::translate("OrbbecDemoClass", "\344\274\260\351\207\215\346\250\241\345\274\217", nullptr));
     } // retranslateUi
 
 };

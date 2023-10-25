@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\ADMINI~1\AppData\Local\Temp\bxszcme2.xr4;F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include;F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtWidgets;F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtGui;F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtANGLE;F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtCore;C:\Users\ADMINI~1\AppData\Local\Temp\bxszcme2.xr4;/include;F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ADMINI~1\AppData\Local\Temp\r0qbuskx.et4;F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include;F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtWidgets;F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtGui;F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtANGLE;F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\include\QtCore;C:\Users\ADMINI~1\AppData\Local\Temp\r0qbuskx.et4;/include;F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>.\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>

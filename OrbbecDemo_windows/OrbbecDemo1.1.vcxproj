@@ -114,6 +114,7 @@
       <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
       <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
     </ClCompile>
+    <ClCompile Include="WeightEstmation.cpp" />
     <QtRcc Include="OrbbecDemo.qrc" />
     <QtUic Include="InputDialog.ui" />
     <QtUic Include="MainWindow.ui" />
@@ -121,12 +122,16 @@
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="main.cpp" />
     <QtUic Include="Train.ui" />
+    <QtUic Include="WeightEstimation.ui" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="train.h" />
+    <QtMoc Include="Train.h" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="InputWeightDialog.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="WeightEstmation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

@@ -88,6 +88,11 @@ public:
         sizePolicy2.setVerticalStretch(0);
         sizePolicy2.setHeightForWidth(btn_open->sizePolicy().hasHeightForWidth());
         btn_open->setSizePolicy(sizePolicy2);
+        QFont font;
+        font.setPointSize(18);
+        font.setBold(true);
+        font.setWeight(75);
+        btn_open->setFont(font);
 
         gridLayout->addWidget(btn_open, 0, 0, 1, 1);
 
@@ -118,6 +123,7 @@ public:
         btn_start->setObjectName(QString::fromUtf8("btn_start"));
         sizePolicy2.setHeightForWidth(btn_start->sizePolicy().hasHeightForWidth());
         btn_start->setSizePolicy(sizePolicy2);
+        btn_start->setFont(font);
 
         gridLayout->addWidget(btn_start, 0, 1, 1, 1);
 
@@ -136,7 +142,7 @@ public:
 
     void retranslateUi(QWidget *TrainWindow)
     {
-        TrainWindow->setWindowTitle(QCoreApplication::translate("TrainWindow", "\345\244\247\345\214\227\345\206\234\344\270\223\351\241\271_\350\256\255\347\273\203\346\225\260\346\215\256\346\224\266\351\233\206", nullptr));
+        TrainWindow->setWindowTitle(QCoreApplication::translate("TrainWindow", "\345\244\247\345\214\227\345\206\234\344\270\223\351\241\271_\351\207\207\351\233\206\350\256\255\347\273\203\346\225\260\346\215\256", nullptr));
         btn_open->setText(QCoreApplication::translate("TrainWindow", "\345\274\200\345\220\257\346\221\204\345\203\217\345\244\264", nullptr));
         label_depth->setText(QString());
         label_rgb->setText(QString());

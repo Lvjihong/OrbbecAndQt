@@ -46,12 +46,18 @@
     <ClCompile Include="InputWeightDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WeightEstmation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="train.h">
+    <QtMoc Include="Train.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="InputWeightDialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="WeightEstmation.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -60,6 +66,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="InputDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="WeightEstimation.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

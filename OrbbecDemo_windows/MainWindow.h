@@ -4,7 +4,8 @@
 #include "ui_MainWindow.h"
 #include <qpushbutton.h>
 #include <QFileDialog>
-#include "train.h"
+#include "Train.h"
+#include "WeightEstmation.h"
 
 #ifdef _DEBUG
 #pragma comment(lib, "opencv_world480d.lib")
@@ -20,6 +21,7 @@ public:
     ~OrbbecDemo();
 
     Ui::OrbbecDemoClass ui;
-    Train* newWindow = nullptr;
+    Train* trainWindow = nullptr;
+    WeightEstmation* estimationWindow = nullptr;
     QString dirpath;
 };
