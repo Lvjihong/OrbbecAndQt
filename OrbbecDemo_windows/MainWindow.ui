@@ -26,6 +26,14 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>35</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>训练模式</string>
       </property>
@@ -47,6 +55,14 @@
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>35</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
       </property>
       <property name="text">
        <string>估重模式</string>

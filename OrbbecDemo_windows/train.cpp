@@ -1,7 +1,6 @@
 #include "train.h"
 #include <iostream>
-#include <qdebug.h>
-#include<qdatetime.h>
+#include <qdatetime.h>
 Train::Train(const QString rootDirPath, QWidget* parent) : QWidget(parent) {
   ui.setupUi(this);
   Train::rootDirPath = rootDirPath;
@@ -154,14 +153,10 @@ void saveDepthPng(std::shared_ptr<ob::DepthFrame> depthFrame,
   compression_params.push_back(cv::IMWRITE_PNG_STRATEGY);
   compression_params.push_back(cv::IMWRITE_PNG_STRATEGY_DEFAULT);
   std::string depthName =
-      dirPath + "/depth/Depth_" + std::to_string(depthFrame->width()) + "x" +
+      dirPath + "\\depth\\Depth_" + std::to_string(depthFrame->width()) + "x" +
       std::to_string(depthFrame->height()) + "_" + std::to_string(index) + "_" +
       std::to_string(depthFrame->timeStamp()) + "ms.png";
-  qDebug() << "test0-----------------------------------------------------------"
-              "----------test0";
   cv::Mat depthMat = frame2Mat(depthFrame);
-  qDebug() << "test1-----------------------------------------------------------"
-              "----------test1";
   cv::Mat colorDepthMat;
   cv::applyColorMap(depthMat, colorDepthMat, cv::COLORMAP_JET);
   cv::imwrite(depthName, colorDepthMat, compression_params);
@@ -178,7 +173,7 @@ void saveColorPng(std::shared_ptr<ob::ColorFrame> colorFrame,
   compression_params.push_back(cv::IMWRITE_PNG_STRATEGY);
   compression_params.push_back(cv::IMWRITE_PNG_STRATEGY_DEFAULT);
   std::string colorName =
-      dirPath + "/rgb/Color_" + std::to_string(colorFrame->width()) + "x" +
+      dirPath + "\\rgb\\Color_" + std::to_string(colorFrame->width()) + "x" +
       std::to_string(colorFrame->height()) + "_" + std::to_string(index) + "_" +
       std::to_string(colorFrame->timeStamp()) + "ms.png";
   cv::Mat colorRawMat(colorFrame->height(), colorFrame->width(), CV_8UC3,
@@ -192,6 +187,7 @@ void Train::saveOrShowAll(bool flag, QString dataPathDir) {
     pipe.stop();
     pipe.enableFrameSync();
     pipe.start(config);
+    dataPathDir.replace("/", "\\");
     while (cv::waitKey() != 27 && this->isVisible()) {
       // 以阻塞的方式等待一帧数据，该帧是一个复合帧，配置里启用的所有流的帧数据都会包含在frameSet内，
       // 并设置帧的等待超时时间为100ms
