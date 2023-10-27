@@ -6,6 +6,7 @@ class WeightEstmation : public QWidget {
 
  public:
   WeightEstmation(const QString dirPath, QWidget* parent = nullptr);
+  WeightEstmation(const WeightEstmation& window);
   ~WeightEstmation();
 
  private:

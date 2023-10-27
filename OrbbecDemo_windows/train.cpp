@@ -1,6 +1,6 @@
 #include "Train.h"
-#include <iostream>
 #include <qdatetime.h>
+#include <iostream>
 Train::Train(const QString rootDirPath, QWidget* parent) : QWidget(parent) {
   ui.setupUi(this);
   Train::rootDirPath = rootDirPath;
@@ -52,7 +52,8 @@ Train::Train(const QString rootDirPath, QWidget* parent) : QWidget(parent) {
   connect(ui.btn_start, &QPushButton::clicked, [=]() {
     ui.btn_start->setEnabled(false);
     QString subDirPath =
-        Train::rootDirPath + "/pig_" + QString::number(QDateTime::currentDateTime().toTime_t());
+        Train::rootDirPath + "/pig_" +
+        QString::number(QDateTime::currentDateTime().toTime_t());
     QDir dir(subDirPath);
     if (!dir.exists()) {
       dir.mkdir(subDirPath);
@@ -69,9 +70,27 @@ Train::Train(const QString rootDirPath, QWidget* parent) : QWidget(parent) {
     isSave = true;
     saveOrShowAll(isSave, subDirPath);
   });
-}
 
+  connect(ui.btn_exit, &QPushButton::clicked, [=]() {
+    pipe.stop();
+    close();
+  });
+}
+Train::Train(const Train& trainWindow) {
+  ui = trainWindow.ui;
+  // pipe = trainWindow.pipe;
+  // config = std::make_shared<ob::Config>(*trainWindow.config);
+  depthCount = trainWindow.depthCount;
+  colorCount = trainWindow.colorCount;
+  rootDirPath = trainWindow.rootDirPath;
+  isSave = trainWindow.isSave;
+  // model = new QDirModel(*trainWindow.model);
+}
 Train::~Train() {
+  if (model != nullptr) {
+    delete model;
+    model = nullptr;
+  }
 }
 
 cv::Mat frame2Mat(const std::shared_ptr<ob::VideoFrame>& frame) {
@@ -157,9 +176,7 @@ void saveDepthPng(std::shared_ptr<ob::DepthFrame> depthFrame,
       std::to_string(depthFrame->height()) + "_" + std::to_string(index) + "_" +
       std::to_string(depthFrame->timeStamp()) + "ms.png";
   cv::Mat depthMat = frame2Mat(depthFrame);
-  cv::Mat colorDepthMat;
-  cv::applyColorMap(depthMat, colorDepthMat, cv::COLORMAP_JET);
-  cv::imwrite(depthName, colorDepthMat, compression_params);
+  cv::imwrite(depthName, depthMat, compression_params);
   std::cout << "Depth saved:" << depthName << std::endl;
 }
 
@@ -251,7 +268,7 @@ void Train::saveOrShowAll(bool flag, QString dataPathDir) {
         dialog->setWindowFlags(Qt::Window);
         dialog->setWindowModality(Qt::ApplicationModal);
         dialog->setWindowFlags((windowFlags() & ~Qt::WindowCloseButtonHint));
-         connect(dialog, &InputWeightDialog::inputOver, this,
+        connect(dialog, &InputWeightDialog::inputOver, this,
                 &Train::updateTreeView);
         dialog->show();
 
@@ -292,7 +309,6 @@ void Train::updateTreeView() {
   ui.treeView->scrollTo(index);
   ui.treeView->resizeColumnToContents(0);
   ui.treeView->allColumnsShowFocus();
-
 }
 
 void Train::closeEvent(QCloseEvent* e) {

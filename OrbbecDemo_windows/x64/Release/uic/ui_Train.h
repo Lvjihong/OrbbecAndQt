@@ -11,7 +11,6 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -19,6 +18,7 @@
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QSplitter>
 #include <QtWidgets/QTreeView>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -33,9 +33,12 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QTreeView *treeView;
     QWidget *widget_2;
-    QGridLayout *gridLayout;
+    QVBoxLayout *verticalLayout;
+    QWidget *widget_3;
+    QHBoxLayout *horizontalLayout_4;
     QPushButton *btn_open;
     QPushButton *btn_start;
+    QPushButton *btn_exit;
     QWidget *widget;
     QHBoxLayout *horizontalLayout;
     QLabel *label_depth;
@@ -45,7 +48,7 @@ public:
     {
         if (TrainWindow->objectName().isEmpty())
             TrainWindow->setObjectName(QString::fromUtf8("TrainWindow"));
-        TrainWindow->resize(1072, 547);
+        TrainWindow->resize(1072, 557);
         TrainWindow->setMinimumSize(QSize(1072, 547));
         horizontalLayout_2 = new QHBoxLayout(TrainWindow);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
@@ -70,7 +73,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 278, 502));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 278, 512));
         horizontalLayout_3 = new QHBoxLayout(scrollAreaWidgetContents);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         treeView = new QTreeView(scrollAreaWidgetContents);
@@ -95,27 +98,46 @@ public:
         widget_2->setSizePolicy(sizePolicy3);
         widget_2->setMinimumSize(QSize(100, 0));
         widget_2->setMaximumSize(QSize(16777215, 16777215));
-        gridLayout = new QGridLayout(widget_2);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        btn_open = new QPushButton(widget_2);
+        verticalLayout = new QVBoxLayout(widget_2);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        widget_3 = new QWidget(widget_2);
+        widget_3->setObjectName(QString::fromUtf8("widget_3"));
+        horizontalLayout_4 = new QHBoxLayout(widget_3);
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        btn_open = new QPushButton(widget_3);
         btn_open->setObjectName(QString::fromUtf8("btn_open"));
         sizePolicy.setHeightForWidth(btn_open->sizePolicy().hasHeightForWidth());
         btn_open->setSizePolicy(sizePolicy);
         QFont font;
-        font.setPointSize(30);
+        font.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
+        font.setPointSize(35);
         font.setBold(true);
         font.setWeight(75);
         btn_open->setFont(font);
 
-        gridLayout->addWidget(btn_open, 0, 0, 1, 1);
+        horizontalLayout_4->addWidget(btn_open);
 
-        btn_start = new QPushButton(widget_2);
+        btn_start = new QPushButton(widget_3);
         btn_start->setObjectName(QString::fromUtf8("btn_start"));
         sizePolicy.setHeightForWidth(btn_start->sizePolicy().hasHeightForWidth());
         btn_start->setSizePolicy(sizePolicy);
         btn_start->setFont(font);
 
-        gridLayout->addWidget(btn_start, 0, 1, 1, 1);
+        horizontalLayout_4->addWidget(btn_start);
+
+        btn_exit = new QPushButton(widget_3);
+        btn_exit->setObjectName(QString::fromUtf8("btn_exit"));
+        sizePolicy.setHeightForWidth(btn_exit->sizePolicy().hasHeightForWidth());
+        btn_exit->setSizePolicy(sizePolicy);
+        btn_exit->setFont(font);
+
+        horizontalLayout_4->addWidget(btn_exit);
+
+        horizontalLayout_4->setStretch(0, 5);
+        horizontalLayout_4->setStretch(1, 5);
+        horizontalLayout_4->setStretch(2, 1);
+
+        verticalLayout->addWidget(widget_3);
 
         widget = new QWidget(widget_2);
         widget->setObjectName(QString::fromUtf8("widget"));
@@ -138,10 +160,10 @@ public:
         horizontalLayout->addWidget(label_rgb);
 
 
-        gridLayout->addWidget(widget, 1, 0, 1, 2);
+        verticalLayout->addWidget(widget);
 
-        gridLayout->setRowStretch(0, 1);
-        gridLayout->setRowStretch(1, 4);
+        verticalLayout->setStretch(0, 1);
+        verticalLayout->setStretch(1, 8);
         splitter->addWidget(widget_2);
 
         horizontalLayout_2->addWidget(splitter);
@@ -157,6 +179,7 @@ public:
         TrainWindow->setWindowTitle(QCoreApplication::translate("TrainWindow", "\345\244\247\345\214\227\345\206\234\344\270\223\351\241\271_\351\207\207\351\233\206\350\256\255\347\273\203\346\225\260\346\215\256", nullptr));
         btn_open->setText(QCoreApplication::translate("TrainWindow", "\345\274\200\345\220\257\346\221\204\345\203\217\345\244\264", nullptr));
         btn_start->setText(QCoreApplication::translate("TrainWindow", "\345\274\200\345\247\213\351\207\207\351\233\206\346\225\260\346\215\256", nullptr));
+        btn_exit->setText(QCoreApplication::translate("TrainWindow", "\351\200\200\345\207\272", nullptr));
         label_depth->setText(QString());
         label_rgb->setText(QString());
     } // retranslateUi

@@ -16,6 +16,7 @@ class Train : public QWidget {
 
  public:
   Train(const QString dirPath, QWidget* parent = nullptr);
+  Train(const Train& trainWindow);
   ~Train();
   void closeEvent(QCloseEvent* e);
   void saveOrShowAll(bool flag, QString rootDirPath);
@@ -25,7 +26,6 @@ class Train : public QWidget {
 
  private:
   Ui::TrainWindow ui;
-
   ob::Pipeline pipe;
   std::shared_ptr<ob::Config> config = std::make_shared<ob::Config>();
   int depthCount;

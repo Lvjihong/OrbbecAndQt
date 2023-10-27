@@ -13,7 +13,9 @@ OrbbecDemo::OrbbecDemo(QWidget* parent) : QMainWindow(parent) {
 
     if (trainWindow == nullptr) {
       trainWindow = new Train(dirpath, this);
-      trainWindow->setWindowFlags(Qt::Window);
+      // trainWindow->setWindowFlags(Qt::Window);
+      //trainWindow->setWindowFlags(Qt::FramelessWindowHint);
+      trainWindow->setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
       trainWindow->showMaximized();
     } else {
       delete trainWindow;
@@ -44,5 +46,20 @@ OrbbecDemo::OrbbecDemo(QWidget* parent) : QMainWindow(parent) {
     }
   });
 }
-
-OrbbecDemo::~OrbbecDemo() {}
+OrbbecDemo::OrbbecDemo(const OrbbecDemo& window) {
+  ui = window.ui;
+  trainWindow = new Train(*window.trainWindow);
+  estimationWindow = new WeightEstmation(*window.estimationWindow);
+ dirpath = window.dirpath;
+  
+}
+OrbbecDemo::~OrbbecDemo() {
+  if (trainWindow!=nullptr) {
+    delete trainWindow;
+    trainWindow = nullptr;
+  }
+  if (estimationWindow!=nullptr) {
+    delete estimationWindow;
+    estimationWindow = nullptr;
+  }
+}

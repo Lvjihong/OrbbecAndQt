@@ -11,6 +11,7 @@ class InputWeightDialog : public QWidget {
 
  public:
   InputWeightDialog(QString dirpath, QWidget* parent);
+  InputWeightDialog(const InputWeightDialog& dialog);
   ~InputWeightDialog();
   
 public slots:

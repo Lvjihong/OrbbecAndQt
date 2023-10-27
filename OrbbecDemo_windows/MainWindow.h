@@ -17,7 +17,8 @@ class OrbbecDemo : public QMainWindow
     Q_OBJECT
 
 public:
-    OrbbecDemo(QWidget *parent = nullptr);
+    OrbbecDemo(QWidget* parent = nullptr);
+    OrbbecDemo(const OrbbecDemo&window);
     ~OrbbecDemo();
 
     Ui::OrbbecDemoClass ui;
