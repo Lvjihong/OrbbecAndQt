@@ -16,6 +16,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSplitter>
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QVBoxLayout>
@@ -36,8 +37,8 @@ public:
     QVBoxLayout *verticalLayout;
     QWidget *widget_3;
     QHBoxLayout *horizontalLayout_4;
-    QPushButton *btn_open;
     QPushButton *btn_start;
+    QSpacerItem *horizontalSpacer;
     QPushButton *btn_exit;
     QWidget *widget;
     QHBoxLayout *horizontalLayout;
@@ -103,27 +104,25 @@ public:
         widget_3 = new QWidget(widget_2);
         widget_3->setObjectName(QString::fromUtf8("widget_3"));
         horizontalLayout_4 = new QHBoxLayout(widget_3);
+        horizontalLayout_4->setSpacing(5);
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        btn_open = new QPushButton(widget_3);
-        btn_open->setObjectName(QString::fromUtf8("btn_open"));
-        sizePolicy.setHeightForWidth(btn_open->sizePolicy().hasHeightForWidth());
-        btn_open->setSizePolicy(sizePolicy);
+        horizontalLayout_4->setContentsMargins(2, 2, 2, 2);
+        btn_start = new QPushButton(widget_3);
+        btn_start->setObjectName(QString::fromUtf8("btn_start"));
+        sizePolicy.setHeightForWidth(btn_start->sizePolicy().hasHeightForWidth());
+        btn_start->setSizePolicy(sizePolicy);
         QFont font;
         font.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
         font.setPointSize(35);
         font.setBold(true);
         font.setWeight(75);
-        btn_open->setFont(font);
-
-        horizontalLayout_4->addWidget(btn_open);
-
-        btn_start = new QPushButton(widget_3);
-        btn_start->setObjectName(QString::fromUtf8("btn_start"));
-        sizePolicy.setHeightForWidth(btn_start->sizePolicy().hasHeightForWidth());
-        btn_start->setSizePolicy(sizePolicy);
         btn_start->setFont(font);
 
         horizontalLayout_4->addWidget(btn_start);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_4->addItem(horizontalSpacer);
 
         btn_exit = new QPushButton(widget_3);
         btn_exit->setObjectName(QString::fromUtf8("btn_exit"));
@@ -133,9 +132,9 @@ public:
 
         horizontalLayout_4->addWidget(btn_exit);
 
-        horizontalLayout_4->setStretch(0, 5);
-        horizontalLayout_4->setStretch(1, 5);
-        horizontalLayout_4->setStretch(2, 1);
+        horizontalLayout_4->setStretch(0, 3);
+        horizontalLayout_4->setStretch(1, 1);
+        horizontalLayout_4->setStretch(2, 2);
 
         verticalLayout->addWidget(widget_3);
 
@@ -177,7 +176,6 @@ public:
     void retranslateUi(QWidget *TrainWindow)
     {
         TrainWindow->setWindowTitle(QCoreApplication::translate("TrainWindow", "\345\244\247\345\214\227\345\206\234\344\270\223\351\241\271_\351\207\207\351\233\206\350\256\255\347\273\203\346\225\260\346\215\256", nullptr));
-        btn_open->setText(QCoreApplication::translate("TrainWindow", "\345\274\200\345\220\257\346\221\204\345\203\217\345\244\264", nullptr));
         btn_start->setText(QCoreApplication::translate("TrainWindow", "\345\274\200\345\247\213\351\207\207\351\233\206\346\225\260\346\215\256", nullptr));
         btn_exit->setText(QCoreApplication::translate("TrainWindow", "\351\200\200\345\207\272", nullptr));
         label_depth->setText(QString());

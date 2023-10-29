@@ -104,7 +104,7 @@
       <layout class="QVBoxLayout" name="verticalLayout" stretch="1,8">
        <item>
         <widget class="QWidget" name="widget_3" native="true">
-         <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="3,3,1">
+         <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="3,2">
           <property name="spacing">
            <number>5</number>
           </property>
@@ -120,27 +120,6 @@
           <property name="bottomMargin">
            <number>2</number>
           </property>
-          <item>
-           <widget class="QPushButton" name="btn_open">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="font">
-             <font>
-              <family>黑体</family>
-              <pointsize>35</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>开启摄像头</string>
-            </property>
-           </widget>
-          </item>
           <item>
            <widget class="QPushButton" name="btn_start">
             <property name="sizePolicy">

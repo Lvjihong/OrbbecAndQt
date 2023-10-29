@@ -45,10 +45,6 @@ Train::Train(const QString rootDirPath, QWidget* parent) : QWidget(parent) {
     device->setBoolProperty(OB_PROP_COLOR_MIRROR_BOOL, true);
   }
 
-  connect(ui.btn_open, &QPushButton::clicked, [=]() {
-    ui.btn_open->setEnabled(false);
-    saveOrShowAll(isSave, QString());
-  });
   connect(ui.btn_start, &QPushButton::clicked, [=]() {
     ui.btn_start->setEnabled(false);
     QString subDirPath =
@@ -75,6 +71,9 @@ Train::Train(const QString rootDirPath, QWidget* parent) : QWidget(parent) {
     pipe.stop();
     close();
   });
+
+  // ´ò¿ªÉãÏñÍ·
+  // saveOrShowAll(isSave, QString());
 }
 Train::Train(const Train& trainWindow) {
   ui = trainWindow.ui;
@@ -177,7 +176,6 @@ void saveDepthPng(std::shared_ptr<ob::DepthFrame> depthFrame,
       std::to_string(depthFrame->timeStamp()) + "ms.png";
   cv::Mat depthMat = frame2Mat(depthFrame);
   cv::imwrite(depthName, depthMat, compression_params);
-  std::cout << "Depth saved:" << depthName << std::endl;
 }
 
 // Save the color image in png format
@@ -196,7 +194,6 @@ void saveColorPng(std::shared_ptr<ob::ColorFrame> colorFrame,
   cv::Mat colorRawMat(colorFrame->height(), colorFrame->width(), CV_8UC3,
                       colorFrame->data());
   cv::imwrite(colorName, colorRawMat, compression_params);
-  std::cout << "Color saved:" << colorName << std::endl;
 }
 
 void Train::saveOrShowAll(bool flag, QString dataPathDir) {

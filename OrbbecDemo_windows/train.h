@@ -19,10 +19,11 @@ class Train : public QWidget {
   Train(const Train& trainWindow);
   ~Train();
   void closeEvent(QCloseEvent* e);
-  void saveOrShowAll(bool flag, QString rootDirPath);
+ // void saveOrShowAll(bool flag, QString rootDirPath);
 
- private slots:
+ public slots:
   void updateTreeView();
+  void saveOrShowAll(bool flag, QString rootDirPath);
 
  private:
   Ui::TrainWindow ui;
