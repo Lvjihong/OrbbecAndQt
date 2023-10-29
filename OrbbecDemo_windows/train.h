@@ -1,3 +1,4 @@
+#pragma once
 #include <opencv2/opencv.hpp>
 #include <libobsensor/ObSensor.hpp>
 #include <libobsensor/hpp/Frame.hpp>
@@ -11,6 +12,7 @@
 #include <QFileDialog>
 #include <QCloseEvent>
 #include <qpushbutton.h>
+
 class Train : public QWidget {
   Q_OBJECT
 
@@ -19,7 +21,8 @@ class Train : public QWidget {
   Train(const Train& trainWindow);
   ~Train();
   void closeEvent(QCloseEvent* e);
- // void saveOrShowAll(bool flag, QString rootDirPath);
+  static cv::Mat frame2Mat(const std::shared_ptr<ob::VideoFrame>& frame);
+  static QImage mat2QImage(cv::Mat cvImg);
 
  public slots:
   void updateTreeView();

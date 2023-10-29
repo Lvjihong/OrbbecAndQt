@@ -16,7 +16,6 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSplitter>
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QVBoxLayout>
@@ -38,7 +37,6 @@ public:
     QWidget *widget_3;
     QHBoxLayout *horizontalLayout_4;
     QPushButton *btn_start;
-    QSpacerItem *horizontalSpacer;
     QPushButton *btn_exit;
     QWidget *widget;
     QHBoxLayout *horizontalLayout;
@@ -120,10 +118,6 @@ public:
 
         horizontalLayout_4->addWidget(btn_start);
 
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_4->addItem(horizontalSpacer);
-
         btn_exit = new QPushButton(widget_3);
         btn_exit->setObjectName(QString::fromUtf8("btn_exit"));
         sizePolicy.setHeightForWidth(btn_exit->sizePolicy().hasHeightForWidth());
@@ -133,8 +127,7 @@ public:
         horizontalLayout_4->addWidget(btn_exit);
 
         horizontalLayout_4->setStretch(0, 3);
-        horizontalLayout_4->setStretch(1, 1);
-        horizontalLayout_4->setStretch(2, 2);
+        horizontalLayout_4->setStretch(1, 2);
 
         verticalLayout->addWidget(widget_3);
 

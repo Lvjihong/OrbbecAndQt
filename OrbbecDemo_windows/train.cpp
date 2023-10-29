@@ -1,6 +1,7 @@
 #include "Train.h"
 #include <qdatetime.h>
 #include <iostream>
+
 Train::Train(const QString rootDirPath, QWidget* parent) : QWidget(parent) {
   ui.setupUi(this);
   Train::rootDirPath = rootDirPath;
@@ -71,9 +72,6 @@ Train::Train(const QString rootDirPath, QWidget* parent) : QWidget(parent) {
     pipe.stop();
     close();
   });
-
-  // ´ò¿ªÉãÏñÍ·
-  // saveOrShowAll(isSave, QString());
 }
 Train::Train(const Train& trainWindow) {
   ui = trainWindow.ui;
@@ -91,8 +89,25 @@ Train::~Train() {
     model = nullptr;
   }
 }
+QImage Train::mat2QImage(cv::Mat cvImg) {
+  QImage qImg;
+  if (cvImg.channels() == 3)  // 3 channels color image
+  {
+    cv::cvtColor(cvImg, cvImg, cv::COLOR_BGR2RGB);
+    qImg = QImage((const unsigned char*)(cvImg.data), cvImg.cols, cvImg.rows,
+                  cvImg.cols * cvImg.channels(), QImage::Format_RGB888);
+  } else if (cvImg.channels() == 1)  // grayscale image
+  {
+    qImg = QImage((const unsigned char*)(cvImg.data), cvImg.cols, cvImg.rows,
+                  cvImg.cols * cvImg.channels(), QImage::Format_Indexed8);
+  } else {
+    qImg = QImage((const unsigned char*)(cvImg.data), cvImg.cols, cvImg.rows,
+                  cvImg.cols * cvImg.channels(), QImage::Format_RGB888);
+  }
+  return qImg;
+}
 
-cv::Mat frame2Mat(const std::shared_ptr<ob::VideoFrame>& frame) {
+cv::Mat Train::frame2Mat(const std::shared_ptr<ob::VideoFrame>& frame) {
   const int data_size = static_cast<int>(frame->dataSize());
   if (frame == nullptr || data_size < 1024) {
     return {};
@@ -143,24 +158,6 @@ cv::Mat frame2Mat(const std::shared_ptr<ob::VideoFrame>& frame) {
   return result_mat;
 }
 
-QImage mat2QImage(cv::Mat cvImg) {
-  QImage qImg;
-  if (cvImg.channels() == 3)  // 3 channels color image
-  {
-    cv::cvtColor(cvImg, cvImg, cv::COLOR_BGR2RGB);
-    qImg = QImage((const unsigned char*)(cvImg.data), cvImg.cols, cvImg.rows,
-                  cvImg.cols * cvImg.channels(), QImage::Format_RGB888);
-  } else if (cvImg.channels() == 1)  // grayscale image
-  {
-    qImg = QImage((const unsigned char*)(cvImg.data), cvImg.cols, cvImg.rows,
-                  cvImg.cols * cvImg.channels(), QImage::Format_Indexed8);
-  } else {
-    qImg = QImage((const unsigned char*)(cvImg.data), cvImg.cols, cvImg.rows,
-                  cvImg.cols * cvImg.channels(), QImage::Format_RGB888);
-  }
-  return qImg;
-}
-
 // Save the depth map in png format
 void saveDepthPng(std::shared_ptr<ob::DepthFrame> depthFrame,
                   int index,
@@ -174,7 +171,7 @@ void saveDepthPng(std::shared_ptr<ob::DepthFrame> depthFrame,
       dirPath + "\\depth\\Depth_" + std::to_string(depthFrame->width()) + "x" +
       std::to_string(depthFrame->height()) + "_" + std::to_string(index) + "_" +
       std::to_string(depthFrame->timeStamp()) + "ms.png";
-  cv::Mat depthMat = frame2Mat(depthFrame);
+  cv::Mat depthMat = Train::frame2Mat(depthFrame);
   cv::imwrite(depthName, depthMat, compression_params);
 }
 
@@ -231,10 +228,12 @@ void Train::saveOrShowAll(bool flag, QString dataPathDir) {
         depthCount++;
       } else {
       }
-      ui.label_depth->setPixmap(QPixmap::fromImage(mat2QImage(depthMat1)));
+      ui.label_depth->setPixmap(
+          QPixmap::fromImage(mat2QImage(depthMat1)));
 
       auto colorFrame = frame_set->colorFrame();
       imgRgb = frame2Mat(colorFrame);
+      
       if (colorCount < 30 && flag) {
         std::thread t2([=]() mutable {
           if (colorFrame->format() != OB_FORMAT_RGB) {
@@ -312,3 +311,4 @@ void Train::closeEvent(QCloseEvent* e) {
   pipe.stop();
   e->accept();
 }
+

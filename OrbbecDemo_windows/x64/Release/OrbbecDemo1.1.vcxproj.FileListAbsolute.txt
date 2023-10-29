@@ -1,3 +1,2 @@
-F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\OrbbecDemo1.1.exe
-D:\Github客户端\My Github\OrbbecAndQt\OrbbecDemo_windows\x64\Release\OrbbecDemo1.1.exe
 D:\Github客户端\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\OrbbecDemo1.1.exe
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\OrbbecDemo1.1.exe
