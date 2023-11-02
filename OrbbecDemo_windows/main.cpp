@@ -1,5 +1,8 @@
 #include <QtWidgets/QApplication>
 #include "MainWindow.h"
+#undef slots
+#include "torch/script.h"
+#define slots Q_SLOTS
 
 int main(int argc, char* argv[]) {
   // 系统自带软键盘，无效

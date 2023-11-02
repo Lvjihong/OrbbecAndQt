@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <IncludePath>F:\opencv\opencv\build\include\opencv2;F:\opencv\opencv\build\include;D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\api\include;D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\opencv\opencv\build\x64\vc16\lib;D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>OrbbecSDK.lib;opencv_world480.lib;c10.lib;torch.lib;caffe2_module_test_dynamic.lib;clog.lib;cpuinfo.lib;libprotobuf.lib;libprotobuf-lite.lib;libprotoc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>

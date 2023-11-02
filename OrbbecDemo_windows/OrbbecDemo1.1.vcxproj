@@ -54,31 +54,26 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(QtMsBuild)\Qt.props" />
-    <Import Project="x64\Debug\OpenCVAndOrbbec-debugd.props" />
+    <Import Project="PropertyDebug.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$(QtMsBuild)\Qt.props" />
-    <Import Project="x64\Release\OpencvAndOrbbec-release.props" />
+    <Import Project="PropertyRelease.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <IncludePath>F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include;$(IncludePath)</IncludePath>
     <LibraryPath>F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <IncludePath>F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include;F:\opencv\opencv\build\include\opencv2;F:\opencv\opencv\build\include;$(IncludePath)</IncludePath>
-    <LibraryPath>F:\opencv\opencv\build\x64\vc16\lib;F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\lib;$(LibraryPath)</LibraryPath>
-  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
       <AdditionalDependencies>OrbbecSDK.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <Link>
-      <AdditionalDependencies>OrbbecSDK.lib;opencv_world480.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>
+    <Link />
     <ClCompile>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
