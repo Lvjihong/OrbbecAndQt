@@ -1,17 +1,17 @@
 #pragma once
-#include <opencv2/opencv.hpp>
+#include <qdirmodel.h>
+#include <qpushbutton.h>
+#include <QCloseEvent>
+#include <QFileDialog>
 #include <libobsensor/ObSensor.hpp>
 #include <libobsensor/hpp/Frame.hpp>
-#include "libobsensor/hpp/Pipeline.hpp"
-#include "libobsensor/hpp/Error.hpp"
-#include "libobsensor/hpp/StreamProfile.hpp"
-#include "ui_Train.h"
-#include <qdirmodel.h>
+#include <opencv2/opencv.hpp>
 #include <thread>
 #include "InputWeightDialog.h"
-#include <QFileDialog>
-#include <QCloseEvent>
-#include <qpushbutton.h>
+#include "libobsensor/hpp/Error.hpp"
+#include "libobsensor/hpp/Pipeline.hpp"
+#include "libobsensor/hpp/StreamProfile.hpp"
+#include "ui_Train.h"
 
 class Train : public QWidget {
   Q_OBJECT
@@ -21,7 +21,8 @@ class Train : public QWidget {
   Train(const Train& trainWindow);
   ~Train();
   void closeEvent(QCloseEvent* e);
-  static cv::Mat frame2Mat(const std::shared_ptr<ob::VideoFrame>& frame);
+  static std::vector<cv::Mat> frame2Mat(
+      const std::shared_ptr<ob::VideoFrame>& frame);
   static QImage mat2QImage(cv::Mat cvImg);
 
  public slots:

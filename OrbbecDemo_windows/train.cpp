@@ -1,6 +1,7 @@
 #include "Train.h"
 #include <qdatetime.h>
 #include <iostream>
+#include <vector>
 
 Train::Train(const QString rootDirPath, QWidget* parent) : QWidget(parent) {
   ui.setupUi(this);
@@ -107,7 +108,8 @@ QImage Train::mat2QImage(cv::Mat cvImg) {
   return qImg;
 }
 
-cv::Mat Train::frame2Mat(const std::shared_ptr<ob::VideoFrame>& frame) {
+std::vector<cv::Mat> Train::frame2Mat(
+  const std::shared_ptr<ob::VideoFrame>& frame) {
   const int data_size = static_cast<int>(frame->dataSize());
   if (frame == nullptr || data_size < 1024) {
     return {};
@@ -118,6 +120,7 @@ cv::Mat Train::frame2Mat(const std::shared_ptr<ob::VideoFrame>& frame) {
   const int frame_width = static_cast<int>(frame->width());    // 图像宽度
   void* const frame_data = frame->data();  // 帧原始数据
   cv::Mat result_mat;
+  std::vector<cv::Mat> ret;
   if (frame_type == OB_FRAME_COLOR) {
     // Color image
     if (frame_format == OB_FORMAT_MJPG) {
@@ -138,6 +141,7 @@ cv::Mat Train::frame2Mat(const std::shared_ptr<ob::VideoFrame>& frame) {
       const cv::Mat raw_mat(frame_height, frame_width, CV_8UC2, frame_data);
       cv::cvtColor(raw_mat, result_mat, cv::COLOR_YUV2BGR_UYVY);
     }
+    ret.push_back(result_mat);
   } else if (frame_format == OB_FORMAT_Y16 || frame_format == OB_FORMAT_YUYV ||
              frame_format == OB_FORMAT_YUY2) {
     // IR or depth image
@@ -147,6 +151,8 @@ cv::Mat Train::frame2Mat(const std::shared_ptr<ob::VideoFrame>& frame) {
                        (frame_type == OB_FRAME_DEPTH ? 10 : 8));
     //result_mat = raw_mat;
     cv::convertScaleAbs(raw_mat, result_mat, scale);
+    ret.push_back(result_mat);
+    ret.push_back(raw_mat);
   } else if (frame_type == OB_FRAME_IR) {
     // IR image
     if (frame_format == OB_FORMAT_Y8) {
@@ -156,7 +162,7 @@ cv::Mat Train::frame2Mat(const std::shared_ptr<ob::VideoFrame>& frame) {
       result_mat = cv::imdecode(raw_mat, 1);
     }
   }
-  return result_mat;
+  return ret;
 }
 
 // Save the depth map in png format
@@ -172,7 +178,7 @@ void saveDepthPng(std::shared_ptr<ob::DepthFrame> depthFrame,
       dirPath + "\\depth\\Depth_" + std::to_string(depthFrame->width()) + "x" +
       std::to_string(depthFrame->height()) + "_" + std::to_string(index) + "_" +
       std::to_string(depthFrame->timeStamp()) + "ms.png";
-  cv::Mat depthMat = Train::frame2Mat(depthFrame);
+  cv::Mat depthMat = Train::frame2Mat(depthFrame).at(1);
   cv::imwrite(depthName, depthMat, compression_params);
 }
 
@@ -218,7 +224,7 @@ void Train::saveOrShowAll(bool flag, QString dataPathDir) {
       }
       cv::Mat depthMat1;
       // 由灰色图像转为伪彩色图像
-      imgDepth = frame2Mat(frame_set->depthFrame());
+      imgDepth = frame2Mat(frame_set->depthFrame()).at(0);
       cv::applyColorMap(imgDepth, depthMat1, cv::COLORMAP_JET);
       if (depthCount < 30 && flag) {
         std::thread t1([=]() mutable {
@@ -233,7 +239,7 @@ void Train::saveOrShowAll(bool flag, QString dataPathDir) {
           QPixmap::fromImage(mat2QImage(depthMat1)));
 
       auto colorFrame = frame_set->colorFrame();
-      imgRgb = frame2Mat(colorFrame);
+      imgRgb = frame2Mat(colorFrame).at(0);
       
       if (colorCount < 30 && flag) {
         std::thread t2([=]() mutable {

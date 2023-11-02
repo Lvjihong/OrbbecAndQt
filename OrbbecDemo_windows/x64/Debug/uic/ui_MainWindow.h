@@ -25,12 +25,13 @@ public:
     QHBoxLayout *horizontalLayout;
     QPushButton *btn_train;
     QPushButton *btn_estimation;
+    QPushButton *btn_exit;
 
     void setupUi(QMainWindow *OrbbecDemoClass)
     {
         if (OrbbecDemoClass->objectName().isEmpty())
             OrbbecDemoClass->setObjectName(QString::fromUtf8("OrbbecDemoClass"));
-        OrbbecDemoClass->resize(600, 400);
+        OrbbecDemoClass->resize(1061, 585);
         centralWidget = new QWidget(OrbbecDemoClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         horizontalLayout = new QHBoxLayout(centralWidget);
@@ -47,7 +48,7 @@ public:
         btn_train->setSizePolicy(sizePolicy);
         QFont font;
         font.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
-        font.setPointSize(35);
+        font.setPointSize(60);
         font.setBold(true);
         font.setWeight(75);
         btn_train->setFont(font);
@@ -64,6 +65,25 @@ public:
 
         horizontalLayout->addWidget(btn_estimation);
 
+        btn_exit = new QPushButton(centralWidget);
+        btn_exit->setObjectName(QString::fromUtf8("btn_exit"));
+        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(btn_exit->sizePolicy().hasHeightForWidth());
+        btn_exit->setSizePolicy(sizePolicy1);
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
+        font1.setPointSize(20);
+        font1.setBold(true);
+        font1.setWeight(75);
+        btn_exit->setFont(font1);
+
+        horizontalLayout->addWidget(btn_exit);
+
+        horizontalLayout->setStretch(0, 3);
+        horizontalLayout->setStretch(1, 3);
+        horizontalLayout->setStretch(2, 1);
         OrbbecDemoClass->setCentralWidget(centralWidget);
 
         retranslateUi(OrbbecDemoClass);
@@ -76,6 +96,7 @@ public:
         OrbbecDemoClass->setWindowTitle(QCoreApplication::translate("OrbbecDemoClass", "OrbbecDemo", nullptr));
         btn_train->setText(QCoreApplication::translate("OrbbecDemoClass", "\350\256\255\347\273\203\346\250\241\345\274\217", nullptr));
         btn_estimation->setText(QCoreApplication::translate("OrbbecDemoClass", "\344\274\260\351\207\215\346\250\241\345\274\217", nullptr));
+        btn_exit->setText(QCoreApplication::translate("OrbbecDemoClass", "\351\200\200\345\207\272", nullptr));
     } // retranslateUi
 
 };

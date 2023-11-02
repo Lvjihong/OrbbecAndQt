@@ -83,7 +83,7 @@ void WeightEstmation::showDepth() {
       }
       cv::Mat depthMat1;
       // 由灰色图像转为伪彩色图像
-      imgDepth = Train::frame2Mat(frame_set->depthFrame());
+      imgDepth = Train::frame2Mat(frame_set->depthFrame())[0];
       cv::applyColorMap(imgDepth, depthMat1, cv::COLORMAP_JET);
       ui.label_depth->setPixmap(QPixmap::fromImage(Train::mat2QImage(depthMat1)));
     }
