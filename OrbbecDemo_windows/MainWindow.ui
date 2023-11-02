@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>1061</width>
+    <height>585</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>OrbbecDemo</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="3,3,1">
     <item>
      <widget class="QPushButton" name="btn_train">
       <property name="enabled">
@@ -29,7 +29,7 @@
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>35</pointsize>
+        <pointsize>60</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
@@ -59,13 +59,34 @@
       <property name="font">
        <font>
         <family>黑体</family>
-        <pointsize>35</pointsize>
+        <pointsize>60</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
       <property name="text">
        <string>估重模式</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btn_exit">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>黑体</family>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>退出</string>
       </property>
      </widget>
     </item>
