@@ -35,15 +35,15 @@ Train::Train(const QString rootDirPath, QWidget* parent) : QWidget(parent) {
   }
   // 通过创建Config来配置Pipeline要启用或者禁用哪些流，这里将启用深度流
   config->enableStream(profile);
-  // 打开相机的镜像模式，先判断设备是否有可读可写的权限，再进行设置
+  // 关闭相机的镜像模式，先判断设备是否有可读可写的权限，再进行设置
   const auto& device = pipe.getDevice();
   if (device->isPropertySupported(OB_PROP_DEPTH_MIRROR_BOOL,
                                   OB_PERMISSION_WRITE)) {
-    device->setBoolProperty(OB_PROP_DEPTH_MIRROR_BOOL, true);
+    device->setBoolProperty(OB_PROP_DEPTH_MIRROR_BOOL, false);
   }
   if (device->isPropertySupported(OB_PROP_COLOR_MIRROR_BOOL,
                                   OB_PERMISSION_WRITE)) {
-    device->setBoolProperty(OB_PROP_COLOR_MIRROR_BOOL, true);
+    device->setBoolProperty(OB_PROP_COLOR_MIRROR_BOOL, false);
   }
 
   connect(ui.btn_start, &QPushButton::clicked, [=]() {
@@ -145,6 +145,7 @@ cv::Mat Train::frame2Mat(const std::shared_ptr<ob::VideoFrame>& frame) {
     const double scale =
         1 / pow(2, frame->pixelAvailableBitSize() -
                        (frame_type == OB_FRAME_DEPTH ? 10 : 8));
+    //result_mat = raw_mat;
     cv::convertScaleAbs(raw_mat, result_mat, scale);
   } else if (frame_type == OB_FRAME_IR) {
     // IR image

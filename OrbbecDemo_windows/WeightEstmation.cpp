@@ -29,15 +29,15 @@ WeightEstmation::WeightEstmation(QWidget* parent)
   }
   // 通过创建Config来配置Pipeline要启用或者禁用哪些流，这里将启用深度流
   config->enableStream(profile);
-  // 打开相机的镜像模式，先判断设备是否有可读可写的权限，再进行设置
+  // 关闭相机的镜像模式，先判断设备是否有可读可写的权限，再进行设置
   const auto& device = pipe.getDevice();
   if (device->isPropertySupported(OB_PROP_DEPTH_MIRROR_BOOL,
                                   OB_PERMISSION_WRITE)) {
-    device->setBoolProperty(OB_PROP_DEPTH_MIRROR_BOOL, true);
+    device->setBoolProperty(OB_PROP_DEPTH_MIRROR_BOOL, false);
   }
   if (device->isPropertySupported(OB_PROP_COLOR_MIRROR_BOOL,
                                   OB_PERMISSION_WRITE)) {
-    device->setBoolProperty(OB_PROP_COLOR_MIRROR_BOOL, true);
+    device->setBoolProperty(OB_PROP_COLOR_MIRROR_BOOL, false);
   }
   connect(ui.btn_select, &QPushButton::clicked, [=]() {
     QString dirpath = QFileDialog::getExistingDirectory(

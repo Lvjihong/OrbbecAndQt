@@ -1,5 +1,1 @@
-﻿  train.cpp
-F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  OrbbecDemo1.1.vcxproj -> D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\OrbbecDemo1.1.exe
+﻿  OrbbecDemo1.1.vcxproj -> D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\OrbbecDemo1.1.exe
