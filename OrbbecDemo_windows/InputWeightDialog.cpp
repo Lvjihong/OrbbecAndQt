@@ -5,17 +5,24 @@ QString number[12] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "0"};
 InputWeightDialog::InputWeightDialog(QString dirpath, QWidget* parent)
     : QWidget(parent) {
   ui.setupUi(this);
+  ui.ldt_input_weight->setPlaceholderText(
+      QString::fromLocal8Bit("请输入0~200有效值"));
+
+  connect(ui.hs_bcs, SIGNAL(valueChanged(int)), SLOT(getHorValue(int)));
 
   connect(ui.buttonGroup, SIGNAL(buttonClicked(int)),
           SLOT(buttonClickResponse(int)));
+
   connect(ui.btn_confirm, &QPushButton::clicked, [=]() {
     QFile* file = new QFile(dirpath + "/weight.txt");
     bool ok = file->open(QIODevice::ReadWrite | QIODevice::Text);
+    QTextStream out(file);
     QString weight = ui.ldt_input_weight->text();
     double weight_d = weight.toDouble();
 
-    if (weight_d > 0 + EPS && weight_d < 300 + EPS) {
-      file->write(weight.toUtf8());
+    if (weight_d > 0 + EPS && weight_d < 200 + EPS) {
+      out << weight.toUtf8() << endl;
+      out << ui.label_bcs->text().toUtf8() << endl;
       file->close();
       delete file;
       emit inputOver();
@@ -73,4 +80,8 @@ void InputWeightDialog::buttonClickResponse(int key) {
   }
   ui.ldt_input_weight->setFocus();
   QApplication::sendEvent(focusWidget(), event);
+}
+
+void InputWeightDialog::getHorValue(int value) {
+  ui.label_bcs->setText(QString::number(value));
 }

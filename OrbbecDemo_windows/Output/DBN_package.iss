@@ -42,6 +42,11 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\OrbbecSDK.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\c10.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\caffe2_module_test_dynamic.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\libiomp5md.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\libiompstubs5md.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\torch.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\bin\Qt5Core.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\bin\Qt5Gui.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\bin\Qt5Widgets.dll"; DestDir: "{app}"; Flags: ignoreversion

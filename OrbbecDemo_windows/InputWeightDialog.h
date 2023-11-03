@@ -3,8 +3,9 @@
 #include <QFileDialog>
 #include <QWidget>
 #include "ui_InputDialog.h"
-
 #include <QKeyEvent>
+#include <QFile>
+#include <QTextStream>
 
 class InputWeightDialog : public QWidget {
   Q_OBJECT
@@ -13,9 +14,12 @@ class InputWeightDialog : public QWidget {
   InputWeightDialog(QString dirpath, QWidget* parent);
   InputWeightDialog(const InputWeightDialog& dialog);
   ~InputWeightDialog();
-  
-public slots:
+
+ public slots:
   void buttonClickResponse(int key);
+
+  void getHorValue(int value);
+
  signals:
   void sendMessage(QString gemfield);
   void inputOver();
@@ -25,6 +29,5 @@ public slots:
 
  private:
   Ui::InputDialog ui;
-
   QKeyEvent* event;
 };
