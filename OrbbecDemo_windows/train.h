@@ -1,12 +1,14 @@
 #pragma once
 #include <qdirmodel.h>
 #include <qpushbutton.h>
+
 #include <QCloseEvent>
 #include <QFileDialog>
 #include <libobsensor/ObSensor.hpp>
 #include <libobsensor/hpp/Frame.hpp>
 #include <opencv2/opencv.hpp>
 #include <thread>
+
 #include "InputWeightDialog.h"
 #include "libobsensor/hpp/Error.hpp"
 #include "libobsensor/hpp/Pipeline.hpp"

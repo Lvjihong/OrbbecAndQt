@@ -8,8 +8,15 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <Link>
-      <AdditionalDependencies>OrbbecSDK.lib;opencv_world480.lib;c10.lib;torch.lib;caffe2_module_test_dynamic.lib;clog.lib;cpuinfo.lib;libprotobuf.lib;libprotobuf-lite.lib;libprotoc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>OrbbecSDK.lib;opencv_world480.lib;asmjit.lib;c10.lib;caffe2_detectron_ops.lib;caffe2_module_test_dynamic.lib;
+Caffe2_perfkernels_avx.lib;Caffe2_perfkernels_avx2.lib;Caffe2_perfkernels_avx512.lib;clog.lib;cpuinfo.lib;dnnl.lib;fbgemm.lib;fbjni.lib;kineto.lib;
+libprotobuf.lib;libprotobuf-lite.lib;libprotoc.lib;mkldnn.lib;pthreadpool.lib;pytorch_jni.lib;torch.lib;torch_cpu.lib;XNNPACK.lib;%(AdditionalDependencies)		
+      </AdditionalDependencies>
     </Link>
+    <ClCompile>
+      <SDLCheck>false</SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup />
 </Project>

@@ -261,7 +261,7 @@ class RecurrentNetworkExecutorBase {
           for (string& dep_out : op_deps_[i]) {
             auto oit = outputs.find(dep_out);
             if (oit != outputs.end()) {
-              // This op produces output of the orignal op, so the dependency
+              // This op produces output of the original op, so the dependency
               // passed through that op
               outputs.erase(oit);
             }
@@ -476,7 +476,7 @@ std::unique_ptr<RecurrentNetworkExecutorBase> createRNNExecutor(
     std::string timestep_blob,
     ArgumentHelper rnn_args);
 
-class CAFFE2_API ThreadedRecurrentNetworkExecutor : public RecurrentNetworkExecutorBase {
+class TORCH_API ThreadedRecurrentNetworkExecutor : public RecurrentNetworkExecutorBase {
  public:
   ThreadedRecurrentNetworkExecutor(
       const NetDef& step_net_def,

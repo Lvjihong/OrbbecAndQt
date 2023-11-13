@@ -1,5 +1,295 @@
-﻿  train.cpp
+﻿  WeightEstmation.cpp
 F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-  OrbbecDemo1.1.vcxproj -> D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\OrbbecDemo1.1.exe
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\jit\tracer.h(289,72): warning C4273: “torch::jit::tracer::addInputs”: dll 链接不一致
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\jit\tracer.h(277,16): message : 参见“addInputs”的前一个定义
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\jit\tracer.h(296,44): warning C4273: “torch::jit::tracer::addInputs”: dll 链接不一致
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\jit\tracer.h(283,16): message : 参见“addInputs”的前一个定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\types.h(19,16): error C2371: “torch::kUInt8”: 重定义；不同的基类型
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include\torch\types.h(19): message : 参见“torch::kUInt8”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\types.h(20,16): error C2371: “torch::kInt8”: 重定义；不同的基类型
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include\torch\types.h(20): message : 参见“torch::kInt8”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\types.h(21,16): error C2371: “torch::kInt16”: 重定义；不同的基类型
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include\torch\types.h(21): message : 参见“torch::kInt16”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\types.h(22,16): error C2371: “torch::kInt32”: 重定义；不同的基类型
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include\torch\types.h(22): message : 参见“torch::kInt32”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\types.h(23,16): error C2371: “torch::kInt64”: 重定义；不同的基类型
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include\torch\types.h(23): message : 参见“torch::kInt64”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\types.h(24,16): error C2371: “torch::kFloat16”: 重定义；不同的基类型
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include\torch\types.h(24): message : 参见“torch::kFloat16”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\types.h(25,16): error C2371: “torch::kFloat32”: 重定义；不同的基类型
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include\torch\types.h(25): message : 参见“torch::kFloat32”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\types.h(26,16): error C2371: “torch::kFloat64”: 重定义；不同的基类型
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include\torch\types.h(26): message : 参见“torch::kFloat64”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\types.h(29,16): error C2371: “torch::kU8”: 重定义；不同的基类型
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include\torch\types.h(29): message : 参见“torch::kU8”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\types.h(30,16): error C2371: “torch::kI8”: 重定义；不同的基类型
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include\torch\types.h(30): message : 参见“torch::kI8”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\types.h(31,16): error C2371: “torch::kI16”: 重定义；不同的基类型
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include\torch\types.h(31): message : 参见“torch::kI16”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\types.h(32,16): error C2371: “torch::kI32”: 重定义；不同的基类型
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include\torch\types.h(32): message : 参见“torch::kI32”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\types.h(33,16): error C2371: “torch::kI64”: 重定义；不同的基类型
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include\torch\types.h(33): message : 参见“torch::kI64”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\types.h(34,16): error C2371: “torch::kF16”: 重定义；不同的基类型
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include\torch\types.h(34): message : 参见“torch::kF16”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\types.h(35,16): error C2371: “torch::kF32”: 重定义；不同的基类型
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include\torch\types.h(35): message : 参见“torch::kF32”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\types.h(36,16): error C2371: “torch::kF64”: 重定义；不同的基类型
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include\torch\types.h(36): message : 参见“torch::kF64”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\enum.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\c10\util\variant.h(1589,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(182,2): error C2953: “torch::OrderedDict”: 类模板已经定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(13): message : 参见“torch::OrderedDict”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(187,37): error C2427: “torch::OrderedDict<Key,Value>::Item”: 无法在此范围中定义类
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(187): message : 参见“torch::OrderedDict<Key,Value>::Item”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(236,2): error C2011: “torch::OrderedDict<Key,Value>::Item”:“class”类型重定义
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(187): message : 参见“torch::OrderedDict<Key,Value>::Item”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(242,5): error C2244: “torch::OrderedDict::OrderedDict”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(241): message : 参见“torch::OrderedDict::OrderedDict”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(242,5): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(242,5): message : 'torch::OrderedDict::OrderedDict(std::string)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(242,5): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(242,5): message : 'torch::OrderedDict<Key,Value>::OrderedDict(std::initializer_list<torch::OrderedDict<Key,Value>::Item>)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(242,5): message : 'torch::OrderedDict<Key,Value>::OrderedDict(torch::OrderedDict<Key,Value> &&)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(242,5): message : 'torch::OrderedDict<Key,Value>::OrderedDict(const torch::OrderedDict<Key,Value> &)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(242,5): message : 'torch::OrderedDict<Key,Value>::OrderedDict(std::string)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(246,5): error C2244: “torch::OrderedDict::OrderedDict”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(245): message : 参见“torch::OrderedDict::OrderedDict”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(246,5): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(246,5): message : 'torch::OrderedDict::OrderedDict(const torch::OrderedDict &)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(246,5): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(246,5): message : 'torch::OrderedDict<Key,Value>::OrderedDict(std::initializer_list<torch::OrderedDict<Key,Value>::Item>)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(246,5): message : 'torch::OrderedDict<Key,Value>::OrderedDict(torch::OrderedDict<Key,Value> &&)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(246,5): message : 'torch::OrderedDict<Key,Value>::OrderedDict(const torch::OrderedDict<Key,Value> &)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(246,5): message : 'torch::OrderedDict<Key,Value>::OrderedDict(std::string)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(256,31): error C2244: “torch::OrderedDict::operator =”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(255): message : 参见“torch::OrderedDict::operator =”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(256,31): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(256,31): message : 'torch::OrderedDict &torch::OrderedDict::operator =(const torch::OrderedDict &)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(256,31): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(256,31): message : 'torch::OrderedDict<Key,Value> &torch::OrderedDict<Key,Value>::operator =(torch::OrderedDict<Key,Value> &&)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(256,31): message : 'torch::OrderedDict<Key,Value> &torch::OrderedDict<Key,Value>::operator =(const torch::OrderedDict<Key,Value> &)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(269,5): error C2244: “torch::OrderedDict::OrderedDict”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(267): message : 参见“torch::OrderedDict::OrderedDict”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(269,5): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(269,5): message : 'torch::OrderedDict::OrderedDict(std::initializer_list<torch::OrderedDict<Key,Value>::Item>)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(269,5): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(269,5): message : 'torch::OrderedDict<Key,Value>::OrderedDict(std::initializer_list<torch::OrderedDict<Key,Value>::Item>)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(269,5): message : 'torch::OrderedDict<Key,Value>::OrderedDict(torch::OrderedDict<Key,Value> &&)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(269,5): message : 'torch::OrderedDict<Key,Value>::OrderedDict(const torch::OrderedDict<Key,Value> &)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(269,5): message : 'torch::OrderedDict<Key,Value>::OrderedDict(std::string)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(279,77): error C2244: “torch::OrderedDict::begin”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(279): message : 参见“torch::OrderedDict::begin”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(279,77): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(279,77): message : 'std::vector<torch::OrderedDict<Key,Value>::Item,std::allocator<torch::OrderedDict<Key,Value>::Item>>::iterator torch::OrderedDict::begin(void)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(279,77): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(279,77): message : 'std::vector<torch::OrderedDict<Key,Value>::Item,std::allocator<torch::OrderedDict<Key,Value>::Item>>::const_iterator torch::OrderedDict<Key,Value>::begin(void) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(279,77): message : 'std::vector<torch::OrderedDict<Key,Value>::Item,std::allocator<torch::OrderedDict<Key,Value>::Item>>::iterator torch::OrderedDict<Key,Value>::begin(void)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(285,11): error C2244: “torch::OrderedDict::begin”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(284): message : 参见“torch::OrderedDict::begin”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(285,11): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(285,11): message : 'std::vector<torch::OrderedDict<Key,Value>::Item,std::allocator<torch::OrderedDict<Key,Value>::Item>>::const_iterator torch::OrderedDict::begin(void) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(285,11): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(285,11): message : 'std::vector<torch::OrderedDict<Key,Value>::Item,std::allocator<torch::OrderedDict<Key,Value>::Item>>::const_iterator torch::OrderedDict<Key,Value>::begin(void) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(285,11): message : 'std::vector<torch::OrderedDict<Key,Value>::Item,std::allocator<torch::OrderedDict<Key,Value>::Item>>::iterator torch::OrderedDict<Key,Value>::begin(void)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(290,75): error C2244: “torch::OrderedDict::end”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(290): message : 参见“torch::OrderedDict::end”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(290,75): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(290,75): message : 'std::vector<torch::OrderedDict<Key,Value>::Item,std::allocator<torch::OrderedDict<Key,Value>::Item>>::iterator torch::OrderedDict::end(void)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(290,75): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(290,75): message : 'std::vector<torch::OrderedDict<Key,Value>::Item,std::allocator<torch::OrderedDict<Key,Value>::Item>>::const_iterator torch::OrderedDict<Key,Value>::end(void) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(290,75): message : 'std::vector<torch::OrderedDict<Key,Value>::Item,std::allocator<torch::OrderedDict<Key,Value>::Item>>::iterator torch::OrderedDict<Key,Value>::end(void)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(296,11): error C2244: “torch::OrderedDict::end”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(295): message : 参见“torch::OrderedDict::end”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(296,11): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(296,11): message : 'std::vector<torch::OrderedDict<Key,Value>::Item,std::allocator<torch::OrderedDict<Key,Value>::Item>>::const_iterator torch::OrderedDict::end(void) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(296,11): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(296,11): message : 'std::vector<torch::OrderedDict<Key,Value>::Item,std::allocator<torch::OrderedDict<Key,Value>::Item>>::const_iterator torch::OrderedDict<Key,Value>::end(void) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(296,11): message : 'std::vector<torch::OrderedDict<Key,Value>::Item,std::allocator<torch::OrderedDict<Key,Value>::Item>>::iterator torch::OrderedDict<Key,Value>::end(void)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(301,74): error C2244: “torch::OrderedDict::front”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(301): message : 参见“torch::OrderedDict::front”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(301,74): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(301,74): message : 'torch::OrderedDict<Key,Value>::Item &torch::OrderedDict::front(void)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(301,74): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(301,74): message : 'const torch::OrderedDict<Key,Value>::Item &torch::OrderedDict<Key,Value>::front(void) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(301,74): message : 'torch::OrderedDict<Key,Value>::Item &torch::OrderedDict<Key,Value>::front(void)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(308,11): error C2244: “torch::OrderedDict::front”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(307): message : 参见“torch::OrderedDict::front”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(308,11): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(308,11): message : 'const torch::OrderedDict<Key,Value>::Item &torch::OrderedDict::front(void) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(308,11): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(308,11): message : 'const torch::OrderedDict<Key,Value>::Item &torch::OrderedDict<Key,Value>::front(void) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(308,11): message : 'torch::OrderedDict<Key,Value>::Item &torch::OrderedDict<Key,Value>::front(void)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(314,73): error C2244: “torch::OrderedDict::back”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(314): message : 参见“torch::OrderedDict::back”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(314,73): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(314,73): message : 'torch::OrderedDict<Key,Value>::Item &torch::OrderedDict::back(void)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(314,73): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(314,73): message : 'const torch::OrderedDict<Key,Value>::Item &torch::OrderedDict<Key,Value>::back(void) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(314,73): message : 'torch::OrderedDict<Key,Value>::Item &torch::OrderedDict<Key,Value>::back(void)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(321,11): error C2244: “torch::OrderedDict::back”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(320): message : 参见“torch::OrderedDict::back”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(321,11): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(321,11): message : 'const torch::OrderedDict<Key,Value>::Item &torch::OrderedDict::back(void) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(321,11): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(321,11): message : 'const torch::OrderedDict<Key,Value>::Item &torch::OrderedDict<Key,Value>::back(void) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(321,11): message : 'torch::OrderedDict<Key,Value>::Item &torch::OrderedDict<Key,Value>::back(void)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(328,19): error C2244: “torch::OrderedDict::operator []”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(327): message : 参见“torch::OrderedDict::operator []”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(328,19): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(328,19): message : 'torch::OrderedDict<Key,Value>::Item &torch::OrderedDict::operator [](size_t)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(328,19): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(328,19): message : 'const Value &torch::OrderedDict<Key,Value>::operator [](const Key &) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(328,19): message : 'Value &torch::OrderedDict<Key,Value>::operator [](const Key &)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(328,19): message : 'const torch::OrderedDict<Key,Value>::Item &torch::OrderedDict<Key,Value>::operator [](size_t) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(328,19): message : 'torch::OrderedDict<Key,Value>::Item &torch::OrderedDict<Key,Value>::operator [](size_t)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(335,67): error C2244: “torch::OrderedDict::operator []”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(335): message : 参见“torch::OrderedDict::operator []”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(335,67): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(335,67): message : 'const torch::OrderedDict<Key,Value>::Item &torch::OrderedDict::operator [](size_t) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(335,67): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(335,67): message : 'const Value &torch::OrderedDict<Key,Value>::operator [](const Key &) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(335,67): message : 'Value &torch::OrderedDict<Key,Value>::operator [](const Key &)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(335,67): message : 'const torch::OrderedDict<Key,Value>::Item &torch::OrderedDict<Key,Value>::operator [](size_t) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(335,67): message : 'torch::OrderedDict<Key,Value>::Item &torch::OrderedDict<Key,Value>::operator [](size_t)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(341,60): error C2244: “torch::OrderedDict::operator []”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(341): message : 参见“torch::OrderedDict::operator []”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(341,60): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(341,60): message : 'Value &torch::OrderedDict::operator [](const Key &)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(341,60): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(341,60): message : 'const Value &torch::OrderedDict<Key,Value>::operator [](const Key &) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(341,60): message : 'Value &torch::OrderedDict<Key,Value>::operator [](const Key &)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(341,60): message : 'const torch::OrderedDict<Key,Value>::Item &torch::OrderedDict<Key,Value>::operator [](size_t) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(341,60): message : 'torch::OrderedDict<Key,Value>::Item &torch::OrderedDict<Key,Value>::operator [](size_t)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(349,72): error C2244: “torch::OrderedDict::operator []”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(349): message : 参见“torch::OrderedDict::operator []”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(349,72): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(349,72): message : 'const Value &torch::OrderedDict::operator [](const Key &) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(349,72): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(349,72): message : 'const Value &torch::OrderedDict<Key,Value>::operator [](const Key &) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(349,72): message : 'Value &torch::OrderedDict<Key,Value>::operator [](const Key &)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(349,72): message : 'const torch::OrderedDict<Key,Value>::Item &torch::OrderedDict<Key,Value>::operator [](size_t) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(349,72): message : 'torch::OrderedDict<Key,Value>::Item &torch::OrderedDict<Key,Value>::operator [](size_t)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(358,60): error C2244: “torch::OrderedDict::insert”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(358): message : 参见“torch::OrderedDict::insert”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(358,60): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(358,60): message : 'Value &torch::OrderedDict::insert(K &&,V &&)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(358,60): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(358,60): message : 'Value &torch::OrderedDict<Key,Value>::insert(Key,Value &&)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(358,60): message : 'Value &torch::OrderedDict<Key,Value>::insert(K &&,V &&)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(368,64): error C2244: “torch::OrderedDict::insert”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(368): message : 参见“torch::OrderedDict::insert”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(368,64): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(368,64): message : 'Value &torch::OrderedDict::insert(Key,Value &&)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(368,64): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(368,64): message : 'Value &torch::OrderedDict<Key,Value>::insert(Key,Value &&)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(368,64): message : 'Value &torch::OrderedDict<Key,Value>::insert(K &&,V &&)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(373,59): error C2244: “torch::OrderedDict::update”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(373): message : 参见“torch::OrderedDict::update”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(373,59): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(373,59): message : 'void torch::OrderedDict::update(torch::OrderedDict &&)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(373,59): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(373,59): message : 'void torch::OrderedDict<Key,Value>::update(const torch::OrderedDict<Key,Value> &)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(373,59): message : 'void torch::OrderedDict<Key,Value>::update(torch::OrderedDict<Key,Value> &&)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(382,64): error C2244: “torch::OrderedDict::update”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(382): message : 参见“torch::OrderedDict::update”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(382,64): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(382,64): message : 'void torch::OrderedDict::update(const torch::OrderedDict &)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(382,64): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(382,64): message : 'void torch::OrderedDict<Key,Value>::update(const torch::OrderedDict<Key,Value> &)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(382,64): message : 'void torch::OrderedDict<Key,Value>::update(torch::OrderedDict<Key,Value> &&)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(391,63): error C2244: “torch::OrderedDict::find”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(391): message : 参见“torch::OrderedDict::find”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(391,63): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(391,63): message : 'Value *torch::OrderedDict::find(const Key &) noexcept'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(391,63): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(391,63): message : 'const Value *torch::OrderedDict<Key,Value>::find(const Key &) noexcept const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(391,63): message : 'Value *torch::OrderedDict<Key,Value>::find(const Key &) noexcept'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(400,75): error C2244: “torch::OrderedDict::find”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(400): message : 参见“torch::OrderedDict::find”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(400,75): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(400,75): message : 'const Value *torch::OrderedDict::find(const Key &) noexcept const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(400,75): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(400,75): message : 'const Value *torch::OrderedDict<Key,Value>::find(const Key &) noexcept const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(400,75): message : 'Value *torch::OrderedDict<Key,Value>::find(const Key &) noexcept'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(409,53): error C2244: “torch::OrderedDict::erase”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(409): message : 参见“torch::OrderedDict::erase”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(409,53): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(409,53): message : 'void torch::OrderedDict::erase(const Key &)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(409,53): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(409,53): message : 'void torch::OrderedDict<Key,Value>::erase(const Key &)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(423,71): error C2244: “torch::OrderedDict::contains”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(423): message : 参见“torch::OrderedDict::contains”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(423,71): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(423,71): message : 'bool torch::OrderedDict::contains(const Key &) noexcept const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(423,71): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(423,71): message : 'bool torch::OrderedDict<Key,Value>::contains(const Key &) noexcept const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(428,39): error C2244: “torch::OrderedDict::clear”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(428): message : 参见“torch::OrderedDict::clear”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(428,39): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(428,39): message : 'void torch::OrderedDict::clear(void)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(428,39): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(428,39): message : 'void torch::OrderedDict<Key,Value>::clear(void)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(434,55): error C2244: “torch::OrderedDict::size”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(434): message : 参见“torch::OrderedDict::size”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(434,55): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(434,55): message : 'size_t torch::OrderedDict::size(void) noexcept const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(434,55): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(434,55): message : 'size_t torch::OrderedDict<Key,Value>::size(void) noexcept const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(439,57): error C2244: “torch::OrderedDict::is_empty”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(439): message : 参见“torch::OrderedDict::is_empty”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(439,57): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(439,57): message : 'bool torch::OrderedDict::is_empty(void) noexcept const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(439,57): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(439,57): message : 'bool torch::OrderedDict<Key,Value>::is_empty(void) noexcept const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(444,78): error C2244: “torch::OrderedDict::key_description”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(444): message : 参见“torch::OrderedDict::key_description”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(444,78): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(444,78): message : 'const std::string &torch::OrderedDict::key_description(void) noexcept const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(444,78): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(444,78): message : 'const std::string &torch::OrderedDict<Key,Value>::key_description(void) noexcept const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(451,36): error C2244: “torch::OrderedDict::items”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(451): message : 参见“torch::OrderedDict::items”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(451,36): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(451,36): message : 'const std::vector<torch::OrderedDict<Key,Value>::Item,std::allocator<torch::OrderedDict<Key,Value>::Item>> &torch::OrderedDict::items(void) noexcept const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(451,36): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(451,36): message : 'const std::vector<torch::OrderedDict<Key,Value>::Item,std::allocator<torch::OrderedDict<Key,Value>::Item>> &torch::OrderedDict<Key,Value>::items(void) noexcept const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(456,58): error C2244: “torch::OrderedDict::keys”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(456): message : 参见“torch::OrderedDict::keys”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(456,58): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(456,58): message : 'std::vector<T,std::allocator<_Ty>> torch::OrderedDict::keys(void) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(456,58): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(456,58): message : 'std::vector<T,std::allocator<_Ty>> torch::OrderedDict<Key,Value>::keys(void) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(466,62): error C2244: “torch::OrderedDict::values”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(466): message : 参见“torch::OrderedDict::values”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(466,62): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(466,62): message : 'std::vector<T,std::allocator<_Other>> torch::OrderedDict::values(void) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(466,62): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(466,62): message : 'std::vector<T,std::allocator<_Other>> torch::OrderedDict<Key,Value>::values(void) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(476,77): error C2244: “torch::OrderedDict::pairs”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(476): message : 参见“torch::OrderedDict::pairs”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(476,77): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(476,77): message : 'std::vector<std::pair<_Ty1,_Ty2>,std::allocator<std::pair<_Ty1,_Ty2>>> torch::OrderedDict::pairs(void) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(476,77): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(476,77): message : 'std::vector<std::pair<_Ty1,_Ty2>,std::allocator<std::pair<_Ty1,_Ty2>>> torch::OrderedDict<Key,Value>::pairs(void) const'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(486,66): error C2244: “torch::OrderedDict::reserve”: 无法将函数定义与现有的声明匹配
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(486): message : 参见“torch::OrderedDict::reserve”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(486,66): message : 定义
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(486,66): message : 'void torch::OrderedDict::reserve(size_t)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(486,66): message : 现有声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(486,66): message : 'void torch::OrderedDict<Key,Value>::reserve(size_t)'
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\nn\modules\container\sequential.h(107,1): error C2662: “size_t torch::OrderedDict<Key,Value>::size(void) noexcept const”: 不能将“this”指针从“torch::OrderedDict”转换为“const torch::OrderedDict<Key,Value> &”
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\nn\modules\container\sequential.h(107,1): message : 原因如下: 无法从“torch::OrderedDict”转换为“const torch::OrderedDict<Key,Value>”
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\nn\modules\container\sequential.h(107,22): message : 转换要求第二个用户定义的转换运算符或构造函数
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include\torch\ordered_dict.h(119,10): message : 参见“torch::OrderedDict<Key,Value>::size”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\nn\modules\container\sequential.h(108,23): error C2663: “torch::OrderedDict<Key,Value>::begin”: 2 个重载没有“this”指针的合法转换
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\nn\modules\container\sequential.h(108,23): error C2663: “torch::OrderedDict<Key,Value>::end”: 2 个重载没有“this”指针的合法转换
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\nn\modules\container\sequential.h(108,1): error C3536: “<begin>$L0”: 初始化之前无法使用
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\nn\modules\container\sequential.h(108,1): error C3536: “<end>$L0”: 初始化之前无法使用
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\nn\modules\container\sequential.h(108,35): error C2100: 非法的间接寻址
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\nn\modules\container\sequential.h(109,22): error C2672: “std::move”: 未找到匹配的重载函数
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\nn\modules\container\sequential.h(109,1): error C2780: “_OutIt std::move(_InIt,_InIt,_OutIt)”: 应输入 3 个参数，却提供了 1 个
+F:\MicrosoftVisualStudio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(4328): message : 参见“std::move”的声明
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include\torch\nn\modules\container\sequential.h(109,45): error C2672: “std::move”: 未找到匹配的重载函数

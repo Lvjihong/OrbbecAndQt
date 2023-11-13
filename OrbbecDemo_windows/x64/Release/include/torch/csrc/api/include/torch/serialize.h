@@ -1,5 +1,6 @@
 #pragma once
 
+#include <c10/util/irange.h>
 #include <torch/serialize/archive.h>
 #include <torch/serialize/tensor.h>
 #include <torch/csrc/WindowsTorchApiMacro.h>
@@ -39,7 +40,7 @@ namespace torch {
 template <typename Value, typename... SaveToArgs>
 void save(const Value& value, SaveToArgs&&... args) {
   serialize::OutputArchive archive(
-      std::make_shared<jit::script::CompilationUnit>());
+      std::make_shared<jit::CompilationUnit>());
   archive << value;
   archive.save_to(std::forward<SaveToArgs>(args)...);
 }
@@ -65,8 +66,8 @@ void save(const Value& value, SaveToArgs&&... args) {
 template <typename... SaveToArgs>
 void save(const std::vector<torch::Tensor>& tensor_vec, SaveToArgs&&... args) {
   serialize::OutputArchive archive(
-      std::make_shared<jit::script::CompilationUnit>());
-  for (size_t i = 0; i < tensor_vec.size(); i++) {
+      std::make_shared<jit::CompilationUnit>());
+  for (const auto i : c10::irange(tensor_vec.size())) {
     auto& value = tensor_vec[i];
     archive.write(c10::to_string(i), value);
   }
@@ -74,6 +75,7 @@ void save(const std::vector<torch::Tensor>& tensor_vec, SaveToArgs&&... args) {
 }
 
 TORCH_API std::vector<char> pickle_save(const torch::IValue& ivalue);
+TORCH_API torch::IValue pickle_load(const std::vector<char>& data);
 
 /// Deserializes the given `value`.
 /// There must be an overload of `operator>>` between `serialize::InputArchive`

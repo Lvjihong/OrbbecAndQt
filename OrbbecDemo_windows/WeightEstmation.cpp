@@ -1,7 +1,12 @@
 #include "WeightEstmation.h"
-
-WeightEstmation::WeightEstmation(QWidget* parent)
-    : QWidget(parent) {
+#undef slots
+#include <torch/script.h>
+#include <torch/torch.h>
+#define slots Q_SLOTS
+#include<opencv2/opencv.hpp>
+#include<opencv2/core/core.hpp>
+#include<vector>
+WeightEstmation::WeightEstmation(QWidget* parent) : QWidget(parent) {
   ui.setupUi(this);
 
   // 获取RGB相机的所有流配置，包括流的分辨率，帧率，以及帧的格式
@@ -48,6 +53,42 @@ WeightEstmation::WeightEstmation(QWidget* parent)
     if (!dir.exists()) {
       dir.mkdir(dirpath);
     }
+
+    // 加载模型
+    torch::Device device(torch::kCPU);  //定义cpu设备
+    std::string img_path = "test.png";  //测试图片路径
+    std::string model_path = "mobilenet.pt";  //模型存储的路径
+    auto module = torch::jit::load(model_path);
+    module.to(
+        device);  //模型加载到cpu上，这个模型就是一个分类的模型，我们暂时先输出类别预测的置信度。
+    auto test_image = cv::imread(img_path, -1);  //读取测试图片
+    cv::Mat norm_img;
+    cv::normalize(test_image, norm_img, 0, 255,
+                  cv::NORM_MINMAX);  //将图片归一化
+    cv::Mat input_img;
+    cv::cvtColor(norm_img, input_img, cv::COLOR_GRAY2RGB);  //变成RGB三通道
+    cv::Mat trans_img;
+    cv::resize(input_img, trans_img,
+               cv::Size(448, 448));  //模型输入大小固定为488*488
+    torch::Tensor tensor_image =
+        torch::from_blob(trans_img.data, {trans_img.rows, trans_img.cols, 3},
+                         torch::kByte);              //图片变为tensor类型
+    tensor_image = tensor_image.permute({2, 0, 1});  //转置（H,W,C）-->(C,H,W)
+    tensor_image =
+        tensor_image.toType(torch::kFloat);    //改变数据类型int-->float
+    tensor_image = tensor_image.unsqueeze(0);  //扩展维数(B,C,H,W)
+    tensor_image = tensor_image.to(device);    //将图片也加载到cpu上
+    torch::Tensor output0 =
+        module.forward({tensor_image}).toTensor();  //前向传播预测结果
+    torch::Tensor output = torch::softmax(output0[0], -1);  // softmax处理
+    torch::Tensor result =
+        std::get<0>(torch::max(output, -1));  //返回一个预测概率值的最大值
+
+    std::vector<float> res(
+        result.data_ptr<float>(),
+        result.data_ptr<float>() + result.numel());  // tensor类型变为vector类型
+    //输出float类型的值
+    ui.label_weight->setText(QString::number(res[0] * 100));
   });
   connect(ui.btn_exit, &QPushButton::clicked, [=]() {
     pipe.stop();
@@ -85,7 +126,8 @@ void WeightEstmation::showDepth() {
       // 由灰色图像转为伪彩色图像
       imgDepth = Train::frame2Mat(frame_set->depthFrame())[0];
       cv::applyColorMap(imgDepth, depthMat1, cv::COLORMAP_JET);
-      ui.label_depth->setPixmap(QPixmap::fromImage(Train::mat2QImage(depthMat1)));
+      ui.label_depth->setPixmap(
+          QPixmap::fromImage(Train::mat2QImage(depthMat1)));
     }
   } catch (const ob::Error& e) {
     pipe.stop();

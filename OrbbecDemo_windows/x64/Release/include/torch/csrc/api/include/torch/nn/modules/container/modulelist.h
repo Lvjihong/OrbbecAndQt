@@ -15,12 +15,12 @@ namespace nn {
 ///
 ///   torch::nn::ModuleList mlist(
 ///     torch::nn::Linear(3, 4),
-///     torch::nn::BatchNorm(4),
+///     torch::nn::BatchNorm1d(4),
 ///     torch::nn::Dropout(0.5)
 ///   );
 ///
-///   for (const auto &module : mlist) {
-///     module.pretty_print();
+///   for (const auto &module : *mlist) {
+///     module->pretty_print(std::cout);
 ///   }
 ///
 /// \endrst
@@ -39,7 +39,7 @@ namespace nn {
 ///
 ///   torch::nn::ModuleList mlist(
 ///     torch::nn::Linear(3, 4),
-///     torch::nn::BatchNorm(4),
+///     torch::nn::BatchNorm1d(4),
 ///     torch::nn::Dropout(0.5)
 ///   );
 ///
@@ -52,6 +52,7 @@ namespace nn {
 /// iteration over submodules, positional access, adding a new module after
 /// construction via `push_back`, as well as joining two `ModuleList`s via
 /// `extend`.
+// NOLINTNEXTLINE(bugprone-exception-escape)
 class ModuleListImpl : public Cloneable<ModuleListImpl> {
  public:
   using Iterator = std::vector<std::shared_ptr<Module>>::iterator;
@@ -74,7 +75,7 @@ class ModuleListImpl : public Cloneable<ModuleListImpl> {
     for (const auto& module : modules_) {
       clone->push_back(module->clone(device));
     }
-    return std::move(clone);
+    return clone;
   }
 
   /// `reset()` is empty for `ModuleList`, since it does not have parameters of

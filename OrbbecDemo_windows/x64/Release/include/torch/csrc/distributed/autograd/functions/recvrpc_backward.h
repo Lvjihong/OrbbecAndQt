@@ -22,7 +22,8 @@ class TORCH_API RecvRpcBackward : public torch::autograd::Node {
   explicit RecvRpcBackward(
       const AutogradMetadata& autogradMetadata,
       std::shared_ptr<DistAutogradContext> autogradContext,
-      rpc::worker_id_t fromWorkerId);
+      rpc::worker_id_t fromWorkerId,
+      rpc::DeviceMap deviceMap);
 
   torch::autograd::variable_list apply(
       torch::autograd::variable_list&& grads) override;
@@ -30,12 +31,17 @@ class TORCH_API RecvRpcBackward : public torch::autograd::Node {
  private:
   const AutogradMetadata autogradMetadata_;
 
-  // Hold a reference to the autograd context.
-  std::shared_ptr<DistAutogradContext> autogradContext_;
+  // Hold a weak reference to the autograd context to avoid circular
+  // dependencies with the context (since it holds a reference to
+  // RecvRpcBackward).
+  std::weak_ptr<DistAutogradContext> autogradContext_;
 
   // The worker id from which the RPC was received. During the backward pass,
   // we need to propagate the gradients to this workerId.
   rpc::worker_id_t fromWorkerId_;
+
+  // Device mapping for tensors sent over RPC.
+  const rpc::DeviceMap deviceMap_;
 };
 
 } // namespace autograd

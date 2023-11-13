@@ -1,5 +1,7 @@
 #include "Train.h"
+
 #include <qdatetime.h>
+
 #include <iostream>
 #include <vector>
 
@@ -109,7 +111,7 @@ QImage Train::mat2QImage(cv::Mat cvImg) {
 }
 
 std::vector<cv::Mat> Train::frame2Mat(
-  const std::shared_ptr<ob::VideoFrame>& frame) {
+    const std::shared_ptr<ob::VideoFrame>& frame) {
   const int data_size = static_cast<int>(frame->dataSize());
   if (frame == nullptr || data_size < 1024) {
     return {};
@@ -149,7 +151,7 @@ std::vector<cv::Mat> Train::frame2Mat(
     const double scale =
         1 / pow(2, frame->pixelAvailableBitSize() -
                        (frame_type == OB_FRAME_DEPTH ? 10 : 8));
-    //result_mat = raw_mat;
+    // result_mat = raw_mat;
     cv::convertScaleAbs(raw_mat, result_mat, scale);
     ret.push_back(result_mat);
     ret.push_back(raw_mat);
@@ -166,8 +168,7 @@ std::vector<cv::Mat> Train::frame2Mat(
 }
 
 // Save the depth map in png format
-void saveDepthPng(std::shared_ptr<ob::DepthFrame> depthFrame,
-                  int index,
+void saveDepthPng(std::shared_ptr<ob::DepthFrame> depthFrame, int index,
                   std::string dirPath) {
   std::vector<int> compression_params;
   compression_params.push_back(cv::IMWRITE_PNG_COMPRESSION);
@@ -183,8 +184,7 @@ void saveDepthPng(std::shared_ptr<ob::DepthFrame> depthFrame,
 }
 
 // Save the color image in png format
-void saveColorPng(std::shared_ptr<ob::ColorFrame> colorFrame,
-                  int index,
+void saveColorPng(std::shared_ptr<ob::ColorFrame> colorFrame, int index,
                   std::string dirPath) {
   std::vector<int> compression_params;
   compression_params.push_back(cv::IMWRITE_PNG_COMPRESSION);
@@ -235,12 +235,11 @@ void Train::saveOrShowAll(bool flag, QString dataPathDir) {
         depthCount++;
       } else {
       }
-      ui.label_depth->setPixmap(
-          QPixmap::fromImage(mat2QImage(depthMat1)));
+      ui.label_depth->setPixmap(QPixmap::fromImage(mat2QImage(depthMat1)));
 
       auto colorFrame = frame_set->colorFrame();
       imgRgb = frame2Mat(colorFrame).at(0);
-      
+
       if (colorCount < 30 && flag) {
         std::thread t2([=]() mutable {
           if (colorFrame->format() != OB_FORMAT_RGB) {
@@ -318,4 +317,3 @@ void Train::closeEvent(QCloseEvent* e) {
   pipe.stop();
   e->accept();
 }
-

@@ -18,6 +18,9 @@ struct CountTensors : IterArgs<CountTensors> {
   void operator()(const at::Tensor& x) {
     out += 1;
   }
+  void operator()(const c10::optional<at::Tensor>& x) {
+    out += x.has_value();
+  }
   void operator()(at::ArrayRef<at::Tensor> xs) {
     out += xs.size();
   }
@@ -52,7 +55,7 @@ template <size_t... Is>
 struct Indices {};
 
 // Decrements the index N, adds N-1 to the list of indices and forwards
-// whatever we arleady have.
+// whatever we already have.
 template <size_t N, size_t... Is>
 struct MakeIndices : MakeIndices<N - 1, N - 1, Is...> {};
 
@@ -119,6 +122,7 @@ void apply(Function function, Ts&&... ts) {
   // according to the comma operator, it is evaluated and its result (`void`)
   // is discarded. Then the zero is evaluated and used as an element in the
   // array. The first zero ensures the array is not empty.
+  // NOLINTNEXTLINE(cppcoreguidelines-avoid-c-arrays,modernize-avoid-c-arrays)
   int _[]{0, (function(std::forward<Ts>(ts)), 0)...};
   (void)_;
 }

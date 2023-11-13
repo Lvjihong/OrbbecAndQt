@@ -31,7 +31,7 @@ OrbbecDemo::OrbbecDemo(QWidget* parent) : QMainWindow(parent) {
       delete trainWindow;
       trainWindow = nullptr;
     }
-      if (estimationWindow != nullptr) {
+    if (estimationWindow != nullptr) {
       delete estimationWindow;
       estimationWindow = nullptr;
     }

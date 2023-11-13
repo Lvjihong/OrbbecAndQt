@@ -23,7 +23,7 @@ class Ui_WeightEstimation
 {
 public:
     QHBoxLayout *horizontalLayout_2;
-    QLabel *label;
+    QLabel *label_weight;
     QWidget *widget_2;
     QVBoxLayout *verticalLayout;
     QWidget *widget_3;
@@ -43,18 +43,18 @@ public:
         WeightEstimation->resize(800, 522);
         horizontalLayout_2 = new QHBoxLayout(WeightEstimation);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        label = new QLabel(WeightEstimation);
-        label->setObjectName(QString::fromUtf8("label"));
+        label_weight = new QLabel(WeightEstimation);
+        label_weight->setObjectName(QString::fromUtf8("label_weight"));
         QFont font;
         font.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
         font.setPointSize(25);
         font.setBold(true);
         font.setWeight(75);
-        label->setFont(font);
-        label->setAlignment(Qt::AlignCenter);
-        label->setWordWrap(false);
+        label_weight->setFont(font);
+        label_weight->setAlignment(Qt::AlignCenter);
+        label_weight->setWordWrap(false);
 
-        horizontalLayout_2->addWidget(label);
+        horizontalLayout_2->addWidget(label_weight);
 
         widget_2 = new QWidget(WeightEstimation);
         widget_2->setObjectName(QString::fromUtf8("widget_2"));
@@ -144,7 +144,7 @@ public:
     void retranslateUi(QWidget *WeightEstimation)
     {
         WeightEstimation->setWindowTitle(QCoreApplication::translate("WeightEstimation", "\345\244\247\345\214\227\345\206\234\344\270\223\351\241\271_\347\214\252\344\275\223\351\207\215\344\274\260\350\256\241", nullptr));
-        label->setText(QCoreApplication::translate("WeightEstimation", "0\345\205\254\346\226\244", nullptr));
+        label_weight->setText(QCoreApplication::translate("WeightEstimation", "0\345\205\254\346\226\244", nullptr));
         btn_start->setText(QCoreApplication::translate("WeightEstimation", "\345\274\200\345\247\213\344\274\260\351\207\215", nullptr));
         btn_select->setText(QCoreApplication::translate("WeightEstimation", "\351\200\211\346\213\251\346\226\207\344\273\266", nullptr));
         btn_exit->setText(QCoreApplication::translate("WeightEstimation", "\351\200\200\345\207\272", nullptr));

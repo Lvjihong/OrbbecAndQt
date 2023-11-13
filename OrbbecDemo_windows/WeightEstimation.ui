@@ -18,7 +18,7 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <item>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="label_weight">
      <property name="font">
       <font>
        <family>黑体</family>

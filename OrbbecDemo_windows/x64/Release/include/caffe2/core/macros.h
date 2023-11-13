@@ -9,8 +9,8 @@
 // as a track point for bugs, until we find a proper versioning cycle.
 
 #define CAFFE2_VERSION_MAJOR 1
-#define CAFFE2_VERSION_MINOR 4
-#define CAFFE2_VERSION_PATCH 0
+#define CAFFE2_VERSION_MINOR 10
+#define CAFFE2_VERSION_PATCH 1
 
 static_assert(
     CAFFE2_VERSION_MINOR < 100,
@@ -29,7 +29,7 @@ static_assert(
 /* #undef CAFFE2_HAS_MKL_SGEMM_PACK */
 #define CAFFE2_PERF_WITH_AVX
 #define CAFFE2_PERF_WITH_AVX2
-/* #undef CAFFE2_PERF_WITH_AVX512 */
+#define CAFFE2_PERF_WITH_AVX512
 /* #undef CAFFE2_THREADPOOL_MAIN_IMBALANCE */
 /* #undef CAFFE2_THREADPOOL_STATS */
 #define CAFFE2_USE_EXCEPTION_PTR
@@ -40,13 +40,9 @@ static_assert(
 /* #undef CAFFE2_USE_GOOGLE_GLOG */
 /* #undef CAFFE2_USE_LITE_PROTO */
 #define CAFFE2_USE_MKL
-/* #undef CAFFE2_USE_MKLDNN */
+#define CAFFE2_USE_MKLDNN
 /* #undef CAFFE2_USE_NVTX */
 /* #undef CAFFE2_USE_TRT */
-
-#ifndef USE_NUMPY
-#define USE_NUMPY
-#endif
 
 #ifndef EIGEN_MPL2_ONLY
 #define EIGEN_MPL2_ONLY
@@ -54,10 +50,16 @@ static_assert(
 
 // Useful build settings that are recorded in the compiled binary
 #define CAFFE2_BUILD_STRINGS { \
-  {"CXX_FLAGS", "/DWIN32 /D_WINDOWS  /GR  /w /EHa /MP /bigobj -openmp"}, \
+  {"TORCH_VERSION", "1.10.1"}, \
+  {"CXX_COMPILER", "C:/w/b/windows/tmp_bin/sccache-cl.exe"}, \
+  {"CXX_FLAGS", "/DWIN32 /D_WINDOWS /GR /EHsc /w /bigobj -DUSE_PTHREADPOOL -openmp:experimental -IC:/w/b/windows/mkl/include -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOCUPTI -DUSE_FBGEMM -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -DEDGE_PROFILER_USE_KINETO"}, \
   {"BUILD_TYPE", "Release"}, \
-  {"BLAS", "MKL"}, \
+  {"BLAS_INFO", "mkl"}, \
+  {"LAPACK_INFO", "mkl"}, \
   {"USE_CUDA", "0"}, \
+  {"CUDA_VERSION", ""}, \
+  {"USE_CUDNN", "OFF"}, \
+  {"CUDNN_VERSION", ""}, \
   {"USE_NCCL", "OFF"}, \
   {"USE_MPI", "OFF"}, \
   {"USE_GFLAGS", "OFF"}, \
@@ -70,16 +72,13 @@ static_assert(
   {"HAS_MKL_SGEMM_PACK", ""}, \
   {"PERF_WITH_AVX", "1"}, \
   {"PERF_WITH_AVX2", "1"}, \
-  {"PERF_WITH_AVX512", ""}, \
+  {"PERF_WITH_AVX512", "1"}, \
   {"USE_EXCEPTION_PTR", "1"}, \
   {"USE_ACCELERATE", ""}, \
   {"USE_EIGEN_FOR_BLAS", ""}, \
   {"USE_LITE_PROTO", ""}, \
   {"USE_MKL", "ON"}, \
-  {"USE_MKLDNN", "OFF"}, \
+  {"USE_MKLDNN", "ON"}, \
   {"USE_NVTX", ""}, \
   {"USE_TRT", ""}, \
-  {"DISABLE_NUMA", "1"},   \
-  {"BUILD_NAMEDTENSOR", "OFF"},   \
-  {"USE_STATIC_DISPATCH", "OFF"},   \
 }

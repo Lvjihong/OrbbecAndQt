@@ -2,15 +2,69 @@
 
 #include <ATen/core/stack.h>
 #include <c10/util/TypeList.h>
-#include <ATen/core/boxing/kernel_functor.h>
-#include <ATen/core/boxing/kernel_function.h>
-#include <ATen/core/boxing/kernel_lambda.h>
 
 namespace c10 {
 
-namespace detail {
-template<class Return, class... Args> struct boxAndCallBoxedFunc;
-}
+using Stack = torch::jit::Stack; // TODO Instead of this, move torch::jit::Stack to the c10 namespace.
+
+class OperatorHandle;
+struct OperatorKernel;
+
+// This kernel implements the behavior of falling through to the next available
+// registered dispatch key.  The implementation of this function is FAST; it is
+// no overhead to fallthrough to the next key.  See cpp file for some more
+// implementation notes; notably, this does NOT actually go through the
+// boxing/unboxing codepath.
+TORCH_API void fallthrough_kernel(OperatorKernel*, const OperatorHandle&, DispatchKeySet, Stack*);
+
+// Note [Ambiguity in AutogradOther kernel]
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// This error-reporting kernel is registered to the AutogradOther entry in the
+// dispatch table when there is both a CompositeImplicitAutograd kernel and a
+// backend kernel for ANY backend that maps to AutogradOther.  To see why
+// this is necessary in the AutogradOther case, it's helpful to first see
+// why everything works out fine for a backend that has a reserved Autograd
+// entry (see rule 2.2 in [Note] DispatchTable computation):
+//
+//    CPU   AutogradCPU
+//    reg?  registers with...
+//    -------------------------------------------------
+//    y     Autograd registration takes precedence
+//          over CompositeImplicitAutograd.
+//          This is good, because the CPU specific backend
+//          implementation is more specialized and typically better;
+//          if we used the composite, we would bypass it.
+//          (NB: the Autograd key is guaranteed to exist because
+//          the autograd codegen requires it!)
+//
+//    n     CompositeImplicitAutograd takes precedence.
+//          This is also good, because the Autograd
+//          registration (if it exists) would try to redispatch
+//          to the (non-existent) CPU implementation; by
+//          using the composite, we ensure the operator
+//          actually works.
+//
+// As you can see, when we have a specific Autograd key (AutogradCPU), we can
+// decide whether or not to use the CompositeImplicitAutograd kernel or the
+// Autograd kernel based on whether or not the backend kernel exists.
+//
+// However, for AutogradOther (which is the catchall autograd kernel for
+// everything that doesn't have a specific Autograd key), we can't do this
+// trick because there isn't any unique backend to peek at to disambiguate;
+// if there are some backends that have implementations they prefer Autograd,
+// but unimplemented backends would prefer CompositeImplicitAutograd.  Rather
+// than arbitrarily pick one or the other, we just register a kernel that raises
+// an error and let the user decide how to proceed.
+TORCH_API void ambiguous_autogradother_kernel(OperatorKernel*, const OperatorHandle&, DispatchKeySet, Stack*);
+
+// Note [named_not_supported_kernel]
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// This kernel implements reporting an error message saying that named tensor is
+// not supported.  This kernel doesn't rely on the Stack, and so it is special
+// cased in the dispatcher to be triggered before we attempt boxing (so we can
+// give a good error message in cases when boxing is not supported).  When
+// boxing is universally supported this can be removed.
+[[noreturn]] TORCH_API void named_not_supported_kernel(OperatorKernel*, const OperatorHandle&, DispatchKeySet, Stack*);
 
 /**
  * KernelFunction is similar to std::function but stores a kernel function.
@@ -18,21 +72,45 @@ template<class Return, class... Args> struct boxAndCallBoxedFunc;
  * and call it in a boxed or unboxed way. If the way it was created doesn't
  * match the way it was called, it will do boxing or unboxing as necessary.
  */
-class CAFFE2_API KernelFunction final {
+class TORCH_API KernelFunction final {
 public:
-  using BoxedKernelFunction = void(OperatorKernel*, Stack*);
+  // This is how boxed kernels are actually stored
+  //
+  // Note [Plumbing Keys Through The Dispatcher]
+  // Benchmarks have shown that it is expensive for the dispatcher to read from thread-local storage (TLS)
+  // upon every dispatch call into order to compute which kernel to dispatch to.
+  //
+  // To mitigate this, we've updated the calling convention inside the dispatcher to expect every kernel that it stores
+  // to have a first argument of type DispatchKeySet.
+  //
+  // What are the invariants of the DispatchKeySet when it gets passed to a kernel?
+  // - All keys to the left of the current dispatch key have been masked out.
+  //   (e.g. a Tracing kernel that takes in the DispatchKeySet will expect the highest bit to be DispatchKey::Tracer)
+  // - All other keys that dispatcher normally would have computed through TLS + global state + op arguments
+  //   are still in the set.
+  //
+  // Kernels can then opt into using this keyset to save the dispatcher from doing repeated work during redispatches:
+  // recalculating the highest-priority dispatch key, which involves reading from TLS. Instead, the kernels that opt in will
+  // calculate an updated DispatchKeySet directly from the old one, and pass the updated set directly into the dispatcher
+  // upon redispatching.
+  //
+  // This is an opt-in mechanism: Kernels can automatically opt in by setting the first argument in their signature
+  // to be of type DispatchKeySet. See the kernels in VariableTypeEverything.cpp and TraceTypeEverything.cpp for examples.
+  //
+  // The mechanism for optionally passing that DispatchKeySet into the kernel lives in make_boxed_from_unboxed_functor.h.
+  // See Note [Plumbing Keys Through The Dispatcher 2] for details.
+  using InternalBoxedKernelFunction = void(OperatorKernel*, const OperatorHandle&, DispatchKeySet, Stack*);
+  // This is the public API for how boxed kernels are defined
+  using BoxedKernelFunction = void(const OperatorHandle&, Stack*);
+  using BoxedKernelFunction_withDispatchKeys = void(const OperatorHandle&, DispatchKeySet, Stack*);
 
-  KernelFunction()
-  : functorFactory_()
-  , functor_(nullptr)
-  , boxed_kernel_func_(nullptr)
-  , unboxed_kernel_func_(nullptr)
-  {}
+  KernelFunction();
 
-  bool isValid() const {
-    // TODO We want to introduce the invariant that all kernels must be callable in a boxed way, then this should only check boxed_kernel_func_.
-    return boxed_kernel_func_ != nullptr || unboxed_kernel_func_ != nullptr;
-  }
+  // Fast path for dispatch to allow not touching the boxed kernel in
+  // the common case where unboxed is available.
+  bool isValidUnboxed() const;
+  bool isValid() const;
+  bool isFallthrough() const;
 
   /**
    * Call the function in a boxed way.
@@ -52,51 +130,7 @@ public:
    * >      [] (Tensor a, bool b) -> Tensor {...});
    * > Tensor result = func.callBoxed(stack);
    */
-  void callBoxed(Stack* stack) const {
-    if (C10_UNLIKELY(boxed_kernel_func_ == nullptr)) {
-      if (unboxed_kernel_func_ == nullptr) {
-        TORCH_INTERNAL_ASSERT(false, "Tried to call KernelFunction::callBoxed() on an uninitialized KernelFunction.");
-      } else {
-        // TODO We want to introduce the invariant that all kernels must be callable in a boxed way, then this case should be impossible.
-        TORCH_INTERNAL_ASSERT(false, "Tried to call KernelFunction::callBoxed() on a KernelFunction that can only be called with KernelFunction::callUnboxed().");
-      }
-    }
-
-    (*boxed_kernel_func_)(getFunctor_(), stack);
-  }
-
-  /**
-   * Call the function in an unboxed way.
-   * As the "Only" in the name suggests, this only works for KernelFunctions
-   * that are backed by an unboxed kernel. If the KernelFunction was created
-   * in a boxed way, this will fail (also see KernelFunction::callUnboxed()).
-   *
-   * KernelFunction::callUnboxed() is generally better, since it will allow
-   * calling KernelFunctions that are backed by either boxed or unboxed
-   * kernels, but that one will not work for all types.
-   *
-   * Example:
-   *
-   * > KernelFunction func = KernelFunction::makeFromUnboxedLambda(
-   * >      [] (Tensor a, bool b) -> Tensor {...});
-   * > Tensor result = func.callUnboxedOnly<Tensor, Tensor, bool>(tensor1, true);
-   */
-  template<class Return, class... Args>
-  Return callUnboxedOnly(Args... args) const {
-    // note: Args above is intentionally not Args&&. We don't want perfect
-    // forwarding, which would require Args to be deduced, but instead we
-    // want callers to explicitly specify the Args.
-
-    // TODO Remove this function once all kernels support a boxed variant
-
-    if (C10_LIKELY(unboxed_kernel_func_ != nullptr)) {
-      using ActualSignature = Return (OperatorKernel*, Args...);
-      ActualSignature* func = reinterpret_cast<ActualSignature*>(unboxed_kernel_func_);
-      return (*func)(getFunctor_(), std::forward<Args>(args)...);
-    }
-
-    TORCH_INTERNAL_ASSERT(false, "Tried to call KernelFunction::callUnboxedOnly() for a kernel that doesn't have an unboxed version.");
-  }
+  void callBoxed(const OperatorHandle& opHandle, DispatchKeySet dispatchKeySet, Stack* stack) const;
 
   /**
    * Call the function in an unboxed way.
@@ -109,29 +143,16 @@ public:
    *
    * > KernelFunction func = KernelFunction::makeFromUnboxedLambda(
    * >      [] (Tensor a, bool b) -> Tensor {...});
-   * > Tensor result = func.callUnboxed<Tensor, Tensor, bool>(tensor1, true);
+   * > Tensor result = func.call<Tensor, Tensor, bool>(tensor1, true);
    *
    * Or, with a boxed implementation:
    *
    * > void boxed_func(OperatorKernel*, Stack* stack) {...}
    * > KernelFunction func = KernelFunction::makeFromBoxedFunction(&boxed_func);
-   * > Tensor result = func.callUnboxed<Tensor, Tensor, bool>(tensor1, true);
+   * > Tensor result = func.call<Tensor, Tensor, bool>(tensor1, true);
    */
   template<class Return, class... Args>
-  Return callUnboxed(Args... args) const {
-    // note: Args above is intentionally not Args&&. We don't want perfect
-    // forwarding, which would require Args to be deduced, but instead we
-    // want callers to explicitly specify the Args.
-
-    if (C10_LIKELY(unboxed_kernel_func_ != nullptr)) {
-      using ActualSignature = Return (OperatorKernel*, Args...);
-      ActualSignature* func = reinterpret_cast<ActualSignature*>(unboxed_kernel_func_);
-      return (*func)(getFunctor_(), std::forward<Args>(args)...);
-    }
-
-    TORCH_INTERNAL_ASSERT(boxed_kernel_func_ != nullptr, "Tried to call KernelFunction::callUnboxed() on an uninitialized KernelFunction.");
-    return detail::boxAndCallBoxedFunc<Return, Args...>::call(boxed_kernel_func_, getFunctor_(), std::forward<Args>(args)...);
-  }
+  Return call(const OperatorHandle& opHandle, DispatchKeySet dispatchKeySet, Args... args) const;
 
   /**
    * Create a KernelFunction from a boxed function.
@@ -139,107 +160,45 @@ public:
    * Example:
    *
    * > void boxed_func(OperatorKernel*, Stack* stack) {...}
-   * > KernelFunction func = KernelFunction::makeFromBoxedFunction(&boxed_func);
+   * > KernelFunction func = KernelFunction::makeFromBoxedFunction<&boxed_func>();
    */
-  static KernelFunction makeFromBoxedFunction(BoxedKernelFunction* func) {
-    return KernelFunction(
-      nullptr,  // no functorFactory_, this can only be called in a boxed way.
-      nullptr,  // no functor_ object either
-      func,
-      nullptr  // no unboxed function pointer
-    );
-  }
+  template<BoxedKernelFunction* func>
+  static KernelFunction makeFromBoxedFunction();
+
+  /**
+   * TODO: This will only be useful if we write a backend fallback that plumbs dispatch keys (currently there are none)
+   * See Note [Plumbing Keys Through The Dispatcher] for details.
+   */
+  template<BoxedKernelFunction_withDispatchKeys* func>
+  static KernelFunction makeFromBoxedFunction();
 
   /**
    * Create a KernelFunction from an unboxed functor.
    *
    * Example:
    *
-   * > class MyFunctor final {
+   * > class MyFunctor final : public c10::OperatorKernel {
    * >   public:
    * >     Tensor operator()(Tensor a, Tensor b) {...}
    * > };
-   * > KernelFunction func = KernelFunction::makeFromUnboxedFunctor(guts::make_unique<MyFunctor>());
+   * > KernelFunction func = KernelFunction::makeFromUnboxedFunctor<MyFunctor>(std::make_unique<MyFunctor>());
    */
   template<bool AllowLegacyTypes = false, class KernelFunctor>
-  static KernelFunction makeFromUnboxedFunctor(std::unique_ptr<OperatorKernel> kernelFunctor) {
-    static_assert(guts::is_functor<KernelFunctor>::value, "Tried to call KernelFunction::makeFromUnboxedFunctor<KernelFunctor> but the argument is not a functor.");
-    static_assert(std::is_base_of<OperatorKernel, KernelFunctor>::value, "Tried to call KernelFunction::makeFromUnboxedFunctor<KernelFunctor>, but the functor doesn't inherit from c10::OperatorKernel. Please have the functor inherit from it.");
-
-    return KernelFunction(
-      nullptr, // no functorFactory_ because we already have the functor_
-      std::move(kernelFunctor),
-      &detail::wrap_kernel_functor_boxed<KernelFunctor, AllowLegacyTypes>::call,
-      reinterpret_cast<void*>(&detail::wrap_kernel_functor_unboxed<KernelFunctor>::call)
-    );
-  }
+  static KernelFunction makeFromUnboxedFunctor(std::unique_ptr<OperatorKernel> kernelFunctor);
 
   /**
-   * Create a KernelFunction from an unboxed functor and delay functor creation
-   * until the first call to the KernelFunction. This is useful for functors
-   * that are registered at static initialization time but can't be created
-   * there yet. For example, we want to allow functors to store Tensor members
-   * (we can't create Tensor objects at static initialization time because of SIOF)
-   * but these functors are registered as kernels at static initialization time.
-   * Using this method, we can delay functor instantiation until the operator
-   * is called for the first time.
+   * Create a KernelFunction from a boxed functor.
    *
    * Example:
    *
-   * > class MyFunctor final {
+   * > class MyFunctor final : public c10::OperatorKernel {
    * >   public:
-   * >     Tensor operator()(Tensor a, Tensor b) {...}
+   * >     void operator()(const OperatorHandle&, DispatchKeySet, Stack*) {...}
    * > };
-   * > KernelFunction func = KernelFunction::makeFromUnboxedFunctor([] {
-   * >   return guts::make_unique<MyFunctor>();
-   * > });
-   */
-  template<class KernelFunctor, bool AllowLegacyTypes = false>
-  static KernelFunction makeFromUnboxedFunctorFactory(std::function<std::unique_ptr<OperatorKernel>()> kernelFunctorFactory) {
-    static_assert(guts::is_functor<KernelFunctor>::value, "Tried to call KernelFunction::makeFromUnboxedFunctor<KernelFunctor> but the argument is not a functor.");
-    static_assert(std::is_base_of<OperatorKernel, KernelFunctor>::value, "Tried to call KernelFunction::makeFromUnboxedFunctor<KernelFunctor>, but the functor doesn't inherit from c10::OperatorKernel. Please have the functor inherit from it.");
-
-    return KernelFunction(
-      std::move(kernelFunctorFactory),
-      nullptr, // delay creation of functor_ (it will be created by calling functorFactory_ later)
-      &detail::wrap_kernel_functor_boxed<KernelFunctor, AllowLegacyTypes>::call,
-      reinterpret_cast<void*>(&detail::wrap_kernel_functor_unboxed<KernelFunctor>::call)
-    );
-  }
-
-  /**
-   * Create a KernelFunction from an unboxed functor and prevent creation of an
-   * unboxing-wrapper. This means that you can only call this KernelFunction
-   * using KernelFunction::callUnboxedOnly(), not using KernelFunction::callBoxed()
-   * or KernelFunction::callUnboxed().
-   *
-   * This is necessary because our unboxing wrappers don't work for all types
-   * yet, so if you want to use one of these types as function arguments,
-   * you need to use makeFromUnboxedOnlyFunctor.
-   *
-   * Example:
-   *
-   * > class MyFunctor final {
-   * >   public:
-   * >     Tensor operator()(Tensor a, Tensor b) {...}
-   * > };
-   * > KernelFunction func = KernelFunction::makeFromUnboxedOnlyFunctor(guts::make_unique<MyFunctor>());
+   * > KernelFunction func = KernelFunction::makeFromBoxedFunctor(std::make_unique<MyFunctor>());
    */
   template<class KernelFunctor>
-  static KernelFunction makeFromUnboxedOnlyFunctor(std::unique_ptr<OperatorKernel> kernelFunctor) {
-    // TODO We want to get rid of kernels that have only an unboxed function pointer.
-    //      All kernels should have a boxed pointer.
-
-    static_assert(guts::is_functor<KernelFunctor>::value, "Tried to call KernelFunction::makeFromUnboxedFunctor<KernelFunctor> but the argument is not a functor.");
-    static_assert(std::is_base_of<OperatorKernel, KernelFunctor>::value, "Tried to call KernelFunction::makeFromUnboxedFunctor<KernelFunctor>, but the functor doesn't inherit from c10::OperatorKernel. Please have the functor inherit from it.");
-
-    return KernelFunction(
-      nullptr, // no functorFactory_ because we already have the functor_
-      std::move(kernelFunctor),
-      nullptr, // Don't create a boxed kernel for this
-      reinterpret_cast<void*>(&detail::wrap_kernel_functor_unboxed<KernelFunctor>::call)
-    );
-  }
+  static KernelFunction makeFromBoxedFunctor(std::unique_ptr<KernelFunctor> kernelFunctor);
 
   /**
    * Create a KernelFunction from an unboxed function.
@@ -253,45 +212,8 @@ public:
    * > Tensor unboxed_func(Tensor a, Tensor b) {...}
    * > KernelFunction func = KernelFunction::makeFromUnboxedFunction<decltype(unboxed_func), &unboxed_func>();
    */
-  template<class FuncType, FuncType* func, bool AllowLegacyTypes = false>
-  static KernelFunction makeFromUnboxedFunction() {
-    static_assert(guts::is_function_type<FuncType>::value, "Tried to call KernelFunction::makeFromUnboxedFunction with invalid template parameters. They must be <FuncType, *func_ptr>.");
-    static_assert(!std::is_same<FuncType, BoxedKernelFunction>::value, "Tried to call KernelFunction::makeFromUnboxedFunction with a boxed function pointer. Please use KernelFunction::makeFromBoxedFunction instead.");
-    static_assert(func != nullptr, "Kernel function cannot be nullptr");
-
-    return makeFromUnboxedFunctor<AllowLegacyTypes, typename detail::WrapKernelFunction<FuncType, func>::type>(
-      guts::make_unique_base<OperatorKernel, typename detail::WrapKernelFunction<FuncType, func>::type>()
-    );
-  }
-
-  /**
-   * Create a KernelFunction from an unboxed function and prevent creation of an
-   * unboxing-wrapper. This means that you can only call this KernelFunction
-   * using KernelFunction::callUnboxedOnly(), not using KernelFunction::callBoxed()
-   * or KernelFunction::callUnboxed().
-   *
-   * This is necessary because our unboxing wrappers don't work for all types
-   * yet, so if you want to use one of these types as function arguments,
-   * you need to use makeFromUnboxedOnlyFunctor.
-   *
-   * Example:
-   *
-   * > Tensor unboxed_func(Tensor a, Tensor b) {...}
-   * > KernelFunction func = KernelFunction::makeFromUnboxedOnlyFunction<decltype(unboxed_func), &unboxed_func>();
-   */
-  template<class FuncType, FuncType* func>
-  static KernelFunction makeFromUnboxedOnlyFunction() {
-    // TODO We want to get rid of kernels that have only an unboxed function pointer.
-    //      All kernels should have a boxed pointer.
-
-    static_assert(guts::is_function_type<FuncType>::value, "Tried to call KernelFunction::makeFromUnboxedOnlyFunction with invalid template parameters. They must be <FuncType, *func_ptr>.");
-    static_assert(!std::is_same<FuncType, BoxedKernelFunction>::value, "Tried to call KernelFunction::makeFromUnboxedOnlyFunction with a boxed function pointer. Please use KernelFunction::makeFromBoxedFunction instead.");
-    static_assert(func != nullptr, "Kernel function cannot be nullptr");
-
-    return makeFromUnboxedOnlyFunctor<typename detail::WrapKernelFunction<FuncType, func>::type> (
-      guts::make_unique_base<OperatorKernel, typename detail::WrapKernelFunction<FuncType, func>::type>()
-    );
-  }
+  template<class FuncPtr, bool AllowLegacyTypes = false>
+  static KernelFunction makeFromUnboxedFunction(FuncPtr);
 
   /**
    * Create a KernelFunction from an unboxed function.
@@ -305,26 +227,17 @@ public:
    * > KernelFunction func = KernelFunction::makeFromUnboxedRuntimeFunction(&unboxed_func);
    */
   template<bool AllowLegacyTypes = false, class FuncType>
-  static KernelFunction makeFromUnboxedRuntimeFunction(FuncType* func) {
-    static_assert(guts::is_function_type<FuncType>::value, "Tried to call KernelFunction::makeFromUnboxedRuntimeFunction with a non-function type.");
-    static_assert(!std::is_same<FuncType, BoxedKernelFunction>::value, "Tried to call KernelFunction::makeFromUnboxedRuntimeFunction with a boxed function pointer. Please use KernelFunction::makeFromBoxedFunction instead.");
-    TORCH_INTERNAL_ASSERT(func != nullptr, "Kernel function cannot be nullptr");
+  static KernelFunction makeFromUnboxedRuntimeFunction(FuncType* func);
 
-    return makeFromUnboxedFunctor<AllowLegacyTypes, detail::WrapRuntimeKernelFunctor<guts::decay_t<FuncType>>>(
-      guts::make_unique_base<OperatorKernel, detail::WrapRuntimeKernelFunctor<guts::decay_t<FuncType>>>(func)
-    );
-  }
+  static KernelFunction makeFallthrough();
+  static KernelFunction makeAmbiguousAutogradOther();
+  static KernelFunction makeNamedNotSupported();
 
-  template<class FuncType>
-  static KernelFunction makeFromUnboxedOnlyRuntimeFunction(FuncType* func) {
-    static_assert(guts::is_function_type<FuncType>::value, "Tried to call KernelFunction::makeFromUnboxedRuntimeFunction with a non-function type.");
-    static_assert(!std::is_same<FuncType, BoxedKernelFunction>::value, "Tried to call KernelFunction::makeFromUnboxedRuntimeFunction with a boxed function pointer. Please use KernelFunction::makeFromBoxedFunction instead.");
-    TORCH_INTERNAL_ASSERT(func != nullptr, "Kernel function cannot be nullptr");
+  template<BoxedKernelFunction* func>
+  static void make_boxed_function(OperatorKernel*, const OperatorHandle& opHandle, DispatchKeySet, Stack* stack);
 
-    return makeFromUnboxedOnlyFunctor<detail::WrapRuntimeKernelFunctor<guts::decay_t<FuncType>>>(
-      guts::make_unique_base<OperatorKernel, detail::WrapRuntimeKernelFunctor<guts::decay_t<FuncType>>>(func)
-    );
-  }
+  template<BoxedKernelFunction_withDispatchKeys* func>
+  static void make_boxed_function(OperatorKernel*, const OperatorHandle& opHandle, DispatchKeySet, Stack* stack);
 
   /**
    * Create a KernelFunction from an unboxed lambda.
@@ -335,74 +248,26 @@ public:
    * >      [] (Tensor a, bool b) -> Tensor {...});
    */
   template<bool AllowLegacyTypes = false, class Lambda>
-  static KernelFunction makeFromUnboxedLambda(Lambda&& lambda) {
-    static_assert(guts::is_functor<guts::decay_t<Lambda>>::value, "Tried to call KernelFunction::makeFromUnboxedLambda with a non-lambda type.");
+  static std::enable_if_t<guts::is_stateless_lambda<std::decay_t<Lambda>>::value, KernelFunction> makeFromUnboxedLambda(Lambda&& lambda);
+  template<bool AllowLegacyTypes = false, class Lambda>
+  static std::enable_if_t<!guts::is_stateless_lambda<std::decay_t<Lambda>>::value, KernelFunction> makeFromUnboxedLambda(Lambda&& lambda);
 
-    return makeFromUnboxedFunctor<AllowLegacyTypes, detail::WrapRuntimeKernelFunctor<guts::decay_t<Lambda>>>(
-      guts::make_unique_base<OperatorKernel, detail::WrapRuntimeKernelFunctor<guts::decay_t<Lambda>>>(std::forward<Lambda>(lambda))
-    );
-  }
+  std::string dumpState() const;
+  // For testing internal invariants only
+  bool _equalsBoxedAndUnboxed(const KernelFunction&) const;
 
 private:
 
-  explicit KernelFunction(std::function<std::unique_ptr<OperatorKernel>()> functorFactory, std::unique_ptr<OperatorKernel> functor, BoxedKernelFunction* boxed_kernel_func, void* unboxed_kernel_func)
-  : functorFactory_(std::move(functorFactory))
-  , functor_(std::move(functor))
-  , boxed_kernel_func_(boxed_kernel_func)
-  , unboxed_kernel_func_(unboxed_kernel_func)
-  {}
+  explicit KernelFunction(std::unique_ptr<OperatorKernel> functor, InternalBoxedKernelFunction* boxed_kernel_func, void* unboxed_kernel_func);
 
-  OperatorKernel* getFunctor_() const {
-    if (functor_.get() == nullptr) {
-      if (!functorFactory_) {
-        return nullptr;
-      }
-      functor_ = functorFactory_();
-    }
-    return functor_.get();
-  }
+  OperatorKernel* getFunctor_() const;
 
-  // If the operator has an unboxed_kernel_func, then either
-  // functorFactory_ or functor_ must be set, possibly both.
-  // If functor_ is not set but functorFactory_ is, we will create
-  // functor_ by calling functorFactory_ the first time it is needed.
-  // We use this indirection because many KernelFunctions are created
-  // at static initialization time but are created with functors that
-  // store Tensor and we can't call the Tensor() constructor at static
-  // initialization time yet (SIOF). So these register with a
-  // functorFactory_ instead of a functor_ and will be initialized
-  // on the first call to the KernelFunction.
-  std::function<std::unique_ptr<OperatorKernel>()> functorFactory_;
-  mutable std::shared_ptr<OperatorKernel> functor_;
+  std::shared_ptr<OperatorKernel> functor_;
 
-  BoxedKernelFunction* boxed_kernel_func_;
+  InternalBoxedKernelFunction* boxed_kernel_func_;
   void* unboxed_kernel_func_;
 };
 
-namespace detail {
-template<class Return, class... Args>
-struct boxAndCallBoxedFunc final {
-  static Return call(KernelFunction::BoxedKernelFunction* boxed_kernel_func, OperatorKernel* functor, Args... args) {
-    // TODO Reuse stack vector instead of allocating?
-    std::vector<IValue> stack {std::forward<Args>(args)...};
-
-    (*boxed_kernel_func)(functor, &stack);
-
-    TORCH_INTERNAL_ASSERT(stack.size() == 1, "A boxed kernel should only push one return to the stack");
-    return std::move(stack[0]).to<Return>();
-  }
-};
-template<class... Args>
-struct boxAndCallBoxedFunc<void, Args...> final {
-  static void call(KernelFunction::BoxedKernelFunction* boxed_kernel_func, OperatorKernel* functor, Args... args) {
-    // TODO Reuse stack vector instead of allocating?
-    std::vector<IValue> stack {std::forward<Args>(args)...};
-
-    (*boxed_kernel_func)(functor, &stack);
-
-    TORCH_INTERNAL_ASSERT(stack.size() == 0, "A boxed kernel returned a value but when we called it with KernelFunction::callUnboxed, we expected it to return void.");
-  }
-};
 }
 
-}
+#include <ATen/core/boxing/KernelFunction_impl.h>

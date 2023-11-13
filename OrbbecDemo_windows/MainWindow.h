@@ -4,8 +4,10 @@
 #pragma comment(lib, "opencv_world480.lib")
 #endif
 #include <qpushbutton.h>
+
 #include <QFileDialog>
 #include <QtWidgets/QMainWindow>
+
 #include "Train.h"
 #include "WeightEstmation.h"
 #include "ui_MainWindow.h"
@@ -15,6 +17,7 @@ class OrbbecDemo : public QMainWindow {
  signals:
   void trainWindowShowed(bool flag, QString dir);
   void estimationWindowShowed();
+
  public:
   OrbbecDemo(QWidget* parent = nullptr);
   OrbbecDemo(const OrbbecDemo& window);

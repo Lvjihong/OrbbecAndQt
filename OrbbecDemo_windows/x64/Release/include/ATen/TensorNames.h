@@ -1,11 +1,9 @@
 #pragma once
 
-#include <ATen/core/EnableNamedTensor.h>
 #include <ATen/WrapDimUtils.h>
 
 namespace at { namespace namedinference {
 
-#ifdef BUILD_NAMEDTENSOR
 
 // TensorName and TensorNames are wrappers around Dimname and DimnameList
 // that contain helper functions to make writing name inference rules easier.
@@ -28,7 +26,7 @@ namespace at { namespace namedinference {
 // None (in tensor) cannot match A (in other) because if the None were refined
 // to A, `tensor` would have duplicate names [A, A]. Therefore we need to check
 // tensor.names [A, None] for the existence of A.
-struct CAFFE2_API TensorName {
+struct TORCH_API TensorName {
   explicit TensorName(ArrayRef<Dimname> origin, int origin_idx)
     : origin_(origin),
       name_(origin[maybe_wrap_dim(origin_idx, origin.size())]),
@@ -43,14 +41,14 @@ struct CAFFE2_API TensorName {
   Dimname name_;
   int origin_idx_; // A named tensor can have at most 64 dims.
 
-  CAFFE2_API friend std::ostream& operator<<(
+  TORCH_API friend std::ostream& operator<<(
       std::ostream& out,
       const TensorName& tensorname);
 };
 
 using TensorNameVec = SmallVector<TensorName, 10>;
 
-struct CAFFE2_API TensorNames {
+struct TORCH_API TensorNames {
   explicit TensorNames(ArrayRef<Dimname> names);
 
   // Create TensorNames from names[start:end]. Each individual TensorName stores
@@ -72,6 +70,5 @@ struct CAFFE2_API TensorNames {
   TensorNameVec names_;
 };
 
-#endif
 
 }} // namespace at::namedinference

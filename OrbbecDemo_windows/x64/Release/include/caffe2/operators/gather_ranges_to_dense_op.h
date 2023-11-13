@@ -5,14 +5,18 @@
 
 #include "caffe2/core/common_omp.h"
 #include "caffe2/core/context.h"
+#include "caffe2/core/export_caffe2_op_to_c10.h"
 #include "caffe2/core/logging.h"
 #include "caffe2/core/operator.h"
 #include "caffe2/core/types.h"
 #include "caffe2/utils/math.h"
+#include "caffe2/utils/proto_utils.h"
 
 #include <cstring>
 #include <map>
 #include <utility>
+
+C10_DECLARE_EXPORT_CAFFE2_OP_TO_C10(GatherRangesToDense);
 
 namespace caffe2 {
 template <class Context>
@@ -28,7 +32,9 @@ class GatherRangesToDenseOp final : public Operator<Context> {
             10000)),
         maxMismatchedRatio_(this->template GetSingleArgument<float>(
             "max_mismatched_ratio",
-            0.01)) {
+            0.01)),
+        maxEmptyRatio_(
+            this->template GetSingleArgument<float>("max_empty_ratio", 1.0)) {
     CAFFE_ENFORCE_GT(lengths_.size(), 0, "There has to be at least one length");
     for (auto length : lengths_) {
       CAFFE_ENFORCE_GT(length, 0, "Each length should be positive");
@@ -39,18 +45,27 @@ class GatherRangesToDenseOp final : public Operator<Context> {
     for (int i = 0; i < OutputSize(); ++i) {
       emptyRanges_.push_back(0);
       mismatchedRanges_.push_back(0);
+      mismatchedLengths_.push_back(set<int>());
     }
   }
 
   ~GatherRangesToDenseOp() noexcept override {
     if (totalRanges_ > minObservation_) {
+      string debugString;
+      if (this->has_debug_def()) {
+        debugString =
+            "Info from operator: " + ProtoDebugString(this->debug_def());
+      } else {
+        debugString = "Info from operator: no op def";
+      }
+
       LOG(INFO) << "In GatherRangesToDenseOp:\n"
                 << "  Lifetime empty ranges for each feature is "
                 << emptyRanges_ << ".\n"
                 << "  Lifetime mismatched ranges for each feature is "
                 << mismatchedRanges_ << ".\n"
                 << "  With a total of " << totalRanges_ << " examples.\n"
-                << this->getErrorMsg();
+                << debugString;
     }
   }
 
@@ -74,11 +89,11 @@ class GatherRangesToDenseOp final : public Operator<Context> {
     CAFFE_ENFORCE_EQ(
         ranges.size(1),
         lengths_.size(),
-        "Nummber of ranges should match number of lengths");
+        "Number of ranges should match number of lengths");
     CAFFE_ENFORCE_EQ(
         ranges.size(1),
         OutputSize(),
-        "Nummber of ranges should match number of outputs");
+        "Number of ranges should match number of outputs");
     CAFFE_ENFORCE_EQ(
         ranges.size(2), 2, "Ranges last dimension should be of size 2");
 
@@ -114,6 +129,7 @@ class GatherRangesToDenseOp final : public Operator<Context> {
           // Note, empty ranges are not counted as mismatched because empty
           // are more common and more tolerable.
           mismatchedRanges_[j]++;
+          mismatchedLengths_[j].insert(rangeLength);
           continue;
         }
 
@@ -154,10 +170,11 @@ class GatherRangesToDenseOp final : public Operator<Context> {
 
     // Check whether the empty and mismatch ratio exceeded the threshold.
     totalRanges_ += batchSize;
-    if (totalRanges_ >= minObservation_) {
-      for (int j = 0; j < OutputSize(); ++j) {
-        CAFFE_ENFORCE_GT(
-            totalRanges_ * maxMismatchedRatio_,
+    for (int j = 0; j < OutputSize(); ++j) {
+      // Only check when the ratio is not set to allow all mismatches.
+      if (maxMismatchedRatio_ < 1.0) {
+        CAFFE_ENFORCE_GE(
+            std::max(totalRanges_, minObservation_) * maxMismatchedRatio_,
             mismatchedRanges_[j],
             "Ratio of range length mismatch for feature at index ",
             j,
@@ -169,7 +186,27 @@ class GatherRangesToDenseOp final : public Operator<Context> {
             "/",
             totalRanges_,
             ") which exceeds ",
-            maxMismatchedRatio_);
+            maxMismatchedRatio_,
+            ". The incorrect lengths include: ",
+            mismatchedLengths_[j]);
+      }
+
+      // Only check when the ratio is not set to allow all examples to be empty.
+      if (maxEmptyRatio_ < 1.0) {
+        CAFFE_ENFORCE_GE(
+            std::max(totalRanges_, minObservation_) * maxEmptyRatio_,
+            emptyRanges_[j],
+            "Ratio of empty ranges for feature at index ",
+            j,
+            " is ",
+            (static_cast<double>(emptyRanges_[j]) /
+             static_cast<double>(totalRanges_)),
+            " (",
+            emptyRanges_[j],
+            "/",
+            totalRanges_,
+            ") which exceeds ",
+            maxEmptyRatio_);
       }
     }
 
@@ -183,12 +220,14 @@ class GatherRangesToDenseOp final : public Operator<Context> {
   int64_t totalRanges_ = 0;
   vector<int64_t> emptyRanges_;
   vector<int64_t> mismatchedRanges_;
+  vector<set<int>> mismatchedLengths_;
   // To avoid false alarm due to insufficient sample (e.g., first batch being
   // mismatched and causing 100% to be mismatched), use a threshold to ensure
   // enough samples are gathered before decideding whether there is an alarm or
   // not.
   int64_t minObservation_ = 0;
   float maxMismatchedRatio_ = 0;
+  float maxEmptyRatio_ = 0;
 };
 
 } // namespace caffe2

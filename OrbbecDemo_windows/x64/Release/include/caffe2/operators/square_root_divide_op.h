@@ -36,11 +36,12 @@ class SquareRootDivideOp final : public Operator<Context> {
     auto* Y = Output(0, data.sizes(), at::dtype<TData>());
     size_t batchSize = data.size(0);
     size_t exampleSize = data.size_from_dim(1);
+    // NOLINTNEXTLINE(clang-diagnostic-sign-compare)
     CAFFE_ENFORCE(batchSize == scale.size(0), batchSize, " != ", scale.size(0));
     auto* scalePtr = scale.template data<TScale>();
     auto* dataPtr = data.template data<TData>();
     auto* yPtr = Y->template mutable_data<TData>();
-    for (auto i = 0; i < batchSize; ++i) {
+    for (auto i = 0U; i < batchSize; ++i) {
       auto scale = scalePtr[i];
       CAFFE_ENFORCE(scale >= 0, scale, " < 0");
       auto multiplier = scale == 0 ? 1.0 : 1 / std::sqrt(scale);

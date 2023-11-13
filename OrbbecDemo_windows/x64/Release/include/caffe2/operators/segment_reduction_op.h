@@ -378,6 +378,7 @@ class AbstractReduceFrontOrBackGradientOp : public Operator<Context> {
     auto& source_shape = this->template Input<Tensor>(SOURCE_SHAPE, CPU);
 
     typename ReducerGradient::Meta ctx(reduction_grad, 0, FirstDim);
+    // NOLINTNEXTLINE(clang-diagnostic-sign-compare)
     for (int i = 0; i < ReducerGradient::originalInputs().size(); ++i) {
       auto& aux_in = Input(i);
       ctx.observeOriginalInput(
@@ -743,6 +744,7 @@ class AbstractSortedSegmentGradientOp : public Operator<Context> {
     int64_t N = segment_ids.size(0);
 
     typename ReducerGradient::Meta ctx(segment_grads, 1);
+    // NOLINTNEXTLINE(clang-diagnostic-sign-compare)
     for (int i = 0; i < ReducerGradient::originalInputs().size(); ++i) {
       auto& aux_in = Input(i);
       CAFFE_ENFORCE_EQ(
@@ -1158,6 +1160,7 @@ class AbstractUnsortedSegmentGradientOp : public Operator<Context> {
     int64_t N = segment_ids.size(0);
 
     typename ReducerGradient::Meta ctx(segment_grads, 1);
+    // NOLINTNEXTLINE(clang-diagnostic-sign-compare)
     for (int i = 0; i < ReducerGradient::originalInputs().size(); ++i) {
       auto& aux_in = Input(i);
       CAFFE_ENFORCE_EQ(
@@ -1553,7 +1556,7 @@ class AbstractLengthsGradientOp : public Operator<Context> {
     }
 
     typename ReducerGradient::Meta ctx(segmentGradsInput, 1);
-    for (int i = 0; i < ReducerGradient::originalInputs().size(); ++i) {
+    for (auto i = 0U; i < ReducerGradient::originalInputs().size(); ++i) {
       auto& aux_in = Input(i);
       CAFFE_ENFORCE_EQ(
           reducedDataSize,
@@ -1655,6 +1658,7 @@ class AbstractLengthsWithMainInputGradientOp : public Operator<Context> {
     const TLengths* lengths = lengthsInput.template data<TLengths>();
 
     typename ReducerGradient::Meta ctx(segmentGradsInput, 1);
+    // NOLINTNEXTLINE(clang-diagnostic-sign-compare)
     for (int i = 0; i < ReducerGradient::originalInputs().size(); ++i) {
       int aux_num = ReducerGradient::originalInputs()[i];
       auto& aux_in = Input(i);
@@ -1756,6 +1760,7 @@ class AbstractLengthsWithMainInputAndForwardOutputGradientOp
     const TLengths* lengths = lengthsInput.template data<TLengths>();
 
     typename ReducerGradient::Meta ctx(segmentGradsInput, 1);
+    // NOLINTNEXTLINE(clang-diagnostic-sign-compare)
     for (int i = 0; i < ReducerGradient::originalInputs().size(); ++i) {
       int aux_num = ReducerGradient::originalInputs()[i];
       auto& aux_in = Input(i);
@@ -1981,7 +1986,7 @@ This op is basically Gather and Lengths{op} fused together.
 INDICES should contain integers in range 0..N-1 where N is the first dimension
 of DATA. INDICES represent which slices of DATA need to be pulled in.
 
-LENGTHS is a vector that defines slice sizes by first dimention of DATA. Values
+LENGTHS is a vector that defines slice sizes by first dimension of DATA. Values
 belonging to the same segment are aggregated together. sum(LENGTHS) has
 to match INDICES size.
 
@@ -2006,13 +2011,13 @@ i.e. `len(LENGTHS)`. Other dimensions are inherited from the input tensor.
         "OUTPUT",
         "Aggregated output tensor. Has the first dimension of K "
         "(the number of segments).");
-    schema.TensorInferenceFunction(
+    schema.TensorInferenceFunction(OpSchema::NeedsAllInputShapes(
         [](const OperatorDef&, const std::vector<TensorShape>& input_types) {
           std::vector<TensorShape> out(1);
           out[0] = input_types[0];
           out[0].set_dims(0, input_types[Reducer::kInputCount + 1].dims(0));
           return out;
-        });
+        }));
     ReducerDef::PopulateSchema(schema);
 
     schema.CostInferenceFunction(
@@ -2047,7 +2052,7 @@ i.e. `len(LENGTHS)`. Other dimensions are inherited from the input tensor.
       SIndex,
       Context,
       ReducerGradient>;
-  // Will return 3 input version. This is aliging new CPU/GPU nets.
+  // Will return 3 input version. This is aligning new CPU/GPU nets.
   using GetGradient = LengthsOpGetGradient<
       ForwardOp,
       ReducerDef,

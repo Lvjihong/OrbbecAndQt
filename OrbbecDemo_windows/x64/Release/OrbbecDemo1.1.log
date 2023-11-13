@@ -1,26 +1,895 @@
-﻿  moc InputWeightDialog.h
-  InputWeightDialog.cpp
-  MainWindow.cpp
+﻿  MainWindow.cpp
   WeightEstmation.cpp
   main.cpp
   train.cpp
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 train.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 WeightEstmation.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 WeightEstmation.cpp)
-D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 WeightEstmation.cpp)
-D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 train.cpp)
-D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 MainWindow.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 train.cpp)
-D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 MainWindow.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 WeightEstmation.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 train.cpp)
-D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 MainWindow.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
-D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\jit\tracer.h(289,72): warning C4273: “torch::jit::tracer::addInputs”: dll 链接不一致 (编译源文件 main.cpp)
-D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\jit\tracer.h(277,16): message : 参见“addInputs”的前一个定义 (编译源文件 main.cpp)
-D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\jit\tracer.h(296,44): warning C4273: “torch::jit::tracer::addInputs”: dll 链接不一致 (编译源文件 main.cpp)
-D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\jit\tracer.h(283,16): message : 参见“addInputs”的前一个定义 (编译源文件 main.cpp)
-  moc_InputWeightDialog.cpp
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 MainWindow.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 MainWindow.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 MainWindow.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=at::TensorBase
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=at::TensorBase
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=at::TensorBase
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<at::TensorBase>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\ATen\core\TensorBase.h(899): message : 查看对正在编译的 类 模板 实例化“c10::optional<at::TensorBase>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=at::TensorBase
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=at::Tensor
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=at::Tensor
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=at::Tensor
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<at::Tensor>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\ATen\core\TensorBody.h(444): message : 查看对正在编译的 类 模板 实例化“c10::optional<at::Tensor>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=at::Tensor
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=at::Generator
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=at::Generator
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=at::Generator
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<at::Generator>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\ATen\core\TensorBody.h(518): message : 查看对正在编译的 类 模板 实例化“c10::optional<at::Generator>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=at::Generator
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::impl::InlineDeviceGuard<c10::impl::VirtualGuardImpl>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=c10::impl::InlineDeviceGuard<c10::impl::VirtualGuardImpl>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=c10::impl::InlineDeviceGuard<c10::impl::VirtualGuardImpl>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<c10::impl::InlineDeviceGuard<c10::impl::VirtualGuardImpl>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\core\impl\InlineDeviceGuard.h(427): message : 查看对正在编译的 类 模板 实例化“c10::optional<c10::impl::InlineDeviceGuard<c10::impl::VirtualGuardImpl>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\core\DeviceGuard.h(178): message : 查看对正在编译的 类 模板 实例化“c10::impl::InlineOptionalDeviceGuard<c10::impl::VirtualGuardImpl>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::impl::InlineDeviceGuard<c10::impl::VirtualGuardImpl>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=at::DimVector
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=at::DimVector
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=at::DimVector
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<at::DimVector>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\ATen\TensorIterator.h(667): message : 查看对正在编译的 类 模板 实例化“c10::optional<at::DimVector>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=at::DimVector
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::string
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=std::string
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=std::string
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<std::string>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\ATen\core\jit_type_base.h(108): message : 查看对正在编译的 类 模板 实例化“c10::optional<std::string>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::string
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::impl::InlineStreamGuard<c10::impl::VirtualGuardImpl>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=c10::impl::InlineStreamGuard<c10::impl::VirtualGuardImpl>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=c10::impl::InlineStreamGuard<c10::impl::VirtualGuardImpl>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<c10::impl::InlineStreamGuard<c10::impl::VirtualGuardImpl>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\core\impl\InlineStreamGuard.h(196): message : 查看对正在编译的 类 模板 实例化“c10::optional<c10::impl::InlineStreamGuard<c10::impl::VirtualGuardImpl>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\core\StreamGuard.h(139): message : 查看对正在编译的 类 模板 实例化“c10::impl::InlineOptionalStreamGuard<c10::impl::VirtualGuardImpl>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::impl::InlineStreamGuard<c10::impl::VirtualGuardImpl>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::impl::VirtualGuardImpl
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=c10::impl::VirtualGuardImpl
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=c10::impl::VirtualGuardImpl
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<c10::impl::VirtualGuardImpl>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\core\impl\InlineStreamGuard.h(231): message : 查看对正在编译的 类 模板 实例化“c10::optional<T>”的引用
+          with
+          [
+              T=c10::impl::VirtualGuardImpl
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\core\StreamGuard.h(162): message : 查看对正在编译的 类 模板 实例化“c10::impl::InlineMultiStreamGuard<c10::impl::VirtualGuardImpl>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::impl::VirtualGuardImpl
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<c10::ivalue::Future::WeakStorage,std::allocator<c10::ivalue::Future::WeakStorage>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=std::vector<c10::ivalue::Future::WeakStorage,std::allocator<c10::ivalue::Future::WeakStorage>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=std::vector<c10::ivalue::Future::WeakStorage,std::allocator<c10::ivalue::Future::WeakStorage>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<std::vector<c10::ivalue::Future::WeakStorage,std::allocator<c10::ivalue::Future::WeakStorage>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\ATen\core\ivalue_inl.h(374): message : 查看对正在编译的 类 模板 实例化“c10::optional<std::vector<c10::ivalue::Future::WeakStorage,std::allocator<c10::ivalue::Future::WeakStorage>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<c10::ivalue::Future::WeakStorage,std::allocator<c10::ivalue::Future::WeakStorage>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<c10::ShapeSymbol,std::allocator<c10::ShapeSymbol>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=std::vector<c10::ShapeSymbol,std::allocator<c10::ShapeSymbol>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=std::vector<c10::ShapeSymbol,std::allocator<c10::ShapeSymbol>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<std::vector<c10::ShapeSymbol,std::allocator<c10::ShapeSymbol>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\ATen\core\jit_type.h(426): message : 查看对正在编译的 类 模板 实例化“c10::optional<std::vector<c10::ShapeSymbol,std::allocator<c10::ShapeSymbol>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<c10::ShapeSymbol,std::allocator<c10::ShapeSymbol>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<c10::optional<c10::Stride>,std::allocator<c10::optional<c10::Stride>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=std::vector<c10::optional<c10::Stride>,std::allocator<c10::optional<c10::Stride>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=std::vector<c10::optional<c10::Stride>,std::allocator<c10::optional<c10::Stride>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<std::vector<c10::optional<c10::Stride>,std::allocator<c10::optional<c10::Stride>>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\ATen\core\jit_type.h(511): message : 查看对正在编译的 类 模板 实例化“c10::optional<std::vector<c10::optional<c10::Stride>,std::allocator<c10::optional<c10::Stride>>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\ATen\core\jit_type.h(750): message : 查看对正在编译的 类 模板 实例化“c10::VaryingShape<c10::Stride>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<c10::optional<c10::Stride>,std::allocator<c10::optional<c10::Stride>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<c10::optional<int64_t>,std::allocator<c10::optional<int64_t>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=std::vector<c10::optional<int64_t>,std::allocator<c10::optional<int64_t>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=std::vector<c10::optional<int64_t>,std::allocator<c10::optional<int64_t>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<std::vector<c10::optional<int64_t>,std::allocator<c10::optional<int64_t>>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\ATen\core\jit_type.h(511): message : 查看对正在编译的 类 模板 实例化“c10::optional<std::vector<c10::optional<int64_t>,std::allocator<c10::optional<int64_t>>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\ATen\core\jit_type.h(556): message : 查看对正在编译的 类 模板 实例化“c10::VaryingShape<int64_t>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<c10::optional<int64_t>,std::allocator<c10::optional<int64_t>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<int64_t,std::allocator<int64_t>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=std::vector<int64_t,std::allocator<int64_t>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=std::vector<int64_t,std::allocator<int64_t>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<std::vector<int64_t,std::allocator<int64_t>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\ATen\core\jit_type.h(654): message : 查看对正在编译的 类 模板 实例化“c10::optional<std::vector<int64_t,std::allocator<int64_t>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<int64_t,std::allocator<int64_t>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::QualifiedName
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=c10::QualifiedName
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=c10::QualifiedName
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<c10::QualifiedName>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\ATen\core\jit_type.h(990): message : 查看对正在编译的 类 模板 实例化“c10::optional<c10::QualifiedName>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::QualifiedName
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=torch::autograd::ViewInfo
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=torch::autograd::ViewInfo
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=torch::autograd::ViewInfo
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<torch::autograd::ViewInfo>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\autograd\variable.h(525): message : 查看对正在编译的 类 模板 实例化“c10::optional<torch::autograd::ViewInfo>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=torch::autograd::ViewInfo
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::IValue
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=c10::IValue
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=c10::IValue
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<c10::IValue>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\ATen\core\function_schema.h(124): message : 查看对正在编译的 类 模板 实例化“c10::optional<c10::IValue>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::IValue
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::AliasInfo
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=c10::AliasInfo
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=c10::AliasInfo
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<c10::AliasInfo>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\ATen\core\function_schema.h(125): message : 查看对正在编译的 类 模板 实例化“c10::optional<c10::AliasInfo>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::AliasInfo
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::tuple<std::string,size_t,size_t>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=std::tuple<std::string,size_t,size_t>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=std::tuple<std::string,size_t,size_t>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<std::tuple<std::string,size_t,size_t>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\jit\frontend\source_range.h(146): message : 查看对正在编译的 类 模板 实例化“c10::optional<std::tuple<std::string,size_t,size_t>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::tuple<std::string,size_t,size_t>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=torch::jit::SourceRange
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=torch::jit::SourceRange
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=torch::jit::SourceRange
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<torch::jit::SourceRange>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\jit\frontend\source_range.h(169): message : 查看对正在编译的 类 模板 实例化“c10::optional<torch::jit::SourceRange>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=torch::jit::SourceRange
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=torch::jit::InlinedCallStackPtr
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=torch::jit::InlinedCallStackPtr
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=torch::jit::InlinedCallStackPtr
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<torch::jit::InlinedCallStackPtr>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\jit\ir\scope.h(127): message : 查看对正在编译的 类 模板 实例化“c10::optional<torch::jit::InlinedCallStackPtr>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=torch::jit::InlinedCallStackPtr
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=torch::jit::ModuleInstanceInfo
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=torch::jit::ModuleInstanceInfo
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=torch::jit::ModuleInstanceInfo
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<torch::jit::ModuleInstanceInfo>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\jit\ir\scope.h(140): message : 查看对正在编译的 类 模板 实例化“c10::optional<torch::jit::ModuleInstanceInfo>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=torch::jit::ModuleInstanceInfo
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=torch::jit::ScopePtr
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=torch::jit::ScopePtr
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=torch::jit::ScopePtr
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<torch::jit::ScopePtr>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\jit\ir\constants.h(29): message : 查看对正在编译的 类 模板 实例化“c10::optional<torch::jit::ScopePtr>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=torch::jit::ScopePtr
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::impl::AnnotatedSchema
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=c10::impl::AnnotatedSchema
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=c10::impl::AnnotatedSchema
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<c10::impl::AnnotatedSchema>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\ATen\core\dispatch\OperatorEntry.h(193): message : 查看对正在编译的 类 模板 实例化“c10::optional<c10::impl::AnnotatedSchema>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::impl::AnnotatedSchema
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::impl::OperatorEntry::CppSignatureWithDebug
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=c10::impl::OperatorEntry::CppSignatureWithDebug
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=c10::impl::OperatorEntry::CppSignatureWithDebug
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<c10::impl::OperatorEntry::CppSignatureWithDebug>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\ATen\core\dispatch\OperatorEntry.h(252): message : 查看对正在编译的 类 模板 实例化“c10::optional<c10::impl::OperatorEntry::CppSignatureWithDebug>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::impl::OperatorEntry::CppSignatureWithDebug
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::OperatorName
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=c10::OperatorName
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=c10::OperatorName
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<c10::OperatorName>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\ATen\record_function.h(320): message : 查看对正在编译的 类 模板 实例化“c10::optional<c10::OperatorName>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::OperatorName
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::either<c10::OperatorName,c10::FunctionSchema>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=c10::either<c10::OperatorName,c10::FunctionSchema>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=c10::either<c10::OperatorName,c10::FunctionSchema>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<c10::either<c10::OperatorName,c10::FunctionSchema>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\ATen\core\op_registration\op_registration.h(434): message : 查看对正在编译的 类 模板 实例化“c10::optional<c10::either<c10::OperatorName,c10::FunctionSchema>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=c10::either<c10::OperatorName,c10::FunctionSchema>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=at::ThreadLocalState
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=at::ThreadLocalState
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=at::ThreadLocalState
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<at::ThreadLocalState>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\jit\runtime\interpreter.h(144): message : 查看对正在编译的 类 模板 实例化“c10::optional<at::ThreadLocalState>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=at::ThreadLocalState
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::shared_ptr<torch::jit::Graph>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=std::shared_ptr<torch::jit::Graph>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=std::shared_ptr<torch::jit::Graph>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<std::shared_ptr<torch::jit::Graph>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\jit\api\function_impl.h(125): message : 查看对正在编译的 类 模板 实例化“c10::optional<std::shared_ptr<torch::jit::Graph>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::shared_ptr<torch::jit::Graph>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=torch::jit::Method
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=torch::jit::Method
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=torch::jit::Method
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<torch::jit::Method>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\jit\api\object.h(43): message : 查看对正在编译的 类 模板 实例化“c10::optional<torch::jit::Method>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=torch::jit::Method
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=torch::jit::Operator
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=torch::jit::Operator
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=torch::jit::Operator
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<torch::jit::Operator>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\jit\runtime\custom_operator.h(23): message : 查看对正在编译的 类 模板 实例化“c10::optional<torch::jit::Operator>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=torch::jit::Operator
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<cv::String,std::allocator<cv::String>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=std::vector<cv::String,std::allocator<cv::String>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=std::vector<cv::String,std::allocator<cv::String>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<std::vector<cv::String,std::allocator<cv::String>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\jit\api\module.h(296): message : 查看对正在编译的 类 模板 实例化“c10::optional<std::vector<cv::String,std::allocator<cv::String>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<cv::String,std::allocator<cv::String>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::function<void (const torch::autograd::profiler::thread_event_lists &)>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=std::function<void (const torch::autograd::profiler::thread_event_lists &)>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=std::function<void (const torch::autograd::profiler::thread_event_lists &)>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<std::function<void (const torch::autograd::profiler::thread_event_lists &)>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\autograd\profiler_legacy.h(523): message : 查看对正在编译的 类 模板 实例化“c10::optional<std::function<void (const torch::autograd::profiler::thread_event_lists &)>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::function<void (const torch::autograd::profiler::thread_event_lists &)>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<std::vector<torch::autograd::profiler::LegacyEvent,std::allocator<torch::autograd::profiler::LegacyEvent>>,std::allocator<std::vector<torch::autograd::profiler::LegacyEvent,std::allocator<torch::autograd::profiler::LegacyEvent>>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=std::vector<std::vector<torch::autograd::profiler::LegacyEvent,std::allocator<torch::autograd::profiler::LegacyEvent>>,std::allocator<std::vector<torch::autograd::profiler::LegacyEvent,std::allocator<torch::autograd::profiler::LegacyEvent>>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=std::vector<std::vector<torch::autograd::profiler::LegacyEvent,std::allocator<torch::autograd::profiler::LegacyEvent>>,std::allocator<std::vector<torch::autograd::profiler::LegacyEvent,std::allocator<torch::autograd::profiler::LegacyEvent>>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<std::vector<std::vector<torch::autograd::profiler::LegacyEvent,std::allocator<torch::autograd::profiler::LegacyEvent>>,std::allocator<std::vector<torch::autograd::profiler::LegacyEvent,std::allocator<torch::autograd::profiler::LegacyEvent>>>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\autograd\profiler_legacy.h(593): message : 查看对正在编译的 类 模板 实例化“c10::optional<std::vector<std::vector<torch::autograd::profiler::LegacyEvent,std::allocator<torch::autograd::profiler::LegacyEvent>>,std::allocator<std::vector<torch::autograd::profiler::LegacyEvent,std::allocator<torch::autograd::profiler::LegacyEvent>>>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<std::vector<torch::autograd::profiler::LegacyEvent,std::allocator<torch::autograd::profiler::LegacyEvent>>,std::allocator<std::vector<torch::autograd::profiler::LegacyEvent,std::allocator<torch::autograd::profiler::LegacyEvent>>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<std::vector<int64_t,std::allocator<int64_t>>,std::allocator<std::vector<int64_t,std::allocator<int64_t>>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=std::vector<std::vector<int64_t,std::allocator<int64_t>>,std::allocator<std::vector<int64_t,std::allocator<int64_t>>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=std::vector<std::vector<int64_t,std::allocator<int64_t>>,std::allocator<std::vector<int64_t,std::allocator<int64_t>>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<std::vector<std::vector<int64_t,std::allocator<int64_t>>,std::allocator<std::vector<int64_t,std::allocator<int64_t>>>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\autograd\profiler_kineto.h(40): message : 查看对正在编译的 类 模板 实例化“c10::optional<std::vector<std::vector<int64_t,std::allocator<int64_t>>,std::allocator<std::vector<int64_t,std::allocator<int64_t>>>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<std::vector<int64_t,std::allocator<int64_t>>,std::allocator<std::vector<int64_t,std::allocator<int64_t>>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::unordered_map<std::string,c10::IValue,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,c10::IValue>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=std::unordered_map<std::string,c10::IValue,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,c10::IValue>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=std::unordered_map<std::string,c10::IValue,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,c10::IValue>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<std::unordered_map<std::string,c10::IValue,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,c10::IValue>>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\autograd\profiler_kineto.h(48): message : 查看对正在编译的 类 模板 实例化“c10::optional<std::unordered_map<std::string,c10::IValue,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,c10::IValue>>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::unordered_map<std::string,c10::IValue,std::hash<std::string>,std::equal_to<std::string>,std::allocator<std::pair<const std::string,c10::IValue>>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\variant.h(1775,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=torch::nn::TripletMarginWithDistanceLossOptions::distance_function_t
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=torch::nn::TripletMarginWithDistanceLossOptions::distance_function_t
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=torch::nn::TripletMarginWithDistanceLossOptions::distance_function_t
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<torch::nn::TripletMarginWithDistanceLossOptions::distance_function_t>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\api\include\torch\nn\options\loss.h(404): message : 查看对正在编译的 类 模板 实例化“c10::optional<torch::nn::TripletMarginWithDistanceLossOptions::distance_function_t>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=torch::nn::TripletMarginWithDistanceLossOptions::distance_function_t
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<double,std::allocator<double>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=std::vector<double,std::allocator<double>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=std::vector<double,std::allocator<double>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<std::vector<_Tp,std::allocator<_Tp>>>”的引用
+          with
+          [
+              _Tp=double
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\api\include\torch\nn\options\upsampling.h(26): message : 查看对正在编译的 类 模板 实例化“c10::optional<std::vector<_Tp,std::allocator<_Tp>>>”的引用
+          with
+          [
+              _Tp=double
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<double,std::allocator<double>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::tuple<at::Tensor,at::Tensor>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=std::tuple<at::Tensor,at::Tensor>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=std::tuple<at::Tensor,at::Tensor>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<std::tuple<at::Tensor,at::Tensor>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\api\include\torch\nn\modules\rnn.h(155): message : 查看对正在编译的 类 模板 实例化“c10::optional<std::tuple<at::Tensor,at::Tensor>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::tuple<at::Tensor,at::Tensor>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<at::Tensor,std::allocator<at::Tensor>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(383): message : 查看对正在编译的 类 模板 实例化“c10::constexpr_storage_t<T>”的引用
+          with
+          [
+              T=std::vector<at::Tensor,std::allocator<at::Tensor>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 类 模板 实例化“c10::trivially_copyable_optimization_optional_base<T>”的引用
+          with
+          [
+              T=std::vector<at::Tensor,std::allocator<at::Tensor>>
+          ] (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(526): message : 查看对正在编译的 别名 模板 实例化“c10::OptionalBase<std::vector<at::Tensor,std::allocator<at::Tensor>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\torch\csrc\api\include\torch\optim\lbfgs.h(46): message : 查看对正在编译的 类 模板 实例化“c10::optional<std::vector<at::Tensor,std::allocator<at::Tensor>>>”的引用 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(418,1): warning C4624: “c10::trivially_copyable_optimization_optional_base<T>”: 已将析构函数隐式定义为“已删除”
+          with
+          [
+              T=std::vector<at::Tensor,std::allocator<at::Tensor>>
+          ] (编译源文件 WeightEstmation.cpp)
   moc_MainWindow.cpp
   moc_Train.cpp
   moc_WeightEstmation.cpp
