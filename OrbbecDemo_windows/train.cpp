@@ -36,6 +36,8 @@ Train::Train(const QString rootDirPath, QWidget* parent) : QWidget(parent) {
         std::const_pointer_cast<ob::StreamProfile>(depthProfiles->getProfile(0))
             ->as<ob::VideoStreamProfile>();
   }
+  // 设置深度图和RGB图像对齐
+  config->setAlignMode(ALIGN_D2C_HW_MODE);
   // 通过创建Config来配置Pipeline要启用或者禁用哪些流，这里将启用深度流
   config->enableStream(profile);
   // 关闭相机的镜像模式，先判断设备是否有可读可写的权限，再进行设置

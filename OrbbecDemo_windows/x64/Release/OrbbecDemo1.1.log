@@ -1,18 +1,29 @@
-﻿  MainWindow.cpp
-  WeightEstmation.cpp
-  main.cpp
+﻿  uic InputDialog.ui
+  uic MainWindow.ui
+  uic Train.ui
+  uic WeightEstimation.ui
+  rcc OrbbecDemo.qrc
+  moc MainWindow.h
+   RCC: Warning: No resources in 'D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\OrbbecDemo.qrc'.
+  moc Train.h
+  moc InputWeightDialog.h
+  moc WeightEstmation.h
+  InputWeightDialog.cpp
   train.cpp
-D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 train.cpp)
+  WeightEstmation.cpp
+  MainWindow.cpp
+  main.cpp
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 WeightEstmation.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 WeightEstmation.cpp)
-D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 train.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 WeightEstmation.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 train.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 train.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 train.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
-D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 MainWindow.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 MainWindow.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 MainWindow.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
           with
@@ -890,17 +901,19 @@ D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\c10\util\O
           [
               T=std::vector<at::Tensor,std::allocator<at::Tensor>>
           ] (编译源文件 WeightEstmation.cpp)
+  qrc_OrbbecDemo.cpp
   moc_MainWindow.cpp
   moc_Train.cpp
+  moc_InputWeightDialog.cpp
   moc_WeightEstmation.cpp
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 x64\Release\moc\moc_WeightEstmation.cpp)
-D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 x64\Release\moc\moc_WeightEstmation.cpp)
-D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 x64\Release\moc\moc_WeightEstmation.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 x64\Release\moc\moc_Train.cpp)
-D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 x64\Release\moc\moc_MainWindow.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 x64\Release\moc\moc_WeightEstmation.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 x64\Release\moc\moc_Train.cpp)
-D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 x64\Release\moc\moc_MainWindow.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 x64\Release\moc\moc_WeightEstmation.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 x64\Release\moc\moc_Train.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 x64\Release\moc\moc_MainWindow.cpp)
+D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 x64\Release\moc\moc_MainWindow.cpp)
 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 x64\Release\moc\moc_MainWindow.cpp)
     正在创建库 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\OrbbecDemo1.1.lib 和对象 D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Release\OrbbecDemo1.1.exp
 LIBCMT.lib(initializers.obj) : warning LNK4098: 默认库“msvcrt.lib”与其他库的使用冲突；请使用 /NODEFAULTLIB:library
