@@ -39,9 +39,9 @@ OrbbecDemo::OrbbecDemo(QWidget* parent) : QMainWindow(parent) {
     estimationWindow->setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
     estimationWindow->showMaximized();
 
-    connect(this, &OrbbecDemo::estimationWindowShowed, estimationWindow,
-            &WeightEstmation::showDepth);
-    emit estimationWindowShowed();
+    //connect(this, &OrbbecDemo::estimationWindowShowed, estimationWindow,
+    //        &WeightEstmation::showDepth);
+    //emit estimationWindowShowed();
   });
 }
 OrbbecDemo::OrbbecDemo(const OrbbecDemo& window) {

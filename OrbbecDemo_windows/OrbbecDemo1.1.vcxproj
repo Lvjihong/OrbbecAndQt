@@ -111,6 +111,8 @@
       <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
     </ClCompile>
     <ClCompile Include="WeightEstmation.cpp" />
+    <ClCompile Include="yolov8_seg.cpp" />
+    <ClCompile Include="yolov8_utils.cpp" />
     <QtRcc Include="OrbbecDemo.qrc" />
     <QtUic Include="InputDialog.ui" />
     <QtUic Include="MainWindow.ui" />
@@ -128,6 +130,10 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="WeightEstmation.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="yolov8_seg.h" />
+    <ClInclude Include="yolov8_utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

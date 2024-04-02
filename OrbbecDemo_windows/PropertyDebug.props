@@ -3,13 +3,15 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <IncludePath>D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include\torch\csrc\api\include;F:\opencv\opencv\build\include;F:\opencv\opencv\build\include\opencv2;D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\include;$(IncludePath)</IncludePath>
-    <LibraryPath>F:\opencv\opencv\build\x64\vc16\lib;D:\Github\MyGithub\OrbbecAndQt\OrbbecDemo_windows\x64\Debug\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include\torch\csrc\api\include;F:\opencv\opencv\build\include;F:\opencv\opencv\build\include\opencv2;F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\opencv\opencv\build\x64\vc16\lib;F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\lib;$(LibraryPath)</LibraryPath>
     <_PropertySheetDisplayName>PropertyDebug</_PropertySheetDisplayName>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <Link>
-      <AdditionalDependencies>opencv_world480d.lib;OrbbecSDK.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_world480d.lib;OrbbecSDK.lib;asmjit.lib;c10.lib;caffe2_detectron_ops.lib;caffe2_module_test_dynamic.lib;
+Caffe2_perfkernels_avx.lib;Caffe2_perfkernels_avx2.lib;Caffe2_perfkernels_avx512.lib;clog.lib;cpuinfo.lib;dnnl.lib;fbgemm.lib;fbjni.lib;kineto.lib;
+libprotobuf.lib;libprotobuf-lite.lib;libprotoc.lib;mkldnn.lib;pthreadpool.lib;pytorch_jni.lib;torch.lib;torch_cpu.lib;XNNPACK.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup />
