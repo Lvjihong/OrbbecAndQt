@@ -22,7 +22,7 @@ class WeightEstmation : public QWidget {
   WeightEstmation(const WeightEstmation& window);
   void segment(cv::Mat img);
   void segment(cv::Mat rgb_img, cv::Mat depth_img);
-  void estimate_weight(QString file_name);
+  void estimate_weight(cv::Mat rgb_img, cv::Mat depth_img);
   void estimate_weight(cv::Mat seg_depth_img);
   ~WeightEstmation();
 

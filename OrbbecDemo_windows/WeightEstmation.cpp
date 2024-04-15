@@ -58,17 +58,23 @@ WeightEstmation::WeightEstmation(QWidget* parent) : QWidget(parent) {
 
   connect(ui.btn_select, &QPushButton::clicked, [=]() {
     pipe.stop();
-    QString fileName = QFileDialog::getOpenFileName(
-        this, QString::fromLocal8Bit("大北农专项_选择需要估计的数据"), "./",
+    QString rgb_file_path = QFileDialog::getOpenFileName(
+        this, QString::fromLocal8Bit("大北农专项_选择需要估计的彩色图像"), "./",
         tr("images(*.png *jpeg *jpg)"));
-    if (fileName.isEmpty()) return;
-    cv::Mat img = cv::imread(fileName.toStdString());
+    if (rgb_file_path.isEmpty()) return;
+    cv::Mat img_rgb = cv::imread(rgb_file_path.toStdString(), -1);
+
+    QString depth_file_path = QFileDialog::getOpenFileName(
+        this, QString::fromLocal8Bit("大北农专项_选择需要对应的深度图像"), "./",
+        tr("images(*.png *jpeg *jpg)"));
+    if (depth_file_path.isEmpty()) return;
+    cv::Mat img_depth = cv::imread(depth_file_path.toStdString(), -1);
 
     test_time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 
 
-    segment(img);
-    // estimate_weight(fileName);
+
+    estimate_weight(img_rgb, img_depth);
   });
 
   connect(ui.btn_exit, &QPushButton::clicked, [=]() {
@@ -179,8 +185,10 @@ void WeightEstmation::estimate_weight(cv::Mat seg_depth_img) {
 }
 
 
-void WeightEstmation::estimate_weight(QString fileName) {
-  ui.label_depth->setPixmap(fileName);
+void WeightEstmation::estimate_weight(cv::Mat rgb_img, cv::Mat depth_img) {
+
+   segment(rgb_img);
+
   // 加载估重模型
   torch::Device device(torch::kCPU);  //定义cpu设备
   // std::string img_path = "test.png";   //测试图片路径
@@ -188,9 +196,9 @@ void WeightEstmation::estimate_weight(QString fileName) {
   auto module = torch::jit::load(model_path);
   module.to(
       device);  //模型加载到cpu上，这个模型就是一个分类的模型，我们暂时先输出类别预测的置信度。
-  auto test_image = cv::imread(fileName.toStdString(), -1);  //读取测试图片
+  //auto test_image = cv::imread(fileName.toStdString(), -1);  //读取测试图片
   cv::Mat norm_img;
-  cv::normalize(test_image, norm_img, 0, 255,
+  cv::normalize(depth_img, norm_img, 0, 255,
                 cv::NORM_MINMAX);  //将图片归一化
   cv::Mat input_img;
   cv::cvtColor(norm_img, input_img, cv::COLOR_GRAY2RGB);  //变成RGB三通道

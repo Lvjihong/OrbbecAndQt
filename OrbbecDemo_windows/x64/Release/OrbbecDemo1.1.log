@@ -1,22 +1,23 @@
-﻿  InputWeightDialog.cpp
-  train.cpp
-  WeightEstmation.cpp
-  yolov8_seg.cpp
-  yolov8_utils.cpp
+﻿  moc WeightEstmation.h
+  InputWeightDialog.cpp
   MainWindow.cpp
+  WeightEstmation.cpp
+  main.cpp
+  train.cpp
+  yolov8_seg.cpp
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
 F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 train.cpp)
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
 F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 train.cpp)
-F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 train.cpp)
 F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 MainWindow.cpp)
 F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 MainWindow.cpp)
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
+F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 train.cpp)
 F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 MainWindow.cpp)
 F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 WeightEstmation.cpp)
 F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 WeightEstmation.cpp)
 F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 WeightEstmation.cpp)
-  main.cpp
-F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
-F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
-F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 main.cpp)
+  yolov8_utils.cpp
 F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\c10\util\Optional.h(184,1): warning C4624: “c10::constexpr_storage_t<T>”: 已将析构函数隐式定义为“已删除”
           with
           [
@@ -893,11 +894,11 @@ F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\c10\util
           [
               T=std::vector<at::Tensor,std::allocator<at::Tensor>>
           ] (编译源文件 WeightEstmation.cpp)
-  qrc_OrbbecDemo.cpp
+  moc_InputWeightDialog.cpp
   moc_MainWindow.cpp
   moc_Train.cpp
-  moc_InputWeightDialog.cpp
   moc_WeightEstmation.cpp
+  qrc_OrbbecDemo.cpp
 F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\libobsensor\h\ObTypes.h(701,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 x64\Release\moc\moc_WeightEstmation.cpp)
 F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\libobsensor\h\Property.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 x64\Release\moc\moc_WeightEstmation.cpp)
 F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\include\libobsensor\hpp\Frame.hpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失 (编译源文件 x64\Release\moc\moc_WeightEstmation.cpp)
