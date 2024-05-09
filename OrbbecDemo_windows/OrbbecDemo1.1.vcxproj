@@ -66,7 +66,9 @@
     <IncludePath>F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\include;$(IncludePath)</IncludePath>
     <LibraryPath>F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Debug\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <LibraryPath>F:\boost\boost_1_78_0\stage\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
       <AdditionalDependencies>OrbbecSDK.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -76,6 +78,7 @@
     <Link />
     <ClCompile>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
@@ -103,14 +106,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="HeadDirection.cpp" />
     <ClCompile Include="InputWeightDialog.cpp" />
+    <ClCompile Include="PoseNormalization.cpp" />
+    <ClCompile Include="Segementation.cpp" />
+    <ClCompile Include="SymmetricalPlane.cpp" />
     <ClCompile Include="train.cpp">
       <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">input</DynamicSource>
       <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename).moc</QtMocFileName>
       <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
       <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
     </ClCompile>
-    <ClCompile Include="WeightEstmation.cpp" />
+    <ClCompile Include="WeightEstimation.cpp" />
+    <ClCompile Include="yolov8.cpp" />
     <ClCompile Include="yolov8_seg.cpp" />
     <ClCompile Include="yolov8_utils.cpp" />
     <QtRcc Include="OrbbecDemo.qrc" />
@@ -129,9 +137,14 @@
     <QtMoc Include="InputWeightDialog.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="WeightEstmation.h" />
+    <QtMoc Include="WeightEstimation.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="HeadDirection.h" />
+    <ClInclude Include="PoseNormalization.h" />
+    <ClInclude Include="Segemention.h" />
+    <ClInclude Include="SymmetricalPlane.h" />
+    <ClInclude Include="yolov8.h" />
     <ClInclude Include="yolov8_seg.h" />
     <ClInclude Include="yolov8_utils.h" />
   </ItemGroup>

@@ -42,29 +42,40 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\OrbbecSDK.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\opencv\opencv\build\x64\vc16\bin\opencv_world480.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\c10.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\caffe2_module_test_dynamic.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\libiomp5md.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\libiompstubs5md.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\torch.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\caffe2_detectron_ops.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\pytorch_jni.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\caffe2_module_test_dynamic.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\torch_cpu.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\fbjni.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\torch_global_deps.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\fbgemm.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\asmjit.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\uv.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\PCL 1.12.1-rc1\bin\pcl_common.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\PCL 1.12.1-rc1\bin\pcl_features.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\PCL 1.12.1-rc1\bin\pcl_filters.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\PCL 1.12.1-rc1\bin\pcl_kdtree.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\PCL 1.12.1-rc1\bin\pcl_sample_consensus.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\PCL 1.12.1-rc1\bin\pcl_search.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\PCL 1.12.1-rc1\bin\pcl_segmentation.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\PCL 1.12.1-rc1\3rdParty\VTK\bin\vtkCommonCore-9.1.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\bin\Qt5Core.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\bin\Qt5Gui.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\bin\Qt5Widgets.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\opencv\opencv\build\x64\vc16\bin\opencv_world480.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Windows\System32\kernel32.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Windows\SysWOW64\shell32.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\plugins\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\mobilenet.pt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\best.onnx"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Windows\SysWOW64\advapi32.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\models\detect.onnx"; DestDir: "{app}\models"; Flags: ignoreversion
+Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\models\estimate.onnx"; DestDir: "{app}\models"; Flags: ignoreversion
+Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\models\segment.onnx"; DestDir: "{app}\models"; Flags: ignoreversion
+
+;Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\caffe2_module_test_dynamic.dll"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\libiomp5md.dll"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\libiompstubs5md.dll"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\torch.dll"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\caffe2_detectron_ops.dll"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\pytorch_jni.dll"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\caffe2_module_test_dynamic.dll"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\fbjni.dll"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\torch_global_deps.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\fbgemm.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\asmjit.dll"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "F:\MicrosoftVisualStudio\Source\Repos\OrbbecDemo1.1\x64\Release\uv.dll"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "F:\Qt\Qt5.14.2\5.14.2\msvc2017_64\plugins\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]

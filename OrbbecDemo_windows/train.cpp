@@ -1,10 +1,5 @@
 #include "Train.h"
 
-#include <qdatetime.h>
-
-#include <iostream>
-#include <vector>
-
 Train::Train(const QString rootDirPath, QWidget* parent) : QWidget(parent) {
   ui.setupUi(this);
   Train::rootDirPath = rootDirPath;

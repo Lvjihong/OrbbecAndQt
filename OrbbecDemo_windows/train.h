@@ -1,19 +1,22 @@
 #pragma once
-#include <qdirmodel.h>
-#include <qpushbutton.h>
-
-#include <QCloseEvent>
-#include <QFileDialog>
-#include <libobsensor/ObSensor.hpp>
-#include <libobsensor/hpp/Frame.hpp>
-#include <opencv2/opencv.hpp>
-#include <thread>
 
 #include "InputWeightDialog.h"
+#include "ui_Train.h"
+#include <thread>
+#include <iostream>
+#include <vector>
+
+#include <qdirmodel.h>
+#include <qpushbutton.h>
+#include <qdatetime.h>
+
 #include "libobsensor/hpp/Error.hpp"
 #include "libobsensor/hpp/Pipeline.hpp"
 #include "libobsensor/hpp/StreamProfile.hpp"
-#include "ui_Train.h"
+#include <libobsensor/hpp/Frame.hpp>
+#include <libobsensor/ObSensor.hpp>
+
+#include <opencv2/opencv.hpp>
 
 class Train : public QWidget {
   Q_OBJECT

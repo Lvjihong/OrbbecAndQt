@@ -3,8 +3,6 @@
 using namespace cv;
 using namespace std;
 
-#include <fstream>
-
 bool CheckParams(int netHeight, int netWidth, const int* netStride,
                  int strideSize) {
   if (netHeight % netStride[strideSize - 1] != 0 ||
@@ -195,6 +193,8 @@ void GetMask2(const Mat& maskProposals, const Mat& maskProtos,
   }
   output.boxMask = mask;
 }
+
+// 原始获得mask
 Mat DrawPred(Mat& img, vector<OutputSeg> result,
              std::vector<std::string> classNames, vector<Scalar> color,
              bool isVideo) {
@@ -245,14 +245,14 @@ Mat DrawPred(Mat& img, vector<OutputSeg> result,
   return img;
 }
 
+// 改进获得mask
 vector<Mat> DrawPred(Mat& img, Mat depth_img, vector<OutputSeg> result,
-             std::vector<std::string> classNames, vector<Scalar> color,
-             bool isVideo) {
-    vector<Mat> ret;
+                     std::vector<std::string> classNames, vector<Scalar> color,
+                     bool isVideo) {
+  vector<Mat> ret;
   double threshold = 40.0;
   // 克隆输入图像以创建掩码图像和深度图像
   Mat mask = img.clone();
-  Mat depth_mask = depth_img.clone();
 
   // 计算输入图像的中心坐标
   double img_center_x = img.cols / 2;
@@ -261,6 +261,8 @@ vector<Mat> DrawPred(Mat& img, Mat depth_img, vector<OutputSeg> result,
   // 初始化一对，用于跟踪最小点的索引和偏移量
   pair<int, double> min_point(-1, std::numeric_limits<double>::max());
   int left, top;
+
+  cv::Mat test_mask = cv::Mat::zeros(depth_img.rows, depth_img.cols, CV_8UC1);
 
   // 循环遍历结果
   for (int i = 0; i < result.size(); i++) {
@@ -308,14 +310,10 @@ vector<Mat> DrawPred(Mat& img, Mat depth_img, vector<OutputSeg> result,
   cv::Scalar meanDepth = cv::mean(depth_roi, depth_nroi);
 
   double avgDepth = meanDepth[0];
-  ret.emplace_back(depth_roi);
-
-  //imshow(to_string(avgDepth/4), depth_roi);
-  //waitKey(27);
 
   // 根据平均深度与阈值比较，选择蒙版颜色
   Scalar maskColor =
-      (avgDepth/4/10 > threshold) ? Scalar(0, 0, 255) : Scalar(0, 255, 0);
+      (avgDepth / 4 / 10 > threshold) ? Scalar(0, 0, 255) : Scalar(0, 255, 0);
 
   // 根据边界框和蒙版在克隆的掩码图像上应用颜色蒙版
   if (result[target_index].boxMask.rows &&
@@ -323,6 +321,12 @@ vector<Mat> DrawPred(Mat& img, Mat depth_img, vector<OutputSeg> result,
     mask(result[target_index].box)
         .setTo(maskColor,
                result[target_index].boxMask);  // 裁剪 + 蒙版操作
+
+  test_mask(result[target_index].box);
+
+  test_mask(result[target_index].box)
+      .setTo(Scalar(255, 255, 255), result[target_index].boxMask);
+  ret.emplace_back(test_mask);
 
   // 创建包含类名和置信度的标签
   string label = classNames[result[target_index].id] + ":" +
@@ -344,4 +348,36 @@ vector<Mat> DrawPred(Mat& img, Mat depth_img, vector<OutputSeg> result,
   // 返回修改后的图像
   ret.emplace_back(img);
   return ret;
+}
+
+// 把头尾和身体三部分包围框盖到rgb上
+void DrawPred_box(Mat& img, vector<OutputSeg> result,
+                  std::vector<std::string> classNames, vector<Scalar> color,
+                  bool isVideo) {
+  Mat mask = img.clone();
+  for (int i = 0; i < result.size(); i++) {
+    int left, top;
+    left = result[i].box.x;
+    top = result[i].box.y;
+    int color_num = i;
+    rectangle(img, result[i].box, color[result[i].id], 2, 8);
+    if (result[i].boxMask.rows && result[i].boxMask.cols > 0)
+      mask(result[i].box).setTo(color[result[i].id], result[i].boxMask);
+    string label =
+        classNames[result[i].id] + ":" + to_string(result[i].confidence);
+    int baseLine;
+    Size labelSize =
+        getTextSize(label, FONT_HERSHEY_SIMPLEX, 0.5, 1, &baseLine);
+    top = max(top, labelSize.height);
+    // rectangle(frame, Point(left, top - int(1.5 * labelSize.height)),
+    // Point(left + int(1.5 * labelSize.width), top + baseLine), Scalar(0, 255,
+    // 0), FILLED);
+    putText(img, label, Point(left, top), FONT_HERSHEY_SIMPLEX, 1,
+            color[result[i].id], 2);
+  }
+  // addWeighted(img, 0.5, mask, 0.5, 0, img); //add mask to src
+  // imshow("1", img);
+  // if (!isVideo)
+  // waitKey();
+  // destroyAllWindows();
 }

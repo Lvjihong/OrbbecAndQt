@@ -1,8 +1,10 @@
+#pragma once
+
+#include "ui_InputDialog.h"
 #include <QCloseEvent>
 #include <QErrorMessage>
 #include <QFileDialog>
 #include <QWidget>
-#include "ui_InputDialog.h"
 #include <QKeyEvent>
 #include <QFile>
 #include <QTextStream>

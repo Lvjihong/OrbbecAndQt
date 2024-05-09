@@ -1,16 +1,15 @@
+#pragma once
+
+#include "WeightEstimation.h"
+#include "ui_MainWindow.h"
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QMainWindow>
+
 #ifdef _DEBUG
 #pragma comment(lib, "opencv_world480d.lib")
 #else
 #pragma comment(lib, "opencv_world480.lib")
 #endif
-#include <qpushbutton.h>
-
-#include <QFileDialog>
-#include <QtWidgets/QMainWindow>
-
-#include "Train.h"
-#include "WeightEstmation.h"
-#include "ui_MainWindow.h"
 
 class OrbbecDemo : public QMainWindow {
   Q_OBJECT
@@ -26,6 +25,6 @@ class OrbbecDemo : public QMainWindow {
  private:
   Ui::OrbbecDemoClass ui;
   Train* trainWindow = nullptr;
-  WeightEstmation* estimationWindow = nullptr;
+  WeightEstimation* estimationWindow = nullptr;
   QString dirpath;
 };

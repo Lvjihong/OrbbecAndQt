@@ -1,6 +1,4 @@
 #pragma once
-#include<iostream>
-#include<opencv2/opencv.hpp>
 #include "yolov8_utils.h"
 
 class Yolov8Seg {

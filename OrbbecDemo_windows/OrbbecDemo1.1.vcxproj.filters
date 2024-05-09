@@ -46,13 +46,28 @@
     <ClCompile Include="InputWeightDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WeightEstmation.cpp">
+    <ClCompile Include="WeightEstimation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="yolov8_utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="yolov8_seg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="yolov8.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HeadDirection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Segementation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SymmetricalPlane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PoseNormalization.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -63,7 +78,7 @@
     <QtMoc Include="InputWeightDialog.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="WeightEstmation.h">
+    <QtMoc Include="WeightEstimation.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -83,6 +98,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="yolov8_seg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="yolov8.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HeadDirection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Segemention.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SymmetricalPlane.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PoseNormalization.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
